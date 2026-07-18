@@ -1,0 +1,387 @@
+{
+  "name": "Process-to-Activation Method",
+  "intro": "A business-first method that starts with operational understanding and ends with a system people actually use. Five stages, each with an input, a question set and an output that the next stage depends on.",
+  "stages": [
+    {
+      "slug": "discover",
+      "name": "Discover",
+      "purpose": "Understand the business before discussing the system.",
+      "inputs": [
+        "Discovery calls and recordings",
+        "Existing system access",
+        "Spreadsheets and workarounds",
+        "Rough notes and screenshots",
+        "The stated request"
+      ],
+      "activities": [
+        "Business model review",
+        "Stakeholder and department identification",
+        "Current tool review",
+        "Pain-point and root-cause analysis",
+        "Separating the urgent problem from the eventual ambition",
+        "Data-readiness review",
+        "Constraint and compliance review"
+      ],
+      "questionsAsked": [
+        "How does this business actually make money?",
+        "Who does this work today, and who is accountable when it goes wrong?",
+        "What triggered this request now, rather than last year?",
+        "What happens today when the process fails?",
+        "Which of these requirements would you drop if you had to launch in six weeks?",
+        "What data exists, where does it live, and who trusts it?"
+      ],
+      "outputs": [
+        "Business understanding",
+        "Discovery findings",
+        "Open questions and unmade decisions",
+        "Initial scope direction"
+      ],
+      "risksChecked": [
+        "The stated problem is not the real problem",
+        "One stakeholder is describing a process the rest do not follow",
+        "The request assumes an application before the process is known",
+        "Data is not ready and no one has said so"
+      ],
+      "clientResponsibilities": [
+        "Access to the people who run the process, not only the people who commissioned the project",
+        "Read access to current systems",
+        "A nominated decision-maker"
+      ],
+      "deliverableSlugs": [
+        "discovery-questions",
+        "initial-system-overview"
+      ],
+      "caseStudySlugs": [
+        "b2b-distribution-crm-over-erp",
+        "ecd-training-verification-crm"
+      ]
+    },
+    {
+      "slug": "map",
+      "name": "Map",
+      "purpose": "Document what is really happening, including the parts nobody puts in the process document.",
+      "inputs": [
+        "Discovery findings",
+        "Stakeholder interviews",
+        "Existing documentation",
+        "Live system walkthroughs"
+      ],
+      "activities": [
+        "Current-state workflow mapping",
+        "Stakeholder and handoff analysis",
+        "Approval-flow documentation",
+        "Manual activity and duplicate-entry review",
+        "Exception and edge-case identification",
+        "Reporting-gap identification"
+      ],
+      "questionsAsked": [
+        "Show me the last five real records — not the example.",
+        "Where does this step wait, and what is it waiting for?",
+        "What do you do when the customer is an exception?",
+        "Which spreadsheet is the real system?",
+        "Who re-types this data, and into what?",
+        "What report do you build by hand every month?"
+      ],
+      "outputs": [
+        "Current-state workflow",
+        "Stakeholder map",
+        "Gap analysis",
+        "Risk observations",
+        "Exception inventory"
+      ],
+      "risksChecked": [
+        "The documented process and the real process differ",
+        "Exceptions are the majority, not the minority",
+        "A handoff has no owner",
+        "Reporting depends on a person, not a system"
+      ],
+      "clientResponsibilities": [
+        "Honesty about workarounds",
+        "Time from operational staff, not only management",
+        "Access to real (or realistic) records"
+      ],
+      "deliverableSlugs": [
+        "process-flow",
+        "discovery-questions"
+      ],
+      "caseStudySlugs": [
+        "retail-support-transformation",
+        "field-service-job-lifecycle"
+      ]
+    },
+    {
+      "slug": "redesign",
+      "name": "Redesign",
+      "purpose": "Design a simpler future state — and decide what does not make Phase 1.",
+      "inputs": [
+        "Current-state map",
+        "Gap analysis",
+        "Business priorities",
+        "Constraints and dependencies"
+      ],
+      "activities": [
+        "Removing steps that exist only to compensate for other steps",
+        "Defining ownership at every stage",
+        "Designing the status lifecycle",
+        "Introducing automation only where it removes real effort",
+        "Defining approvals and control points",
+        "Designing customer-facing communication",
+        "Separating Phase 1 from later phases"
+      ],
+      "questionsAsked": [
+        "What is this step protecting against?",
+        "If this approval disappeared, what would break?",
+        "What is the minimum state model that still tells the truth?",
+        "Which improvement would the team feel first?",
+        "What must be true for this to work on day one?"
+      ],
+      "outputs": [
+        "Future-state workflow",
+        "Responsibility model",
+        "Control points",
+        "Status lifecycle",
+        "Phase recommendation"
+      ],
+      "risksChecked": [
+        "The redesign optimises for management visibility at the cost of the person doing the work",
+        "Automation hides an accountability gap instead of closing it",
+        "Phase 1 is too large to land",
+        "The new process assumes data the business does not have"
+      ],
+      "clientResponsibilities": [
+        "Confirming approval and ownership rules",
+        "Accepting phase boundaries",
+        "Deciding, not deferring"
+      ],
+      "deliverableSlugs": [
+        "process-flow",
+        "functional-requirements"
+      ],
+      "caseStudySlugs": [
+        "ecd-training-verification-crm",
+        "marketplace-installment-commerce"
+      ]
+    },
+    {
+      "slug": "architect",
+      "name": "Architect",
+      "purpose": "Convert the future process into a practical system design that can be estimated.",
+      "inputs": [
+        "Approved future-state process",
+        "User groups and roles",
+        "Data sources and systems of record",
+        "Integration requirements"
+      ],
+      "activities": [
+        "Application selection — and elimination",
+        "Data-model and relationship design",
+        "Source-of-truth definition",
+        "Workflow, blueprint and automation design",
+        "Integration and API boundary planning",
+        "Role and permission architecture",
+        "Reporting architecture",
+        "Standard-versus-custom analysis",
+        "Dependency and risk analysis",
+        "Effort estimation support"
+      ],
+      "questionsAsked": [
+        "Which system owns this record, and which system only references it?",
+        "Is this standard functionality, configuration, custom work or someone else's product?",
+        "What happens to this integration when the other side is down?",
+        "Can a non-technical user maintain this in a year?",
+        "What is the simpler version of this design?",
+        "What does this cost to build, and what does it cost to keep?"
+      ],
+      "outputs": [
+        "Solution architecture",
+        "Data model",
+        "Functional requirements",
+        "Technical requirements",
+        "Estimate inputs, dependencies and assumptions"
+      ],
+      "risksChecked": [
+        "Two systems claim the same source of truth",
+        "Custom work has been chosen for a preference, not a requirement",
+        "An integration depends on a client credential nobody has requested",
+        "The permission model does not survive the org chart",
+        "Scope has expanded quietly since Redesign"
+      ],
+      "clientResponsibilities": [
+        "Confirming systems of record",
+        "Providing API access and credentials",
+        "Confirming role structure and data ownership"
+      ],
+      "deliverableSlugs": [
+        "solution-architecture",
+        "functional-requirements",
+        "technical-requirements",
+        "initial-system-overview"
+      ],
+      "caseStudySlugs": [
+        "marine-licensing-relationship-architecture",
+        "b2b-distribution-crm-over-erp",
+        "webhook-to-helpdesk-integration"
+      ]
+    },
+    {
+      "slug": "activate",
+      "name": "Activate",
+      "purpose": "Move from a design to a system in use.",
+      "inputs": [
+        "Approved scope and architecture",
+        "Delivery team capacity",
+        "Client readiness",
+        "Test data"
+      ],
+      "activities": [
+        "Implementation planning and phasing",
+        "Developer and BA coordination",
+        "Layered testing",
+        "UAT design and facilitation",
+        "Issue classification and triage",
+        "Training and go-live preparation",
+        "Adoption planning",
+        "Post-go-live support definition"
+      ],
+      "questionsAsked": [
+        "Does this build match the requirement, or only the demo?",
+        "Which scenario has nobody tested because it is inconvenient?",
+        "Who is the first person to use this on go-live morning, and do they know?",
+        "What is a defect, and what is a change request?",
+        "What does 'done' mean for this phase, in writing?"
+      ],
+      "outputs": [
+        "Implementation plan",
+        "Test scenarios",
+        "UAT readiness",
+        "Issue log structure",
+        "Go-live and adoption plan"
+      ],
+      "risksChecked": [
+        "UAT is being run by people who wrote the requirement rather than people who will use the system",
+        "Change requests are being absorbed as defects",
+        "Training is scheduled after go-live",
+        "Data migration is treated as a task rather than a project",
+        "Adoption has no owner"
+      ],
+      "clientResponsibilities": [
+        "Business users available for UAT",
+        "Data cleansed and ready",
+        "Sign-off per phase",
+        "An internal owner for adoption"
+      ],
+      "deliverableSlugs": [
+        "implementation-plan",
+        "uat-plan"
+      ],
+      "caseStudySlugs": [
+        "field-service-job-lifecycle",
+        "retail-support-transformation"
+      ]
+    }
+  ],
+  "decisionFramework": {
+    "name": "The Eleven Questions",
+    "intro": "Every requirement goes through the same set of questions before it becomes a build. It is not a formality — most of the scope arguments a project will ever have are decided here, quietly, or later, expensively.",
+    "tests": [
+      {
+        "question": "Is it standard functionality or custom work?",
+        "whyItMatters": "Custom work carries a maintenance cost forever. It has to be worth it, not merely possible."
+      },
+      {
+        "question": "Is it in scope, or out?",
+        "whyItMatters": "A requirement with no boundary is a requirement with no estimate."
+      },
+      {
+        "question": "What are the dependencies?",
+        "whyItMatters": "Most delays are not build time. They are waiting for a credential, a decision or another team."
+      },
+      {
+        "question": "What must the client provide?",
+        "whyItMatters": "Unstated client responsibilities become the delivery team's problem at the worst possible moment."
+      },
+      {
+        "question": "What are the risks?",
+        "whyItMatters": "A risk named in week one is a plan. Named in week ten, it is an escalation."
+      },
+      {
+        "question": "Is it suitable for non-technical users?",
+        "whyItMatters": "A system only technical people can operate has not solved the business problem; it has moved it."
+      },
+      {
+        "question": "Is it implementation-ready?",
+        "whyItMatters": "If a developer would have to guess, the requirement is not finished."
+      },
+      {
+        "question": "Is there a simpler approach?",
+        "whyItMatters": "The elegant design and the maintainable design are often not the same design."
+      },
+      {
+        "question": "What is the business effect?",
+        "whyItMatters": "If no one can state the effect, the requirement is a preference."
+      },
+      {
+        "question": "How will it be tested?",
+        "whyItMatters": "A requirement that cannot be tested cannot be accepted."
+      },
+      {
+        "question": "What are the acceptance criteria?",
+        "whyItMatters": "'Done' has to be written down before the build, or it will be negotiated after it."
+      }
+    ]
+  },
+  "testingModel": {
+    "intro": "Quality is layered. Each layer catches what the previous one is structurally blind to.",
+    "layers": [
+      {
+        "name": "Developer testing",
+        "owner": "Developer",
+        "checks": [
+          "Functionality works as built",
+          "Automation fires",
+          "No obvious errors"
+        ]
+      },
+      {
+        "name": "Coordinator / BA testing",
+        "owner": "Project coordinator or business analyst",
+        "checks": [
+          "Build matches the documented requirement",
+          "Naming and field consistency",
+          "Permissions behave per role",
+          "Notifications reach the right person"
+        ]
+      },
+      {
+        "name": "Project-manager UAT",
+        "owner": "Project lead",
+        "checks": [
+          "Process end-to-end, not feature-by-feature",
+          "Edge cases and exceptions",
+          "Hidden scope surfaced",
+          "Usability for a non-technical user",
+          "Reporting reflects reality"
+        ]
+      },
+      {
+        "name": "Client UAT",
+        "owner": "Client business users",
+        "checks": [
+          "Real scenarios from their own operation",
+          "Acceptance criteria met",
+          "Issues classified as defect or change request"
+        ]
+      },
+      {
+        "name": "Go-live verification",
+        "owner": "Delivery team and client",
+        "checks": [
+          "Data migrated and reconciled",
+          "Users trained and access granted",
+          "Integrations live",
+          "Rollback and support path defined"
+        ]
+      }
+    ]
+  }
+}

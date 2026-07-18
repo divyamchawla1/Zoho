@@ -1,0 +1,3966 @@
+[
+  {
+    "slug": "lead-capture",
+    "name": "Lead Capture",
+    "category": "customer-and-sales",
+    "objective": "Get every enquiry into one place, attributed, without anyone retyping it.",
+    "stakeholders": [
+      "Prospect",
+      "Marketing",
+      "Sales associate",
+      "Reception / shared mailbox owner",
+      "Sales manager"
+    ],
+    "commonProblems": [
+      "Enquiries arrive across a shared mailbox, phone, WhatsApp and personal inboxes with no single record",
+      "Source attribution is guessed after the fact, so marketing spend cannot be judged",
+      "Web form data is emailed rather than written to the CRM",
+      "Duplicates are created because nobody checks first",
+      "Leads sit unassigned over a weekend and go cold"
+    ],
+    "futureState": [
+      "Enquiry arrives on any channel",
+      "Lead record created automatically with source captured",
+      "Duplicate check against existing contacts and accounts",
+      "Assignment by rule (territory, product, round-robin or account manager)",
+      "Acknowledgement to the prospect",
+      "Owner notified with a response deadline"
+    ],
+    "controls": [
+      "Mandatory source field",
+      "Duplicate detection on email, phone and company",
+      "Assignment rule with a fallback owner",
+      "Unassigned-lead alert"
+    ],
+    "dataRequired": [
+      "Contact details",
+      "Company",
+      "Source and campaign",
+      "Enquiry text",
+      "Channel",
+      "Timestamp",
+      "Assigned owner"
+    ],
+    "reporting": [
+      "Leads by source and channel",
+      "Response time to first contact",
+      "Unassigned and ageing leads",
+      "Duplicate rate"
+    ],
+    "risks": [
+      "Personal inboxes stay outside the system and the record is incomplete",
+      "Channel integrations (WhatsApp, social) depend on third-party approval the client has not started",
+      "Source is captured but never used, so the field decays"
+    ],
+    "discoveryQuestions": [
+      "Every channel an enquiry can arrive on — including the ones that are not official?",
+      "Who owns the shared mailbox today, and what do they do with a message?",
+      "How do you know which marketing activity produced this enquiry?",
+      "What counts as a duplicate here — same person, same company, or same opportunity?",
+      "What is the expected first response time, and who is accountable for it?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Marketing & Communication",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "marketplaces-resellers",
+      "financial-services-lending",
+      "telecommunications",
+      "education-training",
+      "professional-services",
+      "automotive",
+      "property-real-estate"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "ecd-training-verification-crm",
+      "partner-configurator-scoping-tool"
+    ]
+  },
+  {
+    "slug": "lead-qualification",
+    "name": "Lead Qualification",
+    "category": "customer-and-sales",
+    "objective": "Decide early, and on stated criteria, which enquiries deserve the team's time.",
+    "stakeholders": [
+      "Sales associate",
+      "Sales manager",
+      "Marketing",
+      "Prospect"
+    ],
+    "commonProblems": [
+      "Every enquiry is treated as a live opportunity, so the pipeline is fiction",
+      "Qualification criteria live in the manager's head",
+      "Nothing is ever marked lost, so the pipeline only grows",
+      "Unqualified leads are converted to deals to look busy",
+      "The reason for losing a lead is not recorded, so the pattern is never seen"
+    ],
+    "futureState": [
+      "Lead received and reviewed against defined criteria",
+      "Contact attempt logged",
+      "Qualified / not qualified decision with a reason",
+      "Qualified lead converts to a deal with mandatory data",
+      "Not qualified is closed with a reason code",
+      "Nurture path for 'not now' rather than 'not ever'"
+    ],
+    "controls": [
+      "Written qualification criteria",
+      "Mandatory reason code on close",
+      "Conversion requires minimum data quality",
+      "Manager review of ageing leads"
+    ],
+    "dataRequired": [
+      "Qualification criteria fields",
+      "Contact attempt history",
+      "Reason code",
+      "Budget / need / authority / timing indicators if used",
+      "Next action date"
+    ],
+    "reporting": [
+      "Conversion rate by source",
+      "Loss reasons",
+      "Ageing and stalled leads",
+      "Activity per associate"
+    ],
+    "risks": [
+      "Qualification becomes a formality that everyone clicks through",
+      "'Not now' leads disappear instead of entering nurture",
+      "Criteria are too rigid for an exception-heavy business"
+    ],
+    "discoveryQuestions": [
+      "What makes an enquiry worth pursuing here — specifically?",
+      "Who decides, and can that decision be overruled?",
+      "What happens to a lead that is real but not ready?",
+      "How many contact attempts before you stop?",
+      "What did you lose last month, and why?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "financial-services-lending",
+      "education-training",
+      "telecommunications",
+      "professional-services",
+      "manufacturing",
+      "property-real-estate"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "ecd-training-verification-crm"
+    ]
+  },
+  {
+    "slug": "lead-to-deal",
+    "name": "Lead-to-Deal",
+    "category": "customer-and-sales",
+    "objective": "Convert a qualified lead into a deal without losing the history that made it qualified.",
+    "stakeholders": [
+      "Sales associate",
+      "Sales manager",
+      "Prospect",
+      "Finance"
+    ],
+    "commonProblems": [
+      "Conversion loses the enquiry history and the source",
+      "Deals are created directly, bypassing the lead stage entirely",
+      "Account, contact and deal are duplicated at conversion",
+      "The deal has no value or close date, so forecasting is impossible",
+      "Different associates convert at different points, so stage data is not comparable"
+    ],
+    "futureState": [
+      "Lead qualified",
+      "Duplicate check against existing accounts and contacts",
+      "Convert to account, contact and deal in one action",
+      "Mandatory deal data captured (value, expected close, product interest)",
+      "History and source carried across",
+      "Deal enters the pipeline at a defined stage"
+    ],
+    "controls": [
+      "Mandatory field validation at conversion",
+      "Duplicate merge before conversion",
+      "Defined entry stage",
+      "Source inheritance"
+    ],
+    "dataRequired": [
+      "Lead history and activities",
+      "Account and contact match",
+      "Deal value and currency",
+      "Expected close date",
+      "Product or service interest",
+      "Owner"
+    ],
+    "reporting": [
+      "Lead-to-deal conversion rate",
+      "Time from enquiry to deal",
+      "Pipeline value by source",
+      "Data completeness at conversion"
+    ],
+    "risks": [
+      "Existing account data is dirty, so duplicate checking produces noise",
+      "Sales resists mandatory fields and enters placeholder values",
+      "Conversion timing differs by person and skews every downstream metric"
+    ],
+    "discoveryQuestions": [
+      "At what exact moment does an enquiry become a deal here?",
+      "What must be known before it can be one?",
+      "Is the customer already in another system under a different name?",
+      "Who is allowed to create a deal without a lead?",
+      "What does the pipeline report need that conversion must capture?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "financial-services-lending",
+      "telecommunications",
+      "manufacturing",
+      "professional-services",
+      "education-training"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp"
+    ]
+  },
+  {
+    "slug": "opportunity-management",
+    "name": "Opportunity Management",
+    "category": "customer-and-sales",
+    "objective": "Keep the pipeline honest: a stage should mean the same thing to everyone.",
+    "stakeholders": [
+      "Sales associate",
+      "Sales manager",
+      "Finance",
+      "Delivery team",
+      "Customer"
+    ],
+    "commonProblems": [
+      "Stages describe internal activity rather than customer commitment",
+      "Deals sit in a stage for months with no next action",
+      "Forecast is a manager's instinct, not a system output",
+      "Stage movement has no exit criteria, so it means nothing",
+      "Won deals are not handed over to delivery in any structured way"
+    ],
+    "futureState": [
+      "Deal enters pipeline",
+      "Stage progression against defined exit criteria",
+      "Mandatory next action on every open deal",
+      "Quotation issued and tracked",
+      "Negotiation state recorded",
+      "Won or lost with a reason",
+      "Structured handover to delivery on won"
+    ],
+    "controls": [
+      "Exit criteria per stage",
+      "Mandatory next-action date",
+      "Stale-deal escalation",
+      "Loss reason code",
+      "Approval on discount or non-standard terms"
+    ],
+    "dataRequired": [
+      "Deal value and currency",
+      "Stage and stage history",
+      "Expected close date",
+      "Next action",
+      "Quote reference",
+      "Competitor or loss reason",
+      "Products"
+    ],
+    "reporting": [
+      "Pipeline by stage and value",
+      "Forecast versus target",
+      "Stage conversion and slippage",
+      "Stalled deals",
+      "Win/loss analysis"
+    ],
+    "risks": [
+      "Stage definitions get diluted until the pipeline is decorative",
+      "Forecast pressure encourages optimistic close dates",
+      "The handover to delivery is assumed rather than designed"
+    ],
+    "discoveryQuestions": [
+      "What has to be true for a deal to move to the next stage?",
+      "Who is allowed to change the close date?",
+      "How is a quotation produced today, and in which system?",
+      "What happens the moment a deal is won?",
+      "What does the sales manager look at every Monday, and where does it come from?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "financial-services-lending",
+      "telecommunications",
+      "manufacturing",
+      "professional-services",
+      "energy-utilities",
+      "home-improvement-installations"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp"
+    ]
+  },
+  {
+    "slug": "quotation-management",
+    "name": "Quotation Management",
+    "category": "customer-and-sales",
+    "objective": "Produce an accurate quote fast, and know which system is allowed to price it.",
+    "stakeholders": [
+      "Sales associate",
+      "Sales manager",
+      "Finance",
+      "Customer",
+      "Operations"
+    ],
+    "commonProblems": [
+      "Quoting takes half an hour because pricing, stock and margin live in three places",
+      "Two systems can both produce a quote, and they disagree",
+      "Revisions are manual and version history is lost",
+      "Discounts are applied without approval",
+      "The CRM has no record that a quote was ever sent"
+    ],
+    "futureState": [
+      "Requirement captured on the deal",
+      "Pricing and stock checked in the system that owns them",
+      "Quote generated in the pricing system of record",
+      "Quote reference and value written back to the CRM",
+      "Sent to customer and logged",
+      "Revision tracked as a version",
+      "Approved or rejected state recorded against the deal"
+    ],
+    "controls": [
+      "Single pricing source of truth",
+      "Discount approval threshold",
+      "Version control on revisions",
+      "Mandatory quote reference on the deal",
+      "Margin visibility before send"
+    ],
+    "dataRequired": [
+      "Product / SKU and price",
+      "Stock availability",
+      "Cost and margin",
+      "Discount",
+      "Tax",
+      "Validity period",
+      "Quote number",
+      "Version"
+    ],
+    "reporting": [
+      "Quote-to-win conversion",
+      "Average time to quote",
+      "Discount analysis",
+      "Margin by quote and SKU",
+      "Revision frequency"
+    ],
+    "risks": [
+      "Two systems both claim the right to price, and reconciliation becomes a permanent manual task",
+      "Real-time stock and price sync is assumed but the API rate limits do not allow it",
+      "Sales continues to quote in a spreadsheet because it is faster"
+    ],
+    "discoveryQuestions": [
+      "Which system produces the official quotation, and who says so?",
+      "Where do price, cost, stock and margin actually come from?",
+      "How long does a quote take today, and where does the time go?",
+      "Who can approve a discount, and at what threshold?",
+      "What happens to the quote number when the quote is revised?",
+      "Does the salesperson need live stock, or stock as at this morning?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Finance & Commerce",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "manufacturing",
+      "energy-utilities",
+      "telecommunications",
+      "home-improvement-installations",
+      "marketplaces-resellers",
+      "professional-services"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "partner-configurator-scoping-tool"
+    ]
+  },
+  {
+    "slug": "customer-onboarding",
+    "name": "Customer Onboarding",
+    "category": "customer-and-sales",
+    "objective": "Turn a won deal into a working customer relationship without a gap in the middle.",
+    "stakeholders": [
+      "Sales",
+      "Onboarding / delivery team",
+      "Finance",
+      "Customer",
+      "Support"
+    ],
+    "commonProblems": [
+      "Won deals are handed over by email, or not at all",
+      "The customer repeats information they already gave sales",
+      "Nobody owns the customer between signature and first delivery",
+      "Onboarding steps live in a checklist on someone's desktop",
+      "Billing setup and operational setup happen in the wrong order"
+    ],
+    "futureState": [
+      "Deal won triggers onboarding record",
+      "Owner assigned",
+      "Data and document collection from the customer",
+      "Account and billing setup",
+      "System / service provisioning",
+      "Kick-off and expectation setting",
+      "Handover to support and account management",
+      "Onboarding complete with criteria met"
+    ],
+    "controls": [
+      "Defined handover criteria from sales",
+      "Mandatory document checklist",
+      "Onboarding owner assigned automatically",
+      "Completion criteria before support handover"
+    ],
+    "dataRequired": [
+      "Signed agreement",
+      "Billing details",
+      "Contacts and roles",
+      "Delivery or service requirements",
+      "Compliance documents",
+      "Start date"
+    ],
+    "reporting": [
+      "Time to onboard",
+      "Onboarding stage bottlenecks",
+      "Outstanding customer documents",
+      "Onboarding completion rate"
+    ],
+    "risks": [
+      "Sales considers the job finished at signature",
+      "Customer document collection stalls and no one escalates it",
+      "Onboarding is designed for the ideal customer and breaks on the second one"
+    ],
+    "discoveryQuestions": [
+      "What has to happen between signature and the customer's first real interaction?",
+      "Who owns the customer during that window?",
+      "What do you ask the customer for, and how often do they send it late?",
+      "What did sales promise that operations has to deliver?",
+      "When is onboarding 'done'?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "financial-services-lending",
+      "telecommunications",
+      "education-training",
+      "professional-services",
+      "energy-utilities",
+      "mobility-rental",
+      "marketplaces-resellers"
+    ],
+    "caseStudies": [
+      "driving-school-portal",
+      "field-service-job-lifecycle",
+      "nonprofit-operational-application"
+    ]
+  },
+  {
+    "slug": "renewal-management",
+    "name": "Renewal Management",
+    "category": "customer-and-sales",
+    "objective": "Stop renewals from depending on someone remembering.",
+    "stakeholders": [
+      "Account manager",
+      "Customer",
+      "Finance",
+      "Operations"
+    ],
+    "commonProblems": [
+      "Renewal dates live in a spreadsheet nobody opens",
+      "The first reminder is the expiry",
+      "Renewal is a re-sale from scratch because usage history is not visible",
+      "Auto-renewal terms are not tracked, so notice periods are missed",
+      "Lapsed customers are never followed up"
+    ],
+    "futureState": [
+      "Renewal date on the record",
+      "Automated advance notification to owner and customer",
+      "Usage and service review",
+      "Renewal offer prepared",
+      "Customer decision recorded",
+      "Renewed, renegotiated or lapsed with a reason",
+      "Lapsed enters win-back nurture"
+    ],
+    "controls": [
+      "Mandatory renewal or expiry date",
+      "Notice-period rules",
+      "Escalation on unactioned renewals",
+      "Approval on renewal discounts"
+    ],
+    "dataRequired": [
+      "Contract or subscription end date",
+      "Notice period",
+      "Current terms and value",
+      "Usage or service history",
+      "Renewal owner",
+      "Decision and reason"
+    ],
+    "reporting": [
+      "Renewals due by period",
+      "Renewal rate and churn",
+      "Value at risk",
+      "Reasons for non-renewal",
+      "Unactioned renewals"
+    ],
+    "risks": [
+      "Renewal data has to be migrated from spreadsheets and is unreliable at the start",
+      "Notice periods differ per contract and were never captured",
+      "Automated customer reminders go out before the account manager has looked"
+    ],
+    "discoveryQuestions": [
+      "Where do renewal dates live today?",
+      "How far in advance should the business act?",
+      "Do any agreements auto-renew, and what notice applies?",
+      "Who is allowed to change renewal terms?",
+      "What do you do about a customer who lapsed last year?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Finance & Commerce",
+      "Marketing & Communication"
+    ],
+    "industries": [
+      "telecommunications",
+      "financial-services-lending",
+      "education-training",
+      "mobility-rental",
+      "professional-services",
+      "energy-utilities",
+      "marine-yacht-licensing"
+    ],
+    "caseStudies": [
+      "marine-licensing-relationship-architecture"
+    ]
+  },
+  {
+    "slug": "customer-nurturing",
+    "name": "Customer Nurturing",
+    "category": "customer-and-sales",
+    "objective": "Stay useful to the customers who are not ready to buy today.",
+    "stakeholders": [
+      "Marketing",
+      "Sales",
+      "Customer",
+      "Account manager"
+    ],
+    "commonProblems": [
+      "'Not now' leads are closed and forgotten",
+      "Nurture is a single newsletter to everybody",
+      "Sales and marketing contact the same person about different things on the same day",
+      "There is no exit from nurture back into an active sales conversation",
+      "Unsubscribes are handled inconsistently across channels"
+    ],
+    "futureState": [
+      "Contact enters nurture with a reason and a segment",
+      "Segment-appropriate content on a defined cadence",
+      "Engagement tracked against the CRM record",
+      "Engagement threshold triggers sales notification",
+      "Contact returns to active pipeline or continues",
+      "Suppression and consent respected across all channels"
+    ],
+    "controls": [
+      "Consent and suppression rules",
+      "Frequency capping",
+      "Single view of customer contact across sales and marketing",
+      "Defined re-entry trigger"
+    ],
+    "dataRequired": [
+      "Segment",
+      "Consent and channel preference",
+      "Engagement history",
+      "Lifecycle stage",
+      "Re-entry trigger criteria"
+    ],
+    "reporting": [
+      "Engagement by segment and campaign",
+      "Nurture-to-pipeline conversion",
+      "Unsubscribe rate",
+      "Contact frequency per person"
+    ],
+    "risks": [
+      "Content production is assumed to exist and does not",
+      "Consent records are incomplete after migration",
+      "Marketing and sales automation both message the same contact"
+    ],
+    "discoveryQuestions": [
+      "Who writes the content, and does that person exist yet?",
+      "What are the real segments — not the ones on the slide?",
+      "What should make a nurtured contact become a live lead again?",
+      "How is consent recorded today, per channel?",
+      "Who is allowed to email this list?"
+    ],
+    "technologyCategories": [
+      "Marketing & Communication",
+      "Customer & CRM"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "education-training",
+      "fashion-jewellery",
+      "financial-services-lending",
+      "property-real-estate",
+      "professional-services"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "enquiry-to-resolution",
+    "name": "Enquiry-to-Resolution",
+    "category": "service-and-support",
+    "objective": "One journey from 'a customer said something' to 'it is closed and they know'.",
+    "stakeholders": [
+      "Customer",
+      "Support agent",
+      "Team lead",
+      "Operations",
+      "Finance"
+    ],
+    "commonProblems": [
+      "Enquiries arrive on WhatsApp, social, email and phone and only some become tickets",
+      "The same customer is handled by three people who cannot see each other's replies",
+      "Resolution is a conversation, so there is no record of what was agreed",
+      "There is no definition of 'resolved', so tickets close early",
+      "The customer chases because nobody told them anything"
+    ],
+    "futureState": [
+      "Enquiry captured from any channel as a ticket",
+      "Classification and priority applied",
+      "Assignment by rule",
+      "Acknowledgement to customer",
+      "Investigation with internal notes",
+      "Action taken by the responsible team",
+      "Resolution communicated",
+      "Closure with a reason and category",
+      "Optional feedback"
+    ],
+    "controls": [
+      "Every channel creates a ticket",
+      "Mandatory classification",
+      "SLA per priority",
+      "Definition of resolved",
+      "Escalation on breach",
+      "Closure category"
+    ],
+    "dataRequired": [
+      "Customer identity",
+      "Channel and timestamp",
+      "Category and sub-category",
+      "Priority",
+      "Order or account reference",
+      "Resolution and reason",
+      "Agent"
+    ],
+    "reporting": [
+      "Volume by channel and category",
+      "First response and resolution time",
+      "SLA compliance",
+      "Reopen rate",
+      "Backlog and ageing",
+      "Repeat contact rate"
+    ],
+    "risks": [
+      "Channel integrations depend on third-party approval (business messaging, social) outside the project's control",
+      "Agents keep answering on the channel directly because it is faster",
+      "Categories proliferate until reporting is meaningless"
+    ],
+    "discoveryQuestions": [
+      "Every way a customer can reach you — including the ones you wish they did not use?",
+      "What happens today when the same customer messages twice on different channels?",
+      "Who decides priority?",
+      "What does 'resolved' mean here, and who says so?",
+      "What are the top five things customers contact you about?",
+      "What does the customer see and hear during the wait?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Marketing & Communication",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "customer-support-operations",
+      "telecommunications",
+      "healthcare-medical",
+      "fashion-jewellery",
+      "marketplaces-resellers",
+      "mobility-rental"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "retail-support-transformation",
+      "webhook-to-helpdesk-integration"
+    ]
+  },
+  {
+    "slug": "ticket-management",
+    "name": "Ticket Management",
+    "category": "service-and-support",
+    "objective": "Give every request an owner, a state and a deadline.",
+    "stakeholders": [
+      "Support agent",
+      "Team lead",
+      "Customer",
+      "Specialist teams"
+    ],
+    "commonProblems": [
+      "Tickets are assigned to a shared queue that everyone assumes someone else is watching",
+      "Status values describe the agent's mood rather than the state of the work",
+      "Waiting on the customer still counts against response time",
+      "Reassignment loses context",
+      "Reopened tickets are counted as new"
+    ],
+    "futureState": [
+      "Ticket created with mandatory classification",
+      "Auto-assignment by category, product or language",
+      "Status lifecycle with defined transitions",
+      "Internal notes separated from customer replies",
+      "Waiting states that pause the SLA clock",
+      "Resolution and closure",
+      "Reopen path with history retained"
+    ],
+    "controls": [
+      "Defined status model",
+      "Assignment rules with a fallback",
+      "Pause conditions on SLA",
+      "Mandatory closure category",
+      "Ownership never null"
+    ],
+    "dataRequired": [
+      "Category and sub-category",
+      "Priority",
+      "Status",
+      "Owner and team",
+      "Customer and related order or asset",
+      "Time stamps per transition"
+    ],
+    "reporting": [
+      "Open tickets by status, team and age",
+      "Assignment distribution",
+      "Resolution time by category",
+      "Reopen rate"
+    ],
+    "risks": [
+      "A status model designed by managers does not survive contact with agents",
+      "Auto-assignment sends work to people on leave",
+      "Every exception becomes a new status"
+    ],
+    "discoveryQuestions": [
+      "What states can a ticket be in — and which of those are the same thing under different names?",
+      "How is a ticket assigned today?",
+      "What happens when an agent is on leave or leaves the company?",
+      "When are you waiting on the customer, and should that count against you?",
+      "What has to be true before a ticket can close?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "customer-support-operations",
+      "retail-ecommerce",
+      "telecommunications",
+      "healthcare-medical",
+      "marketplaces-resellers",
+      "energy-utilities"
+    ],
+    "caseStudies": [
+      "retail-support-transformation",
+      "webhook-to-helpdesk-integration"
+    ]
+  },
+  {
+    "slug": "sla-and-escalation",
+    "name": "SLA & Escalation",
+    "category": "service-and-support",
+    "objective": "Make the promise explicit, then make the system enforce it.",
+    "stakeholders": [
+      "Customer",
+      "Agent",
+      "Team lead",
+      "Management",
+      "Account manager"
+    ],
+    "commonProblems": [
+      "SLAs exist in a contract and nowhere in the system",
+      "Escalation means shouting across the office",
+      "The clock runs at 2am and over public holidays",
+      "Breach is discovered in the monthly report",
+      "Everything is priority one"
+    ],
+    "futureState": [
+      "Priority determined by defined rules",
+      "SLA target applied per priority and customer tier",
+      "Business hours and holiday calendar respected",
+      "Warning before breach to the owner",
+      "Escalation to team lead on threshold",
+      "Escalation to management on breach",
+      "Breach recorded with a reason"
+    ],
+    "controls": [
+      "Written priority matrix",
+      "Business-hours calendar",
+      "Pause conditions",
+      "Tiered escalation path",
+      "Breach reason capture"
+    ],
+    "dataRequired": [
+      "Priority",
+      "Customer tier or contract",
+      "Business hours",
+      "Response and resolution targets",
+      "Escalation contacts",
+      "Pause periods"
+    ],
+    "reporting": [
+      "SLA compliance by priority and team",
+      "Breach reasons",
+      "Escalation frequency",
+      "Time in each state"
+    ],
+    "risks": [
+      "Business hours differ by country and nobody has confirmed the calendar",
+      "Escalation notifications become noise and are filtered to a folder",
+      "Priority is set by whoever shouts loudest, not by the matrix"
+    ],
+    "discoveryQuestions": [
+      "What have you actually promised customers, in writing?",
+      "Do different customers get different promises?",
+      "What are your support hours, in each country you operate in?",
+      "When the clock is about to run out, who should know first?",
+      "What has happened historically when you breached?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Automation & Integration",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "customer-support-operations",
+      "telecommunications",
+      "healthcare-medical",
+      "energy-utilities",
+      "retail-ecommerce",
+      "professional-services"
+    ],
+    "caseStudies": [
+      "retail-support-transformation",
+      "webhook-to-helpdesk-integration"
+    ]
+  },
+  {
+    "slug": "complaint-management",
+    "name": "Complaint Management",
+    "category": "service-and-support",
+    "objective": "Handle the ones that matter differently from the ones that are routine.",
+    "stakeholders": [
+      "Customer",
+      "Agent",
+      "Team lead",
+      "Quality / compliance",
+      "Management"
+    ],
+    "commonProblems": [
+      "A complaint is logged as a normal ticket and disappears into the queue",
+      "There is no route to management for a serious complaint",
+      "Root cause is never captured, so the same complaint recurs",
+      "Compensation or goodwill is granted inconsistently",
+      "Regulatory-relevant complaints are not distinguishable"
+    ],
+    "futureState": [
+      "Complaint identified and flagged as such",
+      "Severity assessed",
+      "Acknowledged within a defined window",
+      "Investigation with the responsible department",
+      "Root cause recorded",
+      "Resolution and remedy agreed within authority limits",
+      "Customer informed",
+      "Closed with root cause and preventive action",
+      "Trend review"
+    ],
+    "controls": [
+      "Complaint flag distinct from ticket type",
+      "Severity matrix",
+      "Authority limits on remedy",
+      "Mandatory root cause",
+      "Management visibility on severe complaints"
+    ],
+    "dataRequired": [
+      "Complaint category",
+      "Severity",
+      "Root cause",
+      "Remedy granted and value",
+      "Department responsible",
+      "Regulatory relevance",
+      "Preventive action"
+    ],
+    "reporting": [
+      "Complaints by category and root cause",
+      "Repeat root causes",
+      "Remedy cost",
+      "Time to resolution",
+      "Severity distribution"
+    ],
+    "risks": [
+      "Root cause is recorded as 'customer error' by default",
+      "Remedy authority is undefined, so agents either over-give or escalate everything",
+      "Complaint volume is politically uncomfortable and gets reclassified"
+    ],
+    "discoveryQuestions": [
+      "What separates a complaint from a normal support request here?",
+      "Which complaints must a manager see, and how fast?",
+      "Who can offer a refund, a credit or goodwill, and up to what value?",
+      "Is any of this regulated, and does anything have to be reported?",
+      "What is the complaint you receive most often, and why does it keep happening?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "customer-support-operations",
+      "telecommunications",
+      "healthcare-medical",
+      "financial-services-lending",
+      "home-improvement-installations"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "retail-support-transformation"
+    ]
+  },
+  {
+    "slug": "return-and-exchange",
+    "name": "Return & Exchange",
+    "category": "service-and-support",
+    "objective": "Decide the outcome once, then let stock and finance follow automatically.",
+    "stakeholders": [
+      "Customer",
+      "Support agent",
+      "Warehouse",
+      "Finance",
+      "Courier",
+      "Merchant"
+    ],
+    "commonProblems": [
+      "Return, exchange, refund and replacement are all called 'a return'",
+      "Stock is not adjusted until someone remembers",
+      "The customer is refunded before the goods arrive back — or long after",
+      "Eligibility is decided per agent",
+      "Marketplace and direct returns follow different rules with no reason"
+    ],
+    "futureState": [
+      "Return requested with reason",
+      "Eligibility checked against policy",
+      "Return authorised with an RMA reference",
+      "Collection or drop-off arranged",
+      "Goods received and inspected",
+      "Outcome decided: refund, exchange, repair or reject",
+      "Stock disposition (resaleable, damaged, write-off)",
+      "Refund or replacement executed",
+      "Customer informed and case closed"
+    ],
+    "controls": [
+      "Written eligibility policy encoded as rules",
+      "Authorisation before collection",
+      "Inspection before refund",
+      "Stock disposition mandatory",
+      "Refund authority limits"
+    ],
+    "dataRequired": [
+      "Order and item reference",
+      "Return reason",
+      "Condition on receipt",
+      "Outcome",
+      "Stock disposition",
+      "Refund value and method",
+      "Courier reference"
+    ],
+    "reporting": [
+      "Return rate by product and reason",
+      "Time to refund",
+      "Stock recovered versus written off",
+      "Return cost",
+      "Reasons trend"
+    ],
+    "risks": [
+      "Reverse logistics is assumed to work like forward logistics and does not",
+      "Refund timing conflicts between customer expectation and finance policy",
+      "Marketplace rules override internal policy and were not in scope"
+    ],
+    "discoveryQuestions": [
+      "What outcomes are actually possible — refund, exchange, repair, replace, reject?",
+      "Who decides, and against what policy?",
+      "When does stock come back into inventory, and in what condition state?",
+      "When is the customer refunded — on request, on collection or on inspection?",
+      "Do marketplace or channel rules override yours?",
+      "Who pays for the return leg?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Finance & Commerce",
+      "Operations & Custom Applications"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "marketplaces-resellers",
+      "fashion-jewellery",
+      "warehouse-fulfilment",
+      "customer-support-operations"
+    ],
+    "caseStudies": [
+      "retail-support-transformation"
+    ]
+  },
+  {
+    "slug": "defect-and-damage-resolution",
+    "name": "Defect & Damage Resolution",
+    "category": "service-and-support",
+    "objective": "Separate 'the product is faulty' from 'it broke in transit' — because the money and the fix are different.",
+    "stakeholders": [
+      "Customer",
+      "Support agent",
+      "Warehouse / QC",
+      "Courier",
+      "Supplier or merchant",
+      "Finance",
+      "Inspector"
+    ],
+    "commonProblems": [
+      "Damage in transit and manufacturing defect are handled identically",
+      "Evidence is requested inconsistently, so claims fail later",
+      "Courier claim windows expire before anyone files",
+      "Supplier recovery is never pursued",
+      "The inspection outcome is an opinion in an email"
+    ],
+    "futureState": [
+      "Issue reported with evidence",
+      "Classified as defect, transit damage or misuse",
+      "Evidence requirements applied per class",
+      "Inspection or assessment where required",
+      "Liability determined (supplier, courier, internal, customer)",
+      "Customer remedy executed",
+      "Recovery claim raised against the liable party",
+      "Root cause logged",
+      "Closed with outcome"
+    ],
+    "controls": [
+      "Mandatory evidence per class (photographs, packaging, batch)",
+      "Claim-window monitoring",
+      "Inspection sign-off",
+      "Liability decision recorded",
+      "Recovery tracked to conclusion"
+    ],
+    "dataRequired": [
+      "Item, batch and serial",
+      "Photographic evidence",
+      "Delivery and courier reference",
+      "Inspection findings",
+      "Liability",
+      "Remedy and cost",
+      "Recovery claim reference"
+    ],
+    "reporting": [
+      "Defect rate by product, batch and supplier",
+      "Transit damage by courier and route",
+      "Recovery success rate",
+      "Cost of failure by cause"
+    ],
+    "risks": [
+      "Inspection depends on people outside the system (couriers, suppliers, third-party inspectors)",
+      "Claim windows are short and the process is slow",
+      "Cascading classification rules become unmaintainable if not designed as data"
+    ],
+    "discoveryQuestions": [
+      "What are the genuinely different failure types, and does the money differ per type?",
+      "What evidence do you need, and who is going to ask the customer for it?",
+      "Who inspects, and are they internal?",
+      "How long do you have to claim against a courier or supplier?",
+      "Who decides liability when the evidence is ambiguous?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Operations & Custom Applications",
+      "Finance & Commerce"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "warehouse-fulfilment",
+      "manufacturing",
+      "home-improvement-installations",
+      "marketplaces-resellers",
+      "fashion-jewellery"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "manufacturing-quality-tooling-process",
+      "retail-support-transformation"
+    ]
+  },
+  {
+    "slug": "after-sales-servicing",
+    "name": "After-Sales Servicing",
+    "category": "service-and-support",
+    "objective": "Own the relationship after the invoice, especially when someone else owns the payment.",
+    "stakeholders": [
+      "Customer",
+      "Support",
+      "Field technician",
+      "Merchant",
+      "Finance provider",
+      "Warranty administrator"
+    ],
+    "commonProblems": [
+      "The customer does not know who to call after purchase — the seller, the merchant or the finance provider",
+      "Warranty terms are not visible to the person answering the phone",
+      "Service history is not attached to the asset",
+      "Third-party merchants set their own service standards",
+      "Servicing and collections conversations get confused"
+    ],
+    "futureState": [
+      "Service request received",
+      "Entitlement checked (warranty, contract, asset)",
+      "Responsibility determined between seller, merchant and provider",
+      "Service action scheduled or dispatched",
+      "Work completed and recorded against the asset",
+      "Cost allocated to the liable party",
+      "Customer confirmation",
+      "History updated"
+    ],
+    "controls": [
+      "Entitlement check before dispatch",
+      "Responsibility matrix per channel",
+      "Service history against the asset, not the ticket",
+      "Cost allocation rules"
+    ],
+    "dataRequired": [
+      "Asset or serial number",
+      "Purchase and warranty dates",
+      "Channel and merchant",
+      "Entitlement terms",
+      "Service history",
+      "Cost and liable party"
+    ],
+    "reporting": [
+      "Service volume by product and merchant",
+      "Cost of servicing by channel",
+      "Warranty versus chargeable split",
+      "Repeat service on the same asset"
+    ],
+    "risks": [
+      "Responsibility between marketplace, merchant and finance provider is genuinely ambiguous and must be decided commercially, not technically",
+      "Warranty data does not exist for historical sales",
+      "Field capacity is not modelled"
+    ],
+    "discoveryQuestions": [
+      "After the sale, who does the customer believe they are dealing with?",
+      "Who is contractually responsible for servicing on each channel?",
+      "Where is warranty information today?",
+      "Does the asset have an identity in your system, or only the order?",
+      "Who pays when the merchant will not?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Operations & Custom Applications",
+      "Finance & Commerce"
+    ],
+    "industries": [
+      "marketplaces-resellers",
+      "retail-ecommerce",
+      "automotive",
+      "home-improvement-installations",
+      "healthcare-medical",
+      "financial-services-lending"
+    ],
+    "caseStudies": [
+      "field-service-job-lifecycle",
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "form-to-crm",
+    "name": "Form-to-CRM",
+    "category": "marketing-and-engagement",
+    "objective": "Make a web form create a real record, not an email.",
+    "stakeholders": [
+      "Prospect",
+      "Marketing",
+      "Sales",
+      "Web team"
+    ],
+    "commonProblems": [
+      "Form submissions arrive as email and are retyped",
+      "The form asks for data nobody uses and omits data everybody needs",
+      "There is no link between the submission and the campaign that produced it",
+      "Submissions from a logged-in user do not link to their existing record",
+      "Spam floods the pipeline"
+    ],
+    "futureState": [
+      "Form submitted",
+      "Validation and spam control",
+      "Record created or matched in the CRM",
+      "Hidden context fields captured (campaign, source, referring record ID)",
+      "Assignment triggered",
+      "Confirmation to submitter",
+      "Notification to owner"
+    ],
+    "controls": [
+      "Field validation",
+      "Spam / bot protection",
+      "Hidden ID validation before write",
+      "Duplicate matching",
+      "Fallback owner if assignment fails"
+    ],
+    "dataRequired": [
+      "Submitted field values",
+      "Campaign and source parameters",
+      "Hidden record IDs where the form is pre-linked",
+      "Consent",
+      "Timestamp"
+    ],
+    "reporting": [
+      "Submissions by form and campaign",
+      "Form abandonment",
+      "Submission-to-qualified rate",
+      "Failed writes"
+    ],
+    "risks": [
+      "Hidden CRM IDs passed through a form can be tampered with and must be validated server-side",
+      "The form is owned by a web agency outside the project",
+      "Consent wording is a legal question, not a design one"
+    ],
+    "discoveryQuestions": [
+      "Where does this form live, and who controls the page?",
+      "What must exist in the CRM before this form can be linked to it?",
+      "Which fields are actually used downstream — and which are habit?",
+      "What happens if the same person submits twice?",
+      "What consent are you capturing, and who approved the wording?"
+    ],
+    "technologyCategories": [
+      "Marketing & Communication",
+      "Automation & Integration",
+      "Customer & CRM"
+    ],
+    "industries": [
+      "education-training",
+      "retail-ecommerce",
+      "property-real-estate",
+      "nonprofit",
+      "professional-services",
+      "telecommunications"
+    ],
+    "caseStudies": [
+      "ecd-training-verification-crm"
+    ]
+  },
+  {
+    "slug": "campaign-segmentation",
+    "name": "Campaign Segmentation",
+    "category": "marketing-and-engagement",
+    "objective": "Send the right thing to a defined group, and be able to explain who was in it.",
+    "stakeholders": [
+      "Marketing",
+      "Sales",
+      "Data owner",
+      "Customer"
+    ],
+    "commonProblems": [
+      "Segments are built by exporting to a spreadsheet and filtering by hand",
+      "The list is rebuilt from scratch every campaign",
+      "Suppression and consent are applied inconsistently",
+      "Segment criteria are not recorded, so results cannot be compared",
+      "The CRM and the campaign tool hold different versions of the same person"
+    ],
+    "futureState": [
+      "Segment defined by criteria against CRM data",
+      "Consent and suppression applied",
+      "Segment synced to the campaign tool",
+      "Campaign sent",
+      "Engagement written back to the CRM record",
+      "Segment criteria retained for repeat and comparison"
+    ],
+    "controls": [
+      "Consent check as a hard rule",
+      "Suppression list applied at send",
+      "One direction of sync per field",
+      "Frequency capping"
+    ],
+    "dataRequired": [
+      "Segment criteria",
+      "Consent and channel preference",
+      "Engagement history",
+      "Lifecycle stage",
+      "Campaign membership"
+    ],
+    "reporting": [
+      "Segment size and overlap",
+      "Engagement by segment",
+      "Consent and unsubscribe rates",
+      "Campaign-to-pipeline contribution"
+    ],
+    "risks": [
+      "Data quality determines segment quality and is usually worse than assumed",
+      "Two-way sync between CRM and campaign tools creates conflicts unless one side owns each field",
+      "Consent history does not survive migration"
+    ],
+    "discoveryQuestions": [
+      "How do you build a list today, step by step?",
+      "Which system owns the contact, and which one owns the consent?",
+      "How often can one person be contacted?",
+      "What do you want to compare between campaigns?",
+      "What happens to engagement data after the campaign?"
+    ],
+    "technologyCategories": [
+      "Marketing & Communication",
+      "Customer & CRM",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "fashion-jewellery",
+      "education-training",
+      "nonprofit",
+      "financial-services-lending",
+      "professional-services"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "email-nurture",
+    "name": "Email Nurture",
+    "category": "marketing-and-engagement",
+    "objective": "Run a sequence that reacts to behaviour instead of a calendar.",
+    "stakeholders": [
+      "Marketing",
+      "Sales",
+      "Prospect or customer"
+    ],
+    "commonProblems": [
+      "The journey is a fixed schedule that ignores what the person did",
+      "Sales is not told when someone becomes interested",
+      "Exit conditions are missing, so a customer keeps receiving prospect content",
+      "Content is written once and never reviewed",
+      "Engagement is visible in the campaign tool but not on the CRM record"
+    ],
+    "futureState": [
+      "Entry criteria met",
+      "Journey started with segment-appropriate content",
+      "Behaviour tracked (open, click, visit, reply)",
+      "Branching on engagement",
+      "Threshold triggers sales handoff",
+      "Exit on conversion, unsubscribe or completion",
+      "Engagement written back to the CRM"
+    ],
+    "controls": [
+      "Defined entry and exit criteria",
+      "Suppression on active sales conversations",
+      "Frequency capping",
+      "Handoff threshold agreed with sales"
+    ],
+    "dataRequired": [
+      "Segment and entry reason",
+      "Content mapping per stage",
+      "Engagement events",
+      "Exit condition",
+      "Handoff trigger"
+    ],
+    "reporting": [
+      "Journey completion and drop-off",
+      "Engagement by step",
+      "Nurture-to-opportunity conversion",
+      "Unsubscribe by content"
+    ],
+    "risks": [
+      "Content does not exist and the client has not resourced it",
+      "Deliverability and domain authentication are outside the project's control",
+      "Sales ignores the handoff notification"
+    ],
+    "discoveryQuestions": [
+      "What is this journey trying to make happen?",
+      "Who leaves the journey, and why?",
+      "What does someone have to do before sales should call them?",
+      "Who is writing this content, and by when?",
+      "Is your sending domain authenticated?"
+    ],
+    "technologyCategories": [
+      "Marketing & Communication",
+      "Customer & CRM"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "education-training",
+      "fashion-jewellery",
+      "financial-services-lending",
+      "professional-services",
+      "property-real-estate"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "whatsapp-nurture",
+    "name": "WhatsApp & Messaging Journeys",
+    "category": "marketing-and-engagement",
+    "objective": "Use the channel the customer actually reads, within the rules that channel imposes.",
+    "stakeholders": [
+      "Marketing",
+      "Support",
+      "Sales",
+      "Customer",
+      "Channel provider"
+    ],
+    "commonProblems": [
+      "Messaging happens on personal phones and leaves no record",
+      "Template approval is discovered as a dependency after the design is signed off",
+      "Marketing and support message the same customer from different numbers",
+      "Opt-in is assumed rather than captured",
+      "The 24-hour session window is not accounted for in the journey design"
+    ],
+    "futureState": [
+      "Opt-in captured and recorded",
+      "Template messages approved in advance",
+      "Journey triggered from a CRM event",
+      "Inbound replies routed to the right team as a conversation",
+      "Session and template rules respected",
+      "Conversation logged against the customer record",
+      "Opt-out honoured across channels"
+    ],
+    "controls": [
+      "Explicit opt-in record",
+      "Approved templates only outside the session window",
+      "Single business number per brand",
+      "Opt-out propagation",
+      "Conversation ownership"
+    ],
+    "dataRequired": [
+      "Consented mobile number",
+      "Template catalogue and approval status",
+      "Trigger event",
+      "Conversation history",
+      "Opt-out flag"
+    ],
+    "reporting": [
+      "Delivery and read rates",
+      "Reply rate and conversation volume",
+      "Opt-out rate",
+      "Template rejection rate"
+    ],
+    "risks": [
+      "Template and business-account approval sits with the channel provider and can delay go-live regardless of build readiness",
+      "Pricing per conversation changes the business case",
+      "Staff continue using personal numbers"
+    ],
+    "discoveryQuestions": [
+      "Are you approved for business messaging today, and under which number?",
+      "How is opt-in captured, and where is it stored?",
+      "Which messages are transactional and which are marketing?",
+      "Who answers when the customer replies?",
+      "What happens on the personal phones people use today?"
+    ],
+    "technologyCategories": [
+      "Marketing & Communication",
+      "Customer & CRM",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "fashion-jewellery",
+      "customer-support-operations",
+      "education-training",
+      "healthcare-medical",
+      "mobility-rental"
+    ],
+    "caseStudies": [
+      "retail-support-transformation"
+    ]
+  },
+  {
+    "slug": "booking-journeys",
+    "name": "Booking Journeys",
+    "category": "marketing-and-engagement",
+    "objective": "Let the customer book something real, against capacity that actually exists.",
+    "stakeholders": [
+      "Customer",
+      "Service provider or trainer",
+      "Operations",
+      "Support"
+    ],
+    "commonProblems": [
+      "Availability is maintained manually and is wrong by lunchtime",
+      "Bookings arrive as messages and are entered by hand",
+      "Double-booking is prevented by memory",
+      "Cancellations and reschedules are untracked",
+      "No-shows have no consequence and no record"
+    ],
+    "futureState": [
+      "Availability published from a maintained source",
+      "Customer selects and books",
+      "Booking record created and linked to the customer",
+      "Confirmation and reminders sent",
+      "Reschedule or cancel within policy",
+      "Attendance recorded",
+      "Follow-up or invoicing triggered"
+    ],
+    "controls": [
+      "Single source of availability",
+      "Booking rules (notice, capacity, buffer)",
+      "Cancellation policy encoded",
+      "Attendance capture",
+      "Reminder cadence"
+    ],
+    "dataRequired": [
+      "Resource and capacity",
+      "Availability windows",
+      "Booking type and duration",
+      "Customer record link",
+      "Status (booked, attended, cancelled, no-show)"
+    ],
+    "reporting": [
+      "Utilisation by resource",
+      "Booking volume and channel",
+      "Cancellation and no-show rates",
+      "Lead time to booking"
+    ],
+    "risks": [
+      "Availability is maintained manually as a deliberate phase-1 decision, and drift is the accepted cost",
+      "Calendar integration assumptions differ per provider",
+      "Time zones and public holidays are underestimated"
+    ],
+    "discoveryQuestions": [
+      "Who maintains availability today, and how often is it wrong?",
+      "What is the real capacity constraint — people, rooms, equipment?",
+      "What is your cancellation policy, in writing?",
+      "What happens when someone does not turn up?",
+      "Does a booking need to become an invoice?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Operations & Custom Applications",
+      "Marketing & Communication"
+    ],
+    "industries": [
+      "education-training",
+      "healthcare-medical",
+      "mobility-rental",
+      "professional-services",
+      "automotive",
+      "home-improvement-installations"
+    ],
+    "caseStudies": [
+      "driving-school-portal",
+      "ecd-training-verification-crm"
+    ]
+  },
+  {
+    "slug": "campaign-to-sales-handoff",
+    "name": "Campaign-to-Sales Handoff",
+    "category": "marketing-and-engagement",
+    "objective": "Close the loop between what marketing spent and what sales closed.",
+    "stakeholders": [
+      "Marketing",
+      "Sales",
+      "Sales manager",
+      "Finance"
+    ],
+    "commonProblems": [
+      "Marketing reports engagement; sales reports revenue; nobody joins them",
+      "Leads are handed over with no context about what the person responded to",
+      "Sales does not act on marketing-qualified leads and marketing never learns why",
+      "Attribution is argued about rather than measured",
+      "The definition of a qualified lead differs by department"
+    ],
+    "futureState": [
+      "Engagement threshold reached",
+      "Lead scored or flagged as marketing-qualified",
+      "Handoff with full engagement context",
+      "Sales accepts or rejects with a reason",
+      "Rejected leads return to nurture with feedback",
+      "Outcome attributed back to campaign",
+      "Joint review of definitions"
+    ],
+    "controls": [
+      "Written definition of a qualified lead, agreed by both sides",
+      "Mandatory accept/reject with reason",
+      "SLA on sales follow-up",
+      "Attribution model agreed in advance"
+    ],
+    "dataRequired": [
+      "Engagement history",
+      "Score or qualification flag",
+      "Campaign and source",
+      "Accept/reject reason",
+      "Deal outcome and value"
+    ],
+    "reporting": [
+      "Marketing-qualified to accepted rate",
+      "Rejection reasons",
+      "Campaign contribution to pipeline and revenue",
+      "Time to first contact after handoff"
+    ],
+    "risks": [
+      "Attribution is a commercial argument that a system cannot settle",
+      "Sales rejects leads without a reason and the loop stays open",
+      "Scoring models are built on data the business does not reliably capture"
+    ],
+    "discoveryQuestions": [
+      "What does marketing consider a good lead, and what does sales consider one?",
+      "What happens the moment a lead is handed over?",
+      "How quickly must sales act, and what if they do not?",
+      "How do you want to attribute a closed deal to a campaign?",
+      "Who reviews this together, and how often?"
+    ],
+    "technologyCategories": [
+      "Marketing & Communication",
+      "Customer & CRM",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "education-training",
+      "financial-services-lending",
+      "telecommunications",
+      "professional-services",
+      "property-real-estate"
+    ],
+    "caseStudies": [
+      "partner-configurator-scoping-tool"
+    ]
+  },
+  {
+    "slug": "product-onboarding",
+    "name": "Product Onboarding",
+    "category": "commerce-and-fulfilment",
+    "objective": "Get a product into the catalogue once, correctly, with the data every channel will demand.",
+    "stakeholders": [
+      "Merchant or supplier",
+      "Category manager",
+      "Marketing",
+      "Warehouse",
+      "Finance"
+    ],
+    "commonProblems": [
+      "Each channel wants different attributes and the data is assembled per channel by hand",
+      "SKUs are created inconsistently and duplicates appear",
+      "Images and copy arrive late and block listing",
+      "Dimensions and weight are missing until the first delivery fails",
+      "Nobody owns the master product record"
+    ],
+    "futureState": [
+      "Product submitted with mandatory attributes",
+      "SKU assigned under a defined convention",
+      "Duplicate check",
+      "Enrichment (copy, images, category, compliance)",
+      "Logistics data captured (weight, dimensions, handling)",
+      "Pricing and cost set",
+      "Approval",
+      "Published to the channels that qualify"
+    ],
+    "controls": [
+      "Mandatory attribute set before submission",
+      "SKU convention enforced",
+      "Duplicate detection",
+      "Approval before publish",
+      "Channel eligibility rules"
+    ],
+    "dataRequired": [
+      "SKU and identifiers",
+      "Title, description, images",
+      "Category and attributes",
+      "Cost, price, tax class",
+      "Weight and dimensions",
+      "Supplier or merchant",
+      "Compliance data"
+    ],
+    "reporting": [
+      "Time to list",
+      "Products blocked by missing data",
+      "Duplicate SKU rate",
+      "Listing coverage by channel"
+    ],
+    "risks": [
+      "Marketplace attribute requirements change and are not negotiable",
+      "Merchants supply poor data and enrichment quietly becomes an internal cost",
+      "Two systems both create SKUs"
+    ],
+    "discoveryQuestions": [
+      "Which system owns the master product record?",
+      "What is the SKU convention, and who enforces it?",
+      "What does each channel demand that the others do not?",
+      "What blocks a listing today, most often?",
+      "Who checks the data before it goes live — and are they real?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Operations & Custom Applications"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "marketplaces-resellers",
+      "fashion-jewellery",
+      "warehouse-fulfilment",
+      "manufacturing"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "catalogue-approval",
+    "name": "Catalogue Approval",
+    "category": "commerce-and-fulfilment",
+    "objective": "Keep control of what appears under your brand without becoming the bottleneck.",
+    "stakeholders": [
+      "Merchant",
+      "Category manager",
+      "Compliance",
+      "Marketplace administrator"
+    ],
+    "commonProblems": [
+      "Everything is approved by one person, and they go on leave",
+      "Approval criteria are not written down, so decisions look arbitrary",
+      "Rejections have no reason, so merchants resubmit the same item",
+      "Approved items change after approval without re-review",
+      "Restricted or non-compliant categories are caught by luck"
+    ],
+    "futureState": [
+      "Merchant submits product",
+      "Automated checks against rules (category, attributes, restricted items, pricing bounds)",
+      "Manual review against written criteria",
+      "Approve, reject with reason, or request changes",
+      "Merchant notified with the reason",
+      "Approved item published",
+      "Material change re-triggers review"
+    ],
+    "controls": [
+      "Written approval criteria",
+      "Automated pre-checks before human review",
+      "Mandatory rejection reason",
+      "Re-approval on material change",
+      "Named approver role with a deputy"
+    ],
+    "dataRequired": [
+      "Product submission",
+      "Category and restricted-item rules",
+      "Approval state and history",
+      "Reviewer",
+      "Rejection reason",
+      "Change log"
+    ],
+    "reporting": [
+      "Approval queue and ageing",
+      "Approval versus rejection rates by merchant",
+      "Rejection reasons",
+      "Review turnaround time"
+    ],
+    "risks": [
+      "Manual approval is deliberately retained for brand control and becomes the throughput ceiling",
+      "Merchants game the criteria if they are published in full",
+      "Change-triggered re-review is forgotten in phase 1"
+    ],
+    "discoveryQuestions": [
+      "What must never appear under your brand?",
+      "Who approves, and who approves when they are away?",
+      "Should approval be manual by design, or is that a resourcing accident?",
+      "What can be checked automatically before a human looks?",
+      "What happens when an approved product is edited?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Finance & Commerce"
+    ],
+    "industries": [
+      "marketplaces-resellers",
+      "retail-ecommerce",
+      "fashion-jewellery"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "order-to-fulfilment",
+    "name": "Order-to-Fulfilment",
+    "category": "commerce-and-fulfilment",
+    "objective": "One order state model from payment to doorstep, whatever the channel.",
+    "stakeholders": [
+      "Customer",
+      "Sales / online channel",
+      "Warehouse",
+      "Courier",
+      "Finance",
+      "Support",
+      "Merchant"
+    ],
+    "commonProblems": [
+      "Each channel has its own order states, so 'shipped' means four different things",
+      "Stock is allocated on picking rather than on order, so items oversell",
+      "Support cannot tell a customer where the order is",
+      "Split shipments break the state model",
+      "Third-party merchant orders follow an entirely separate path"
+    ],
+    "futureState": [
+      "Order received from any channel",
+      "Payment or finance decision confirmed",
+      "Stock allocated",
+      "Order confirmed to customer",
+      "Picked and packed",
+      "Courier assigned and consignment created",
+      "Dispatched with tracking to the customer",
+      "Delivered and confirmed",
+      "Post-delivery triggers (payout, invoicing, feedback)"
+    ],
+    "controls": [
+      "Single order state model across channels",
+      "Allocation on confirmation, not on pick",
+      "Mandatory logistics data before dispatch",
+      "Delivery confirmation as a controlled event",
+      "Exception path for partial and split orders"
+    ],
+    "dataRequired": [
+      "Order and line items",
+      "Channel and merchant",
+      "Payment or finance state",
+      "Stock allocation",
+      "Address and logistics data",
+      "Courier and tracking",
+      "Delivery confirmation"
+    ],
+    "reporting": [
+      "Orders by state and channel",
+      "Time to dispatch",
+      "Fulfilment failure and reasons",
+      "Split and partial rate",
+      "On-time delivery"
+    ],
+    "risks": [
+      "Marketplace channels enforce their own state names and SLAs",
+      "Merchant-fulfilled orders sit outside your warehouse's control but inside your brand promise",
+      "Delivery confirmation from couriers is not always reliable, and payout may depend on it"
+    ],
+    "discoveryQuestions": [
+      "Show me every state an order can be in today, per channel.",
+      "When is stock committed — at order, at payment or at pick?",
+      "What does a customer see, and when?",
+      "What happens when only half the order can ship?",
+      "Who fulfils a third-party merchant's order, and who answers for it?",
+      "What event proves delivery?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Operations & Custom Applications",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "marketplaces-resellers",
+      "warehouse-fulfilment",
+      "fashion-jewellery",
+      "manufacturing"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "inventory-movement",
+    "name": "Inventory Movement",
+    "category": "commerce-and-fulfilment",
+    "objective": "Know what you have, where it is, and why the number changed.",
+    "stakeholders": [
+      "Warehouse",
+      "Operations",
+      "Finance",
+      "Sales",
+      "Supplier"
+    ],
+    "commonProblems": [
+      "Stock figures differ between the sales system and the warehouse",
+      "Adjustments are made without a reason code",
+      "Reservations are informal, so the same unit is sold twice",
+      "Goods received are entered days later",
+      "Damaged and quarantined stock still shows as available"
+    ],
+    "futureState": [
+      "Goods received and inspected",
+      "Put away to a location",
+      "Stock available for allocation",
+      "Reserved on order confirmation",
+      "Picked and dispatched (stock out)",
+      "Returns received into a disposition state",
+      "Adjustments with mandatory reason",
+      "Cycle count and reconciliation"
+    ],
+    "controls": [
+      "One system owns stock quantity",
+      "Mandatory adjustment reason codes",
+      "Location and status states (available, reserved, damaged, quarantined)",
+      "Cycle count cadence",
+      "Negative stock blocked"
+    ],
+    "dataRequired": [
+      "SKU",
+      "Quantity and unit",
+      "Location",
+      "Status",
+      "Movement type and reason",
+      "Batch or serial where relevant",
+      "Timestamp and user"
+    ],
+    "reporting": [
+      "Stock on hand versus system",
+      "Adjustment volume by reason",
+      "Stock accuracy by location",
+      "Ageing and slow-moving stock",
+      "Availability failures"
+    ],
+    "risks": [
+      "Real-time synchronisation between systems is often assumed but constrained by API limits — near-real-time may be the honest answer",
+      "Stock accuracy is a discipline problem that a system will expose but not solve",
+      "Multi-warehouse is scoped out and then arrives anyway"
+    ],
+    "discoveryQuestions": [
+      "Which system is the truth for stock quantity?",
+      "How often is the physical count wrong, and by how much?",
+      "Who can adjust stock, and does the system ask why?",
+      "Does sales need live stock, or stock as at this morning?",
+      "How many warehouses will there be in eighteen months?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Operations & Custom Applications",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "warehouse-fulfilment",
+      "manufacturing",
+      "marketplaces-resellers",
+      "fashion-jewellery",
+      "automotive"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp"
+    ]
+  },
+  {
+    "slug": "courier-assignment",
+    "name": "Courier Assignment",
+    "category": "commerce-and-fulfilment",
+    "objective": "Pick the right carrier by rule, not by whoever is on the phone.",
+    "stakeholders": [
+      "Warehouse",
+      "Operations",
+      "Courier",
+      "Customer",
+      "Finance"
+    ],
+    "commonProblems": [
+      "Carrier is chosen by habit",
+      "Oversized or hazardous items are booked with a carrier who will not take them",
+      "Rates are compared manually, or not at all",
+      "Tracking numbers are pasted into emails",
+      "Failed deliveries return with no process"
+    ],
+    "futureState": [
+      "Consignment ready with validated logistics data",
+      "Carrier selected by rule (service level, geography, dimensions, cost, special handling)",
+      "Booking created with the carrier",
+      "Label and tracking generated",
+      "Tracking shared with the customer",
+      "Exception handling on failure",
+      "Cost captured against the order"
+    ],
+    "controls": [
+      "Mandatory dimensions, weight and address validation before booking",
+      "Carrier eligibility rules",
+      "Fallback carrier",
+      "Cost capture per consignment"
+    ],
+    "dataRequired": [
+      "Weight and dimensions",
+      "Destination and address quality",
+      "Service level required",
+      "Special handling flags",
+      "Carrier rates and eligibility",
+      "Tracking reference",
+      "Cost"
+    ],
+    "reporting": [
+      "Cost per consignment by carrier",
+      "On-time delivery by carrier and route",
+      "Failed delivery reasons",
+      "Rule versus override frequency"
+    ],
+    "risks": [
+      "Address quality is the most common cause of failure and is a data problem upstream",
+      "Carrier APIs vary widely in quality and coverage",
+      "Rate cards are commercially sensitive and change"
+    ],
+    "discoveryQuestions": [
+      "How is a carrier chosen today, honestly?",
+      "What can each carrier not take?",
+      "Is address data validated anywhere before dispatch?",
+      "What happens when a delivery fails?",
+      "Who sees the cost of shipping, and when?"
+    ],
+    "technologyCategories": [
+      "Automation & Integration",
+      "Operations & Custom Applications"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "warehouse-fulfilment",
+      "marketplaces-resellers",
+      "fashion-jewellery"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "delivery-management",
+    "name": "Delivery Management",
+    "category": "commerce-and-fulfilment",
+    "objective": "Make delivery a confirmed event, because other things depend on it.",
+    "stakeholders": [
+      "Customer",
+      "Courier or driver",
+      "Operations",
+      "Finance",
+      "Merchant"
+    ],
+    "commonProblems": [
+      "Delivery is assumed from a tracking status rather than confirmed",
+      "Proof of delivery lives with the carrier and is requested by email",
+      "Payout, invoicing or warranty start from the wrong date",
+      "Failed and partial deliveries have no state",
+      "The customer is told nothing between dispatch and doorstep"
+    ],
+    "futureState": [
+      "Consignment dispatched",
+      "In-transit visibility to customer and support",
+      "Delivery attempted",
+      "Proof of delivery captured",
+      "Delivery confirmed as a system event",
+      "Downstream triggers fired (payout, invoice, warranty start, feedback)",
+      "Exceptions handled (failed, refused, partial, damaged on arrival)"
+    ],
+    "controls": [
+      "Delivery confirmation as a controlled event, not an inference",
+      "Proof of delivery retained",
+      "Exception states defined",
+      "Downstream triggers tied to confirmation only"
+    ],
+    "dataRequired": [
+      "Consignment and tracking reference",
+      "Delivery attempt history",
+      "Proof of delivery",
+      "Confirmation timestamp",
+      "Exception reason",
+      "Recipient"
+    ],
+    "reporting": [
+      "On-time delivery",
+      "Failed delivery reasons",
+      "Time from dispatch to confirmation",
+      "Exceptions by carrier and route"
+    ],
+    "risks": [
+      "Carrier data quality determines whether confirmation is trustworthy",
+      "If payout depends on delivery, a wrong confirmation is a financial error",
+      "Proof-of-delivery retention may have contractual or regulatory implications"
+    ],
+    "discoveryQuestions": [
+      "What event proves a delivery happened?",
+      "What depends on that event — money, warranty, service start?",
+      "Where does proof of delivery live today?",
+      "What is a partial delivery in your system?",
+      "Who tells the customer, and when?"
+    ],
+    "technologyCategories": [
+      "Automation & Integration",
+      "Operations & Custom Applications",
+      "Finance & Commerce"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "marketplaces-resellers",
+      "warehouse-fulfilment",
+      "manufacturing",
+      "healthcare-medical"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "return-to-refund",
+    "name": "Return-to-Refund",
+    "category": "commerce-and-fulfilment",
+    "objective": "Connect the physical return to the financial one, in the right order.",
+    "stakeholders": [
+      "Customer",
+      "Support",
+      "Warehouse",
+      "Finance",
+      "Merchant",
+      "Finance provider"
+    ],
+    "commonProblems": [
+      "Refunds are issued before goods are inspected, or weeks after",
+      "The refund does not reconcile to the original payment method",
+      "Instalment or third-party financed purchases have no defined refund path",
+      "Merchant-funded refunds are recovered informally, or not at all",
+      "Partial refunds are calculated by hand"
+    ],
+    "futureState": [
+      "Return authorised",
+      "Goods received and inspected",
+      "Outcome and refund value determined",
+      "Refund authorised within limits",
+      "Refund executed to the original payment method or provider",
+      "Merchant or supplier recovery raised",
+      "Ledger entries reconciled",
+      "Customer notified",
+      "Case closed"
+    ],
+    "controls": [
+      "Inspection before refund",
+      "Refund authority limits",
+      "Refund to original payment route",
+      "Reconciliation to the financial source of truth",
+      "Recovery tracked separately"
+    ],
+    "dataRequired": [
+      "Return authorisation and RMA",
+      "Inspection outcome",
+      "Original payment method and reference",
+      "Refund value and reason",
+      "Provider or merchant liability",
+      "Ledger reference"
+    ],
+    "reporting": [
+      "Refund volume and value by reason",
+      "Time from receipt to refund",
+      "Refund reconciliation exceptions",
+      "Merchant recovery rate"
+    ],
+    "risks": [
+      "A financed purchase involves a third party whose refund process you do not control",
+      "The financial system, not the CRM, must remain the source of truth for money",
+      "Partial refunds interact badly with promotions and tax"
+    ],
+    "discoveryQuestions": [
+      "Who paid, and through what — you, a provider, or an instalment plan?",
+      "When is the customer entitled to their money back?",
+      "Which system creates the credit note?",
+      "Who absorbs the loss when it is a merchant's product?",
+      "What happens to an instalment agreement when the goods come back?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Customer & CRM",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "marketplaces-resellers",
+      "financial-services-lending",
+      "fashion-jewellery",
+      "warehouse-fulfilment"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce",
+      "retail-support-transformation"
+    ]
+  },
+  {
+    "slug": "merchant-onboarding",
+    "name": "Merchant Onboarding",
+    "category": "commerce-and-fulfilment",
+    "objective": "Let third parties sell under your brand without inheriting their problems.",
+    "stakeholders": [
+      "Merchant",
+      "Marketplace administrator",
+      "Compliance",
+      "Finance",
+      "Category manager"
+    ],
+    "commonProblems": [
+      "Merchants are onboarded by email and a spreadsheet",
+      "Verification is inconsistent, so risk is unknown",
+      "Commercial terms differ per merchant and are not recorded in any system",
+      "Merchants list before their logistics capability is verified",
+      "There is no way to suspend a merchant cleanly"
+    ],
+    "futureState": [
+      "Merchant applies",
+      "Business verification and document collection",
+      "Commercial terms agreed (commission, payout, service standards)",
+      "Compliance and risk check",
+      "Approval decision",
+      "Account and banking setup",
+      "Catalogue enablement",
+      "Trading",
+      "Ongoing performance review with a suspension path"
+    ],
+    "controls": [
+      "Mandatory verification documents",
+      "Written approval criteria",
+      "Terms recorded against the merchant record",
+      "Manual approval retained where brand risk is high",
+      "Suspension and offboarding path"
+    ],
+    "dataRequired": [
+      "Business registration and tax details",
+      "Banking details",
+      "Verification documents",
+      "Commission and payout terms",
+      "Service standards",
+      "Category permissions",
+      "Status"
+    ],
+    "reporting": [
+      "Merchant pipeline and approval rate",
+      "Time to onboard",
+      "Merchants by status and category",
+      "Performance by merchant",
+      "Suspension reasons"
+    ],
+    "risks": [
+      "Onboarding is deliberately manual for brand control, which caps growth — that is a commercial decision, not a technical one",
+      "Banking and verification data are sensitive and have handling requirements",
+      "Merchant performance standards are unenforceable without a suspension mechanism designed in from the start"
+    ],
+    "discoveryQuestions": [
+      "What makes a merchant acceptable to you?",
+      "What do you need to verify, and who checks it?",
+      "Do all merchants get the same commercial terms?",
+      "What are the service standards, and what happens when a merchant misses them?",
+      "How do you remove a merchant who is trading badly?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Finance & Commerce",
+      "Customer & CRM"
+    ],
+    "industries": [
+      "marketplaces-resellers",
+      "retail-ecommerce",
+      "financial-services-lending"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "merchant-payout",
+    "name": "Merchant Payout & Commission",
+    "category": "commerce-and-fulfilment",
+    "objective": "Pay third parties the right amount, on a trigger everyone agreed to in advance.",
+    "stakeholders": [
+      "Merchant",
+      "Finance",
+      "Marketplace administrator",
+      "Finance provider"
+    ],
+    "commonProblems": [
+      "The payout trigger is not defined — order, dispatch, delivery or return window?",
+      "Commission is calculated in a spreadsheet",
+      "Returns after payout create a recovery problem nobody designed for",
+      "Merchants dispute figures and there is no statement to point at",
+      "Financed sales pay out on a different rhythm and it was not modelled"
+    ],
+    "futureState": [
+      "Order delivered and confirmed",
+      "Return window elapsed or waived",
+      "Commission calculated per agreed terms",
+      "Deductions applied (returns, fees, adjustments)",
+      "Payout statement generated for the merchant",
+      "Payment executed",
+      "Ledger reconciled in the financial system of truth",
+      "Dispute path available"
+    ],
+    "controls": [
+      "Payout trigger defined contractually and in the system",
+      "Commission rules held as data, not code",
+      "Return-window hold",
+      "Statement before payment",
+      "Reconciliation to the financial source of truth",
+      "Dispute process"
+    ],
+    "dataRequired": [
+      "Order and delivery confirmation",
+      "Commission rate and rules per merchant",
+      "Returns and deductions",
+      "Payout period",
+      "Statement reference",
+      "Payment reference"
+    ],
+    "reporting": [
+      "Payout value by period and merchant",
+      "Commission earned",
+      "Deductions and recoveries",
+      "Disputes",
+      "Reconciliation exceptions"
+    ],
+    "risks": [
+      "Money processes must reconcile to the financial system, not to the CRM",
+      "A wrong payout trigger creates a real financial exposure on returns",
+      "Commission structures change per merchant and per campaign, and hard-coding them guarantees rework"
+    ],
+    "discoveryQuestions": [
+      "What event earns the merchant their money?",
+      "How long is the return window, and do you hold payout for it?",
+      "How is commission structured — flat, tiered, per category?",
+      "Which system produces the ledger entry?",
+      "What happens when a paid-out order is returned?",
+      "How does a merchant dispute a figure?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "marketplaces-resellers",
+      "financial-services-lending",
+      "retail-ecommerce"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "quote-to-cash",
+    "name": "Quote-to-Cash",
+    "category": "finance-operations",
+    "objective": "Follow one thread from quotation to money received, across however many systems own the steps.",
+    "stakeholders": [
+      "Sales",
+      "Finance",
+      "Customer",
+      "Operations",
+      "Management"
+    ],
+    "commonProblems": [
+      "The quote is in one system, the invoice in another, the payment in a third, and the thread is a person",
+      "Nobody can say how long it takes from deal to cash",
+      "Sales does not know the customer has not paid",
+      "The CRM has no financial visibility, so account management is blind",
+      "Reconciliation is a monthly manual exercise"
+    ],
+    "futureState": [
+      "Deal qualified",
+      "Quotation produced in the pricing system of record",
+      "Quote accepted and recorded against the deal",
+      "Order or job created",
+      "Delivery or service completed",
+      "Invoice raised in the accounting system of record",
+      "Payment recorded in the accounting system",
+      "State reflected against the customer and deal",
+      "Cycle closed and reported"
+    ],
+    "controls": [
+      "One source of truth per record type (quote, invoice, payment)",
+      "One-way state reflection into the CRM",
+      "Mandatory references linking systems",
+      "No duplicate financial calculation in the CRM"
+    ],
+    "dataRequired": [
+      "Quote number and value",
+      "Order reference",
+      "Delivery confirmation",
+      "Invoice number, value and due date",
+      "Payment status and date",
+      "Currency"
+    ],
+    "reporting": [
+      "Deal-to-cash cycle time",
+      "Value at each stage",
+      "Ageing receivables against sales activity",
+      "Stage bottlenecks",
+      "Forecast versus invoiced"
+    ],
+    "risks": [
+      "Reflecting financial state into the CRM invites the assumption that the CRM can be edited — it cannot",
+      "Sync frequency between systems is a business decision (real-time versus periodic) with a real cost",
+      "Multi-currency and tax rules belong to the accounting system and should not be recreated"
+    ],
+    "discoveryQuestions": [
+      "Which system creates the quote, which creates the invoice, and which records the payment?",
+      "Does sales need to see payment status, and to do what with it?",
+      "How often does data need to move between systems — really?",
+      "What links a quote to an invoice today?",
+      "How long does deal-to-cash take now, and who could tell me?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Customer & CRM",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "manufacturing",
+      "professional-services",
+      "energy-utilities",
+      "telecommunications",
+      "home-improvement-installations",
+      "marketplaces-resellers"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "field-service-job-lifecycle"
+    ]
+  },
+  {
+    "slug": "invoice-and-payment-tracking",
+    "name": "Invoice & Payment Tracking",
+    "category": "finance-operations",
+    "objective": "Let the people who talk to the customer see whether the customer has paid.",
+    "stakeholders": [
+      "Finance",
+      "Sales / account manager",
+      "Customer",
+      "Support"
+    ],
+    "commonProblems": [
+      "Payment status lives only in the accounting system, which sales cannot open",
+      "Chasing is done from an exported spreadsheet",
+      "Part-paid invoices show as unpaid",
+      "Credit notes and adjustments are invisible outside finance",
+      "Customers are chased by two people on the same day"
+    ],
+    "futureState": [
+      "Invoice raised in the accounting system of record",
+      "Invoice reference and status reflected against the customer record",
+      "Due-date monitoring",
+      "Reminder sequence by ageing bracket",
+      "Escalation to account manager",
+      "Payment recorded in the accounting system",
+      "Status reflected back",
+      "Dispute or query path"
+    ],
+    "controls": [
+      "Accounting system remains the source of truth",
+      "Read-only reflection into the CRM",
+      "Defined dunning ladder",
+      "Single chase owner per account",
+      "Dispute state that stops automated chasing"
+    ],
+    "dataRequired": [
+      "Invoice number, value, currency and due date",
+      "Paid, part-paid, overdue, disputed status",
+      "Payment date and reference",
+      "Credit notes",
+      "Account owner"
+    ],
+    "reporting": [
+      "Ageing by customer and bracket",
+      "Days sales outstanding",
+      "Disputes and reasons",
+      "Chase activity and outcome"
+    ],
+    "risks": [
+      "Reflecting financial data into a CRM raises access-control questions — not everyone should see everything",
+      "Sync lag creates awkward conversations if a customer paid this morning",
+      "Automated chasing on a disputed invoice damages the relationship"
+    ],
+    "discoveryQuestions": [
+      "Who currently knows whether a customer has paid?",
+      "Who should?",
+      "Which system is allowed to change payment status?",
+      "What is your chase sequence today, and who runs it?",
+      "What happens when the customer disputes an invoice?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Customer & CRM",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "professional-services",
+      "manufacturing",
+      "energy-utilities",
+      "education-training",
+      "telecommunications",
+      "marketplaces-resellers"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "driving-school-portal"
+    ]
+  },
+  {
+    "slug": "partial-payments",
+    "name": "Partial Payments & Deposits",
+    "category": "finance-operations",
+    "objective": "Model a payment schedule that reflects what the business actually agreed.",
+    "stakeholders": [
+      "Customer",
+      "Sales",
+      "Finance",
+      "Operations"
+    ],
+    "commonProblems": [
+      "A deposit is recorded as a paid invoice",
+      "Work starts before the deposit clears, sometimes",
+      "The balance is chased manually at an unpredictable moment",
+      "Deposit calculation rules differ per job type and live in someone's head",
+      "Refunding a deposit has no defined path"
+    ],
+    "futureState": [
+      "Terms agreed with a payment schedule",
+      "Deposit invoice raised",
+      "Deposit received and confirmed",
+      "Work authorised to start",
+      "Milestone or balance invoices raised on defined triggers",
+      "Balance received",
+      "Account settled and reconciled",
+      "Refund path where cancelled"
+    ],
+    "controls": [
+      "Deposit received as a hard gate before work starts",
+      "Payment schedule held against the agreement",
+      "Calculation rules as configuration, not code",
+      "Refund authority limits"
+    ],
+    "dataRequired": [
+      "Total value and currency",
+      "Payment schedule and triggers",
+      "Deposit rule and value",
+      "Amounts received and outstanding",
+      "Job or order link",
+      "Refund terms"
+    ],
+    "reporting": [
+      "Outstanding balances by stage",
+      "Deposit conversion to completed work",
+      "Cancellations after deposit",
+      "Cash timing versus delivery"
+    ],
+    "risks": [
+      "Deposit calculation rules are often more complex than first described and drive real scope",
+      "The 'work cannot start' gate is a business rule people will want to override",
+      "Cancellation and refund terms are frequently undefined until the first cancellation"
+    ],
+    "discoveryQuestions": [
+      "What does a customer pay, and when?",
+      "How is the deposit calculated — and are there exceptions?",
+      "Can work start before the deposit clears? Who decides?",
+      "What triggers the balance invoice?",
+      "What happens if they cancel after paying a deposit?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Customer & CRM",
+      "Operations & Custom Applications"
+    ],
+    "industries": [
+      "home-improvement-installations",
+      "manufacturing",
+      "professional-services",
+      "education-training",
+      "automotive",
+      "mobility-rental"
+    ],
+    "caseStudies": [
+      "field-service-job-lifecycle"
+    ]
+  },
+  {
+    "slug": "installment-checkout",
+    "name": "Instalment Checkout",
+    "category": "finance-operations",
+    "objective": "Offer instalments without becoming a lender.",
+    "stakeholders": [
+      "Customer",
+      "Marketplace or retailer",
+      "Finance provider",
+      "Finance team",
+      "Support"
+    ],
+    "commonProblems": [
+      "The business drifts toward building a credit engine it is not licensed to operate",
+      "Eligibility is displayed before the provider has decided",
+      "Who chases a missed repayment is undefined",
+      "The order is confirmed before the finance decision returns",
+      "Servicing and collections conversations arrive at the same support desk with no distinction"
+    ],
+    "futureState": [
+      "Customer selects instalment at checkout",
+      "Application passed to the external finance provider",
+      "Provider makes the lending decision",
+      "Decision returned and reflected on the order",
+      "Order confirmed only on approval",
+      "Goods fulfilled",
+      "Provider owns the repayment relationship",
+      "Retailer owns servicing and after-sales",
+      "Defined escalation between the two"
+    ],
+    "controls": [
+      "Lending decision stays external",
+      "No credit logic inside the commerce system",
+      "Order confirmation gated on the provider's decision",
+      "Written responsibility split for repayment, servicing and collections",
+      "Decline handled without exposing the reason"
+    ],
+    "dataRequired": [
+      "Order value and terms",
+      "Application reference",
+      "Provider decision and status",
+      "Repayment schedule (reference only)",
+      "Responsibility markers",
+      "Customer consent"
+    ],
+    "reporting": [
+      "Instalment take-up rate",
+      "Approval and decline rates",
+      "Order confirmation lag",
+      "Support contacts by type (servicing versus repayment)"
+    ],
+    "risks": [
+      "Regulatory exposure if the retailer appears to make lending decisions",
+      "Provider downtime blocks checkout — a fallback must be a decision, not an omission",
+      "Customers will call the retailer about repayments regardless of the contract, so the routing must exist",
+      "Refunds on a financed order must be agreed with the provider before launch"
+    ],
+    "discoveryQuestions": [
+      "Who makes the lending decision, and are they licensed to?",
+      "What does the customer see while the decision is pending?",
+      "Who does the customer call about a missed payment — you or the provider?",
+      "What happens at checkout if the provider is down?",
+      "How does a refund work on a financed purchase?",
+      "Is any of this regulated in your market?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Automation & Integration",
+      "Customer & CRM"
+    ],
+    "industries": [
+      "financial-services-lending",
+      "marketplaces-resellers",
+      "retail-ecommerce",
+      "automotive"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "commission-management",
+    "name": "Commission Management",
+    "category": "finance-operations",
+    "objective": "Calculate what people and partners are owed from data, not from a spreadsheet.",
+    "stakeholders": [
+      "Sales associate",
+      "Merchant or partner",
+      "Finance",
+      "Management"
+    ],
+    "commonProblems": [
+      "Commission is calculated monthly by hand and disputed monthly by everyone",
+      "Rules change per campaign and are not versioned",
+      "Clawback on returns or cancellations is informal",
+      "Split credit between two salespeople has no model",
+      "The rule is embedded in code and every change is a development request"
+    ],
+    "futureState": [
+      "Qualifying event occurs (won, delivered, paid — defined explicitly)",
+      "Commission calculated against the applicable rule version",
+      "Splits applied where relevant",
+      "Adjustments and clawbacks applied",
+      "Statement generated per period",
+      "Review and approval",
+      "Payment executed via payroll or accounts",
+      "Dispute path"
+    ],
+    "controls": [
+      "Commission rules held as configurable data with version history",
+      "Qualifying event defined in writing",
+      "Clawback rules defined at design time",
+      "Statement before payment",
+      "Approval before release"
+    ],
+    "dataRequired": [
+      "Qualifying transaction and value",
+      "Rule version applied",
+      "Rate or tier",
+      "Split allocation",
+      "Adjustments and clawbacks",
+      "Period",
+      "Statement reference"
+    ],
+    "reporting": [
+      "Commission by period, person and merchant",
+      "Rule exceptions and overrides",
+      "Clawback volume",
+      "Disputes"
+    ],
+    "risks": [
+      "Rules encoded as code guarantee a change request every quarter",
+      "The qualifying event is often contested — won, delivered or paid are very different cash positions",
+      "Historical recalculation is expensive if rule versions are not retained"
+    ],
+    "discoveryQuestions": [
+      "What event earns commission — the sale, the delivery or the payment?",
+      "How often do the rules change?",
+      "What happens when the order is returned after commission is paid?",
+      "How is credit split when two people worked the deal?",
+      "Who approves a statement before anyone is paid?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "marketplaces-resellers",
+      "retail-ecommerce",
+      "financial-services-lending",
+      "property-real-estate",
+      "professional-services",
+      "automotive"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "subscription-and-renewal-billing",
+    "name": "Subscription & Renewal Billing",
+    "category": "finance-operations",
+    "objective": "Bill recurring revenue on a schedule the system owns.",
+    "stakeholders": [
+      "Customer",
+      "Finance",
+      "Account manager",
+      "Operations"
+    ],
+    "commonProblems": [
+      "Recurring invoices are raised manually and get missed",
+      "Mid-term upgrades are pro-rated by hand",
+      "Failed payments have no retry or dunning path",
+      "Cancellation mid-cycle has no defined refund position",
+      "Renewal price increases are applied inconsistently"
+    ],
+    "futureState": [
+      "Subscription created with terms and schedule",
+      "Recurring invoice generated automatically",
+      "Payment collected or invoiced",
+      "Failure triggers retry and dunning",
+      "Mid-term change pro-rated by rule",
+      "Renewal processed with agreed uplift",
+      "Cancellation handled per terms",
+      "Revenue recognised in the accounting system"
+    ],
+    "controls": [
+      "Billing schedule owned by one system",
+      "Pro-ration rules defined",
+      "Dunning ladder",
+      "Cancellation and refund terms encoded",
+      "Price-change approval"
+    ],
+    "dataRequired": [
+      "Plan and terms",
+      "Billing frequency and next date",
+      "Payment method",
+      "Pro-ration events",
+      "Failure and retry history",
+      "Cancellation date and reason"
+    ],
+    "reporting": [
+      "Recurring revenue by plan",
+      "Churn and involuntary churn",
+      "Failed payment recovery",
+      "Pro-ration adjustments",
+      "Renewal uplift realised"
+    ],
+    "risks": [
+      "Involuntary churn from card failures is usually larger than expected",
+      "Pro-ration is a rules problem that grows with every plan variant",
+      "Revenue recognition is an accounting decision, not a system default"
+    ],
+    "discoveryQuestions": [
+      "What plans exist, and what really differs between them?",
+      "What happens when a payment fails — how many times, over how long?",
+      "Can a customer change plan mid-cycle, and who works out the money?",
+      "What are the cancellation terms?",
+      "Who is allowed to change a price?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Customer & CRM",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "telecommunications",
+      "education-training",
+      "professional-services",
+      "energy-utilities",
+      "mobility-rental"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "multi-company-multi-currency",
+    "name": "Multi-Company & Multi-Currency Operations",
+    "category": "finance-operations",
+    "objective": "Run several legal entities and currencies without four disconnected businesses.",
+    "stakeholders": [
+      "Finance",
+      "Management",
+      "Operations",
+      "Customer",
+      "Auditor"
+    ],
+    "commonProblems": [
+      "Each entity runs its own system and consolidation is a spreadsheet",
+      "The same customer exists three times with three different balances",
+      "Exchange rates are entered manually and inconsistently",
+      "Inter-company transactions are recorded on one side only",
+      "Reporting cannot separate entity performance from group performance"
+    ],
+    "futureState": [
+      "Entity structure defined",
+      "Customer and product data governed at the level that makes sense (shared or per entity)",
+      "Transactions raised in the entity's own base currency",
+      "Exchange rates sourced consistently",
+      "Inter-company transactions recorded on both sides",
+      "Entity-level reporting",
+      "Group consolidation"
+    ],
+    "controls": [
+      "Defined data ownership per entity",
+      "Rate source and update frequency",
+      "Inter-company matching",
+      "Permission separation between entities",
+      "Consolidation rules"
+    ],
+    "dataRequired": [
+      "Entity and base currency",
+      "Customer mapping across entities",
+      "Transaction currency and rate applied",
+      "Inter-company references",
+      "Fiscal calendars per entity"
+    ],
+    "reporting": [
+      "Performance by entity",
+      "Group consolidated view",
+      "Inter-company balances",
+      "FX exposure",
+      "Cross-entity customer view"
+    ],
+    "risks": [
+      "Fiscal years, tax rules and holiday calendars differ per country and are often assumed identical",
+      "Permission separation between entities is a compliance issue, not a preference",
+      "Consolidation logic belongs in the accounting or reporting layer, not the CRM"
+    ],
+    "discoveryQuestions": [
+      "How many legal entities are there, and will that number change?",
+      "Do the entities share customers, products or people?",
+      "What is each entity's base currency and fiscal year?",
+      "Where do exchange rates come from?",
+      "Who is allowed to see another entity's data?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Analytics & Documents",
+      "Customer & CRM"
+    ],
+    "industries": [
+      "education-training",
+      "manufacturing",
+      "professional-services",
+      "marine-yacht-licensing",
+      "energy-utilities",
+      "telecommunications"
+    ],
+    "caseStudies": [
+      "marine-licensing-relationship-architecture"
+    ]
+  },
+  {
+    "slug": "landed-cost",
+    "name": "Landed Cost",
+    "category": "finance-operations",
+    "objective": "Know what the product really cost by the time it reached your shelf.",
+    "stakeholders": [
+      "Procurement",
+      "Finance",
+      "Warehouse",
+      "Management"
+    ],
+    "commonProblems": [
+      "Margin is calculated on supplier price alone",
+      "Freight, duty and clearing are booked as overheads and never reach the SKU",
+      "Costs arrive weeks after the goods and nobody restates the cost",
+      "Currency movement between order and payment is ignored",
+      "Pricing decisions are made on a number that is not true"
+    ],
+    "futureState": [
+      "Purchase order raised",
+      "Goods shipped with associated costs identified",
+      "Freight, duty, clearing and handling captured",
+      "Costs allocated to shipment lines by an agreed basis (value, weight, volume)",
+      "Landed cost per unit calculated",
+      "Inventory valued at landed cost",
+      "Margin reported against landed cost",
+      "Late costs restated"
+    ],
+    "controls": [
+      "Defined allocation basis",
+      "All cost components captured before valuation",
+      "Late-cost restatement rule",
+      "Currency rate policy at receipt"
+    ],
+    "dataRequired": [
+      "Supplier cost and currency",
+      "Freight, duty, clearing, insurance, handling",
+      "Allocation basis",
+      "Exchange rate and date",
+      "Quantity received",
+      "Unit landed cost"
+    ],
+    "reporting": [
+      "True margin by SKU and shipment",
+      "Cost component breakdown",
+      "Variance between estimated and actual landed cost",
+      "Currency impact"
+    ],
+    "risks": [
+      "Costs genuinely arrive late, so the process needs a restatement path rather than a pretence of accuracy",
+      "Allocation basis is an accounting decision that changes the answer",
+      "This belongs in the inventory or accounting system, not in a CRM"
+    ],
+    "discoveryQuestions": [
+      "What does the product cost by the time it can be sold?",
+      "Which costs do you currently ignore?",
+      "How do you allocate freight across mixed shipments?",
+      "When do you find out the real cost, and does anyone go back and fix it?",
+      "What margin figure are you pricing against today?"
+    ],
+    "technologyCategories": [
+      "Finance & Commerce",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "retail-ecommerce",
+      "warehouse-fulfilment",
+      "manufacturing",
+      "fashion-jewellery",
+      "marketplaces-resellers"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "project-delivery",
+    "name": "Project Delivery",
+    "category": "operations-and-governance",
+    "objective": "Run the work in phases with owners, dependencies and a definition of done.",
+    "stakeholders": [
+      "Project lead",
+      "Client",
+      "Developers",
+      "Business analysts",
+      "QA",
+      "Partner"
+    ],
+    "commonProblems": [
+      "Scope is agreed verbally and remembered differently",
+      "Phases exist on the plan but everything runs at once",
+      "Dependencies on the client are not tracked as risks",
+      "Change requests are absorbed as goodwill until the margin disappears",
+      "Status reporting is optimistic until it is not"
+    ],
+    "futureState": [
+      "Approved scope baselined",
+      "Phases with entry and exit criteria",
+      "Owners assigned per activity",
+      "Dependencies registered and tracked",
+      "Build with requirement clarification",
+      "Layered testing",
+      "UAT and acceptance",
+      "Change control against the baseline",
+      "Go-live",
+      "Handover to support"
+    ],
+    "controls": [
+      "Baselined scope",
+      "Written definition of done per phase",
+      "Dependency register with owners and dates",
+      "Change control with impact assessment",
+      "Sign-off per phase"
+    ],
+    "dataRequired": [
+      "Scope baseline reference",
+      "Phase and activity breakdown",
+      "Owner and effort",
+      "Dependency status",
+      "Change requests and impact",
+      "Acceptance evidence"
+    ],
+    "reporting": [
+      "Progress against plan",
+      "Dependency ageing",
+      "Change request volume and origin",
+      "Effort versus estimate",
+      "Defect versus change classification"
+    ],
+    "risks": [
+      "Client dependencies are the most common cause of slippage and the least tracked",
+      "Change absorbed as a defect destroys the estimate silently",
+      "Phase boundaries erode under commercial pressure"
+    ],
+    "discoveryQuestions": [
+      "What is the approved scope, and where is it written?",
+      "What does the client owe this project, and by when?",
+      "What is 'done' for this phase?",
+      "Who decides whether something is a defect or a change?",
+      "What happens if a dependency is two weeks late?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "professional-services",
+      "telecommunications",
+      "education-training",
+      "nonprofit",
+      "manufacturing",
+      "home-improvement-installations"
+    ],
+    "caseStudies": [
+      "driving-school-portal",
+      "ecd-training-verification-crm",
+      "field-service-job-lifecycle",
+      "partner-configurator-scoping-tool"
+    ]
+  },
+  {
+    "slug": "approval-management",
+    "name": "Approval Management",
+    "category": "operations-and-governance",
+    "objective": "Put approvals where risk is, and nowhere else.",
+    "stakeholders": [
+      "Requester",
+      "Approver",
+      "Management",
+      "Finance",
+      "Compliance"
+    ],
+    "commonProblems": [
+      "Everything needs approval, so approval means nothing",
+      "The approver is a person, not a role, and they go on leave",
+      "Approvals happen in email and are not attached to the record",
+      "Thresholds are undocumented",
+      "There is no record of who approved what, or when"
+    ],
+    "futureState": [
+      "Request raised with the data needed to decide",
+      "Approval requirement determined by rule (value, type, risk)",
+      "Routed to a role with a deputy",
+      "Approver decides with a reason",
+      "Decision recorded against the record",
+      "Escalation on delay",
+      "Audit trail retained"
+    ],
+    "controls": [
+      "Approval matrix by value and type",
+      "Role-based routing with deputies",
+      "Timeout escalation",
+      "Mandatory reason on rejection",
+      "Immutable audit trail"
+    ],
+    "dataRequired": [
+      "Request type and value",
+      "Approval rule applied",
+      "Approver role and person",
+      "Decision, reason and timestamp",
+      "Escalation history"
+    ],
+    "reporting": [
+      "Approvals pending and ageing",
+      "Approval turnaround by role",
+      "Rejection reasons",
+      "Escalation frequency",
+      "Approvals by value band"
+    ],
+    "risks": [
+      "Approval layers are often organisational habit rather than control, and removing them is political",
+      "Routing to individuals rather than roles breaks the first time someone is on leave",
+      "Approvals designed for management comfort become the bottleneck"
+    ],
+    "discoveryQuestions": [
+      "What is each approval actually protecting against?",
+      "What would happen if this one disappeared?",
+      "Who approves when the approver is away?",
+      "What is the value threshold, and who set it?",
+      "Does anyone ever need to prove who approved something?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Operations & Custom Applications"
+    ],
+    "industries": [
+      "manufacturing",
+      "financial-services-lending",
+      "nonprofit",
+      "marketplaces-resellers",
+      "education-training",
+      "energy-utilities",
+      "professional-services"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "ecd-training-verification-crm",
+      "manufacturing-quality-tooling-process",
+      "marine-licensing-relationship-architecture",
+      "nonprofit-operational-application"
+    ]
+  },
+  {
+    "slug": "field-operations",
+    "name": "Field Operations & Job Lifecycle",
+    "category": "operations-and-governance",
+    "objective": "Get the right person, with the right parts, to the right place — and capture what happened.",
+    "stakeholders": [
+      "Customer",
+      "Scheduler",
+      "Field technician",
+      "Operations",
+      "Finance",
+      "Warehouse"
+    ],
+    "commonProblems": [
+      "Scheduling is a whiteboard and a phone",
+      "Technicians are dispatched without the skills or parts the job needs",
+      "Job completion is a photograph in a WhatsApp group",
+      "Different job types follow the same workflow even though they are not the same work",
+      "Invoicing waits for paperwork to come back from the van"
+    ],
+    "futureState": [
+      "Job created from an order, contract or ticket",
+      "Job type determines the workflow",
+      "Requirements assessed (skills, parts, access, duration)",
+      "Scheduled to a qualified resource",
+      "Dispatched with job detail",
+      "Work performed and recorded on site",
+      "Parts and time captured",
+      "Completion evidence and customer sign-off",
+      "Invoice or follow-up triggered",
+      "Job closed"
+    ],
+    "controls": [
+      "Job type drives the workflow, not one generic path",
+      "Skill and part checks before dispatch",
+      "Mandatory completion evidence",
+      "Customer sign-off",
+      "Time and parts captured at source"
+    ],
+    "dataRequired": [
+      "Job type and scope",
+      "Address and access requirements",
+      "Required skills and parts",
+      "Resource and schedule",
+      "Time on site",
+      "Parts consumed",
+      "Completion evidence",
+      "Sign-off"
+    ],
+    "reporting": [
+      "Jobs by type and status",
+      "First-time fix rate",
+      "Technician utilisation",
+      "Travel versus productive time",
+      "Parts consumption",
+      "Time to invoice"
+    ],
+    "risks": [
+      "Different job types genuinely need different workflows — forcing one blueprint is a common and expensive shortcut",
+      "Address validation and skill-based scheduling are frequently underestimated at scoping",
+      "Mobile capture depends on connectivity that may not exist on site"
+    ],
+    "discoveryQuestions": [
+      "What are the genuinely different job types, and how does the work differ?",
+      "What has to be true before a technician is dispatched?",
+      "What is captured on site today, and on what?",
+      "What does the customer sign, if anything?",
+      "What triggers the invoice?",
+      "Does the technician have signal where the work happens?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Customer & CRM",
+      "Finance & Commerce"
+    ],
+    "industries": [
+      "home-improvement-installations",
+      "healthcare-medical",
+      "energy-utilities",
+      "telecommunications",
+      "manufacturing",
+      "automotive",
+      "nonprofit"
+    ],
+    "caseStudies": [
+      "field-service-job-lifecycle",
+      "nonprofit-operational-application"
+    ]
+  },
+  {
+    "slug": "mileage-tracking",
+    "name": "Mileage & Route Tracking",
+    "category": "operations-and-governance",
+    "objective": "Record travel accurately enough to reimburse, plan and justify it.",
+    "stakeholders": [
+      "Field staff",
+      "Operations",
+      "Finance",
+      "Management"
+    ],
+    "commonProblems": [
+      "Mileage is claimed from memory at month end",
+      "There is no route planning, so the day is inefficient by default",
+      "Reimbursement rules differ per person",
+      "Claims are approved without evidence",
+      "Travel time is invisible in capacity planning"
+    ],
+    "futureState": [
+      "Journey planned or captured",
+      "Start and end recorded against a job or purpose",
+      "Distance calculated from a defined source",
+      "Rate applied per policy",
+      "Claim submitted with the job reference",
+      "Approval against policy",
+      "Reimbursement via payroll or expenses",
+      "Travel reflected in capacity data"
+    ],
+    "controls": [
+      "Defined distance source",
+      "Rate policy per vehicle or staff category",
+      "Mandatory job or purpose link",
+      "Approval threshold",
+      "Duplicate claim detection"
+    ],
+    "dataRequired": [
+      "Start and end locations",
+      "Distance",
+      "Purpose and job link",
+      "Vehicle and driver",
+      "Rate",
+      "Date",
+      "Approval"
+    ],
+    "reporting": [
+      "Mileage by person, vehicle and job type",
+      "Cost of travel per job",
+      "Travel versus productive time",
+      "Claims outside policy"
+    ],
+    "risks": [
+      "Location tracking has privacy and employee-relations implications that are not a technical decision",
+      "Distance sources disagree, and the difference is money",
+      "Manual capture will be gamed if it is easier than being accurate"
+    ],
+    "discoveryQuestions": [
+      "What are you trying to achieve — reimbursement, planning or cost visibility?",
+      "How is mileage claimed today?",
+      "What is the policy rate, and does it vary?",
+      "Are staff comfortable with location capture, and have they been asked?",
+      "Should travel time count against job capacity?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Automation & Integration"
+    ],
+    "industries": [
+      "healthcare-medical",
+      "home-improvement-installations",
+      "energy-utilities",
+      "nonprofit",
+      "telecommunications",
+      "automotive"
+    ],
+    "caseStudies": [
+      "field-service-job-lifecycle"
+    ]
+  },
+  {
+    "slug": "asset-management",
+    "name": "Asset Management",
+    "category": "operations-and-governance",
+    "objective": "Know what you own, where it is, who has it and what has been done to it.",
+    "stakeholders": [
+      "Operations",
+      "Finance",
+      "Field staff",
+      "Maintenance",
+      "Management"
+    ],
+    "commonProblems": [
+      "Assets live in a spreadsheet that is out of date",
+      "Custody is not recorded, so nobody knows who has it",
+      "Maintenance is reactive because schedules are not tracked",
+      "Asset history is spread across tickets, jobs and email",
+      "Disposal is not recorded and the register never shrinks"
+    ],
+    "futureState": [
+      "Asset registered with a unique identity",
+      "Assigned to a location, person or customer",
+      "Custody transfers recorded",
+      "Maintenance scheduled and performed against the asset",
+      "Incidents and service history attached to the asset",
+      "Condition and status tracked",
+      "Disposal or write-off recorded",
+      "Register reconciled periodically"
+    ],
+    "controls": [
+      "Unique asset identity",
+      "Custody transfer as a recorded event",
+      "Maintenance schedule with alerts",
+      "History attached to the asset, not the ticket",
+      "Periodic reconciliation"
+    ],
+    "dataRequired": [
+      "Asset identifier, serial or registration",
+      "Category and specification",
+      "Location and custodian",
+      "Acquisition and value",
+      "Maintenance schedule and history",
+      "Condition and status",
+      "Disposal record"
+    ],
+    "reporting": [
+      "Assets by category, status and location",
+      "Maintenance due and overdue",
+      "Cost of ownership per asset",
+      "Custody exceptions",
+      "Asset utilisation"
+    ],
+    "risks": [
+      "The initial register is usually built from an unreliable spreadsheet and needs a data project of its own",
+      "Custody discipline is behavioural; the system only records it",
+      "Finance and operations often want different asset definitions"
+    ],
+    "discoveryQuestions": [
+      "What counts as an asset here — and at what value?",
+      "Where does the register live today, and when was it last true?",
+      "Who is allowed to move an asset?",
+      "What maintenance is scheduled, and who tracks it?",
+      "What happens when an asset is scrapped?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "nonprofit",
+      "manufacturing",
+      "energy-utilities",
+      "healthcare-medical",
+      "mobility-rental",
+      "automotive",
+      "telecommunications"
+    ],
+    "caseStudies": [
+      "manufacturing-quality-tooling-process",
+      "nonprofit-operational-application"
+    ]
+  },
+  {
+    "slug": "vehicle-management",
+    "name": "Vehicle Management",
+    "category": "operations-and-governance",
+    "objective": "Keep the fleet legal, available and accounted for.",
+    "stakeholders": [
+      "Fleet coordinator",
+      "Driver",
+      "Operations",
+      "Finance",
+      "Maintenance provider"
+    ],
+    "commonProblems": [
+      "Licence, insurance and inspection dates are tracked in a calendar reminder",
+      "Vehicle allocation is informal",
+      "Damage is discovered by the next driver",
+      "Service history is with the garage",
+      "Fuel and running costs are not attributed to the vehicle"
+    ],
+    "futureState": [
+      "Vehicle registered with compliance dates",
+      "Allocated to a driver or purpose",
+      "Pre-use check recorded",
+      "Usage and mileage captured",
+      "Damage or incident reported",
+      "Service and maintenance scheduled and recorded",
+      "Compliance renewals triggered in advance",
+      "Costs attributed to the vehicle",
+      "Disposal or replacement"
+    ],
+    "controls": [
+      "Compliance date monitoring with lead time",
+      "Pre-use check as a gate",
+      "Incident reporting path",
+      "Cost attribution",
+      "Driver authorisation check"
+    ],
+    "dataRequired": [
+      "Registration and identifiers",
+      "Compliance dates (licence, insurance, inspection)",
+      "Driver and allocation",
+      "Mileage",
+      "Incidents and damage",
+      "Service history",
+      "Running costs"
+    ],
+    "reporting": [
+      "Fleet availability and utilisation",
+      "Compliance expiring",
+      "Incident and damage rate by driver and vehicle",
+      "Cost per vehicle and per kilometre",
+      "Downtime"
+    ],
+    "risks": [
+      "Compliance requirements vary by jurisdiction and are legal facts, not preferences",
+      "Driver behaviour capture has employee-relations implications",
+      "Existing records are usually incomplete and need cleansing"
+    ],
+    "discoveryQuestions": [
+      "What must be current for this vehicle to be legal to drive?",
+      "Who allocates vehicles, and how?",
+      "How do you find out about damage?",
+      "Where is the service history?",
+      "Do you know what each vehicle costs you?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "mobility-rental",
+      "automotive",
+      "nonprofit",
+      "energy-utilities",
+      "home-improvement-installations",
+      "healthcare-medical"
+    ],
+    "caseStudies": [
+      "nonprofit-operational-application"
+    ]
+  },
+  {
+    "slug": "vendor-management",
+    "name": "Vendor Management",
+    "category": "operations-and-governance",
+    "objective": "Treat suppliers as a managed relationship rather than a purchase order.",
+    "stakeholders": [
+      "Procurement",
+      "Operations",
+      "Finance",
+      "Vendor",
+      "Compliance"
+    ],
+    "commonProblems": [
+      "Vendors are onboarded by whoever needs them, with no verification",
+      "Terms are in a contract nobody can find",
+      "Performance is discussed but never measured",
+      "The same vendor exists three times under different names",
+      "Compliance documents expire unnoticed"
+    ],
+    "futureState": [
+      "Vendor requested and justified",
+      "Verification and compliance documents collected",
+      "Terms agreed and recorded",
+      "Vendor approved and activated",
+      "Purchase activity against agreed terms",
+      "Performance measured against defined criteria",
+      "Compliance renewals monitored",
+      "Periodic review",
+      "Suspension or offboarding path"
+    ],
+    "controls": [
+      "Verification before activation",
+      "Compliance document expiry monitoring",
+      "Terms recorded against the vendor record",
+      "Duplicate detection",
+      "Performance review cadence"
+    ],
+    "dataRequired": [
+      "Vendor identity and registration",
+      "Compliance documents and expiry",
+      "Terms and pricing",
+      "Category and criticality",
+      "Performance data",
+      "Status"
+    ],
+    "reporting": [
+      "Spend by vendor and category",
+      "Vendor performance",
+      "Compliance expiring",
+      "Vendor concentration risk",
+      "Onboarding cycle time"
+    ],
+    "risks": [
+      "Vendor master data is usually duplicated across finance and operations",
+      "Performance criteria are easy to define and hard to collect",
+      "Compliance requirements differ by category and jurisdiction"
+    ],
+    "discoveryQuestions": [
+      "Who can bring in a new vendor?",
+      "What do you verify before you buy from someone?",
+      "Where are the agreed terms?",
+      "How would you know if a vendor is performing badly?",
+      "What documents expire, and who watches them?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Finance & Commerce"
+    ],
+    "industries": [
+      "manufacturing",
+      "retail-ecommerce",
+      "energy-utilities",
+      "warehouse-fulfilment",
+      "home-improvement-installations",
+      "nonprofit"
+    ],
+    "caseStudies": [
+      "manufacturing-quality-tooling-process"
+    ]
+  },
+  {
+    "slug": "quality-control",
+    "name": "Quality Control",
+    "category": "operations-and-governance",
+    "objective": "Catch the problem at the step where it is cheapest to fix.",
+    "stakeholders": [
+      "Production",
+      "QC inspector",
+      "Tool room / engineering",
+      "Supplier",
+      "Customer",
+      "Management"
+    ],
+    "commonProblems": [
+      "Quality is checked at the end, when rework is most expensive",
+      "Inspection results are recorded on paper forms and filed",
+      "Trial and first-article cycles are informal",
+      "External departments and suppliers participate but have no access",
+      "Root cause is not linked to the corrective action"
+    ],
+    "futureState": [
+      "Quality criteria defined per item or stage",
+      "Inspection triggered at defined points",
+      "Result recorded with evidence",
+      "Pass, fail or conditional decision",
+      "Non-conformance raised on fail",
+      "Root cause investigation",
+      "Corrective action assigned and tracked",
+      "Trial or re-inspection cycle",
+      "Closure with verification",
+      "Trend review"
+    ],
+    "controls": [
+      "Defined inspection points and criteria",
+      "Mandatory evidence",
+      "Non-conformance cannot be closed without root cause and verification",
+      "Segregation of failed material",
+      "Approval on conditional release"
+    ],
+    "dataRequired": [
+      "Item, batch or tool identifier",
+      "Inspection criteria and results",
+      "Evidence",
+      "Non-conformance record",
+      "Root cause",
+      "Corrective action and owner",
+      "Verification"
+    ],
+    "reporting": [
+      "Non-conformance by type, stage and supplier",
+      "Rework and scrap cost",
+      "Repeat root causes",
+      "Corrective action closure rate",
+      "Trial cycle duration"
+    ],
+    "risks": [
+      "External departments and suppliers need controlled participation without full system access",
+      "Paper forms persist because they work on the shop floor — the replacement must be at least as fast",
+      "Trial cycles are iterative by nature and resist linear workflow design"
+    ],
+    "discoveryQuestions": [
+      "Where in the process do you find problems today, and where should you?",
+      "What is recorded on paper, and why has that survived?",
+      "Who outside your company takes part in this process?",
+      "What happens to material that fails?",
+      "Is a corrective action ever verified, or just closed?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "manufacturing",
+      "warehouse-fulfilment",
+      "home-improvement-installations",
+      "automotive",
+      "energy-utilities"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "manufacturing-quality-tooling-process"
+    ]
+  },
+  {
+    "slug": "contract-management",
+    "name": "Contract Management",
+    "category": "operations-and-governance",
+    "objective": "Know what you have agreed, with whom, and what happens next.",
+    "stakeholders": [
+      "Legal / commercial",
+      "Account manager",
+      "Finance",
+      "Operations",
+      "Counterparty"
+    ],
+    "commonProblems": [
+      "Contracts are PDFs in a folder structure only one person understands",
+      "Key dates and obligations are not extracted anywhere",
+      "The billing party and the operating party are assumed to be the same",
+      "Amendments are separate files with no link to the original",
+      "Nobody knows which terms apply to a given transaction"
+    ],
+    "futureState": [
+      "Contract requested and drafted from an approved template",
+      "Terms negotiated and recorded as data, not only prose",
+      "Approval per authority matrix",
+      "Signed and stored with the record",
+      "Key dates and obligations registered",
+      "Amendments linked to the parent",
+      "Obligations monitored",
+      "Renewal or expiry actioned",
+      "Archive"
+    ],
+    "controls": [
+      "Template control",
+      "Approval authority matrix",
+      "Key terms captured as structured data",
+      "Amendment linkage",
+      "Date and obligation monitoring",
+      "Access control"
+    ],
+    "dataRequired": [
+      "Parties and their roles",
+      "Effective and end dates",
+      "Notice period",
+      "Commercial terms",
+      "Obligations and milestones",
+      "Signed document",
+      "Amendment history"
+    ],
+    "reporting": [
+      "Contracts by status and value",
+      "Expiring and renewing",
+      "Obligations due",
+      "Non-standard terms in use",
+      "Cycle time to signature"
+    ],
+    "risks": [
+      "The counterparty structure is often more complex than 'a customer' — several parties can have different roles on one agreement",
+      "Extracting terms as data from legacy contracts is a manual project",
+      "Access control on contracts is a genuine confidentiality requirement"
+    ],
+    "discoveryQuestions": [
+      "Who are the parties, and does each one do the same thing?",
+      "Who pays, who signs, who operates — the same entity, or not?",
+      "What dates matter, and who watches them?",
+      "Where do amendments live?",
+      "Who is allowed to read this contract?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Customer & CRM",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "marine-yacht-licensing",
+      "energy-utilities",
+      "telecommunications",
+      "professional-services",
+      "property-real-estate",
+      "mobility-rental"
+    ],
+    "caseStudies": [
+      "marine-licensing-relationship-architecture"
+    ]
+  },
+  {
+    "slug": "licence-management",
+    "name": "Licence & Certification Management",
+    "category": "operations-and-governance",
+    "objective": "Issue, track and renew the permissions the business depends on.",
+    "stakeholders": [
+      "Licensing administrator",
+      "Licensee",
+      "Owner",
+      "Broker or intermediary",
+      "Billing party",
+      "Compliance"
+    ],
+    "commonProblems": [
+      "The licensee, the owner, the operator and the payer are different parties and the system models one 'customer'",
+      "Renewal depends on a person remembering",
+      "Transfer of a licence between parties has no process",
+      "Supporting documents are collected by email",
+      "The register cannot answer 'who is responsible for this asset today?'"
+    ],
+    "futureState": [
+      "Application received with supporting documents",
+      "Party roles identified and verified (owner, operator, licensee, billing party, broker)",
+      "Eligibility checked",
+      "Approval per authority",
+      "Licence issued against the asset with a validity period",
+      "Register updated",
+      "Renewal cycle triggered in advance",
+      "Transfer, suspension or revocation handled as defined events",
+      "Audit trail retained"
+    ],
+    "controls": [
+      "Party-role model rather than a single customer field",
+      "Document completeness before issue",
+      "Authority-based approval",
+      "Validity and renewal monitoring",
+      "Transfer as a controlled event",
+      "Immutable audit trail"
+    ],
+    "dataRequired": [
+      "Asset identity",
+      "Party roles and their periods",
+      "Application and supporting documents",
+      "Eligibility evidence",
+      "Issue and expiry dates",
+      "Status and history",
+      "Billing party"
+    ],
+    "reporting": [
+      "Licences by status and expiry",
+      "Renewals due",
+      "Transfers and their reasons",
+      "Register by asset and party",
+      "Processing time"
+    ],
+    "risks": [
+      "Relationship modelling is the whole problem: several companies can hold different roles against one asset simultaneously, and each role can change independently",
+      "Standard CRM objects rarely express this cleanly and the temptation is to flatten it",
+      "History matters — who held which role, when — and is easy to lose"
+    ],
+    "discoveryQuestions": [
+      "Who can be involved with one asset, and in what capacity?",
+      "Can one company hold more than one role at once?",
+      "Who receives the invoice, and is that ever a different party?",
+      "What happens when the asset is sold?",
+      "Do you need to know who was responsible last year?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Customer & CRM",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "marine-yacht-licensing",
+      "mobility-rental",
+      "energy-utilities",
+      "education-training",
+      "automotive",
+      "property-real-estate"
+    ],
+    "caseStudies": [
+      "ecd-training-verification-crm",
+      "marine-licensing-relationship-architecture"
+    ]
+  },
+  {
+    "slug": "role-and-permission-governance",
+    "name": "Role & Permission Governance",
+    "category": "operations-and-governance",
+    "objective": "Decide who can see and do what — before the system decides for you.",
+    "stakeholders": [
+      "System administrator",
+      "Department heads",
+      "Compliance",
+      "Management",
+      "Users"
+    ],
+    "commonProblems": [
+      "Everyone is an administrator because it was faster",
+      "Permissions are granted per person and never reviewed",
+      "Data visibility follows the org chart on paper, not in the system",
+      "Leavers keep access",
+      "Sensitive data (financial, personal, commercial) is visible by default"
+    ],
+    "futureState": [
+      "Roles defined from the process, not the org chart",
+      "Profiles defining what each role can do",
+      "Data-sharing rules defining what each role can see",
+      "Sensitive data identified and restricted",
+      "Access granted by role on joining",
+      "Periodic access review",
+      "Access removed on leaving",
+      "Audit trail on privileged actions"
+    ],
+    "controls": [
+      "Role-based rather than person-based access",
+      "Least privilege by default",
+      "Named owner for administrator access",
+      "Joiner/mover/leaver process",
+      "Periodic review",
+      "Audit of privileged changes"
+    ],
+    "dataRequired": [
+      "Role definitions",
+      "Profile permissions",
+      "Data-sharing rules",
+      "Sensitive data classification",
+      "User-to-role mapping",
+      "Access change history"
+    ],
+    "reporting": [
+      "Users by role and profile",
+      "Privileged access holders",
+      "Access changes",
+      "Dormant accounts",
+      "Review completion"
+    ],
+    "risks": [
+      "Permission design is done last and then retrofitted, which is when the exceptions appear",
+      "Multi-entity businesses need separation that the default model does not provide",
+      "Restricting managers' visibility is politically difficult and must be decided by the client"
+    ],
+    "discoveryQuestions": [
+      "Who should not be able to see this?",
+      "Is that a rule, or is it just how it happens to be today?",
+      "What happens to access when someone leaves?",
+      "Who has administrator rights right now, and why?",
+      "Does any of this data have a legal restriction on it?"
+    ],
+    "technologyCategories": [
+      "Customer & CRM",
+      "Operations & Custom Applications"
+    ],
+    "industries": [
+      "financial-services-lending",
+      "healthcare-medical",
+      "education-training",
+      "nonprofit",
+      "energy-utilities",
+      "professional-services",
+      "marketplaces-resellers"
+    ],
+    "caseStudies": [
+      "driving-school-portal",
+      "ecd-training-verification-crm",
+      "nonprofit-operational-application"
+    ]
+  },
+  {
+    "slug": "uat-and-change-control",
+    "name": "UAT & Change Control",
+    "category": "operations-and-governance",
+    "objective": "Make acceptance a decision that was defined before the build started.",
+    "stakeholders": [
+      "Client business users",
+      "Project lead",
+      "Developers",
+      "QA",
+      "Sponsor"
+    ],
+    "commonProblems": [
+      "UAT is run by the people who wrote the requirement",
+      "There is no written definition of a defect versus a change request",
+      "Testing is a demo, so only the happy path is exercised",
+      "Issues are raised in a chat thread and lost",
+      "Sign-off is verbal and later disputed"
+    ],
+    "futureState": [
+      "Acceptance criteria defined at requirement time",
+      "Test scenarios written from requirements, not from the build",
+      "Test data prepared",
+      "Role-based execution by real business users",
+      "Issues logged and classified as defect or change",
+      "Defects fixed and retested",
+      "Changes assessed for impact and decided",
+      "Acceptance recorded against criteria",
+      "Go-live readiness confirmed"
+    ],
+    "controls": [
+      "Acceptance criteria written before build",
+      "Defect versus change definition agreed in writing",
+      "Structured issue log",
+      "Impact assessment before any change is accepted",
+      "Formal sign-off"
+    ],
+    "dataRequired": [
+      "Requirement reference",
+      "Test scenario and expected result",
+      "Actual result and evidence",
+      "Classification (defect / change)",
+      "Severity",
+      "Resolution",
+      "Sign-off"
+    ],
+    "reporting": [
+      "Test coverage against requirements",
+      "Defect volume and severity",
+      "Defect versus change split",
+      "Retest cycles",
+      "Time to acceptance"
+    ],
+    "risks": [
+      "Absorbing changes as defects destroys the estimate quietly and is the most common commercial failure in delivery",
+      "Business users are not released from their day job for UAT",
+      "Test data that is not realistic hides the real defects"
+    ],
+    "discoveryQuestions": [
+      "Who will actually test this — by name?",
+      "What is a defect here, and what is a change? Where is that written?",
+      "What data will they test with?",
+      "What has to pass before go-live is allowed?",
+      "Who signs, and what are they signing?"
+    ],
+    "technologyCategories": [
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ],
+    "industries": [
+      "professional-services",
+      "telecommunications",
+      "education-training",
+      "manufacturing",
+      "home-improvement-installations",
+      "nonprofit",
+      "mobility-rental"
+    ],
+    "caseStudies": [
+      "ecd-training-verification-crm",
+      "field-service-job-lifecycle"
+    ]
+  }
+]

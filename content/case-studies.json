@@ -1,0 +1,2886 @@
+[
+  {
+    "slug": "marketplace-installment-commerce",
+    "title": "Marketplace and Instalment Commerce Architecture",
+    "locationContext": "Financial-services marketplace",
+    "status": "Anonymised portfolio case",
+    "featured": true,
+    "featureOrder": 1,
+    "industrySlugs": [
+      "financial-services-lending",
+      "marketplaces-resellers",
+      "retail-ecommerce"
+    ],
+    "processSlugs": [
+      "merchant-onboarding",
+      "catalogue-approval",
+      "installment-checkout",
+      "merchant-payout",
+      "order-to-fulfilment",
+      "courier-assignment",
+      "delivery-management",
+      "return-to-refund",
+      "after-sales-servicing"
+    ],
+    "serviceSlugs": [
+      "business-process-discovery",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "scope-requirement-documentation"
+    ],
+    "deliverableSlugs": [
+      "discovery-questions",
+      "process-flow",
+      "solution-architecture",
+      "initial-system-overview"
+    ],
+    "engagementStages": [
+      "discovery",
+      "process-mapping",
+      "architecture",
+      "requirement-documentation",
+      "estimation"
+    ],
+    "executiveSummary": "A financial-services business wanted to launch a marketplace selling both its own stock and third-party merchants' products, with instalment purchasing available at checkout. The requirement arrived as commerce, lending, merchant operations, logistics and after-sales servicing bundled together with no boundaries between them. The work was to separate those concerns, keep lending decisions where they legally belong, and define a Phase 1 that could actually launch.",
+    "industryContext": "Marketplaces are usually described as an e-commerce project. This one was not. The instalment option meant a lending decision sat inside the checkout, made by a third party, with consequences for order confirmation, refunds, servicing and collections. That single feature changes the architecture of everything downstream.",
+    "businessModel": "Two revenue models running through one storefront: direct resale of the organisation's own stock, and commission on third-party merchant sales. Customers could pay in cash or apply for instalments through an external finance provider at checkout. Additional sales channels — a partner website and physical stores — were part of the ambition but not the launch.",
+    "operationalChallenge": [
+      "Support direct resale and third-party merchant models through a single customer experience",
+      "Onboard merchants without inheriting their risk or their data quality",
+      "Retain manual control over merchant and catalogue approval to protect the brand",
+      "Present cash and instalment options at checkout without making a lending decision internally",
+      "Integrate an external finance provider whose decision gates order confirmation",
+      "Calculate commission and pay merchants on a trigger everyone agrees to before launch",
+      "Assign courier fulfilment across products with very different logistics profiles",
+      "Establish who is responsible for repayment, servicing and after-sales — the marketplace, the merchant or the provider",
+      "Separate the launch scope from the partner-website and physical-store ambitions"
+    ],
+    "stakeholders": [
+      "Customer",
+      "Marketplace administrator",
+      "Merchant",
+      "External finance provider",
+      "Courier",
+      "Finance team",
+      "Customer support",
+      "Category / brand owner"
+    ],
+    "currentState": {
+      "summary": "There was no current state to map in the usual sense. The 'current state' was a requirement: several business models described at once, with ownership boundaries between the marketplace, the merchants and the finance provider left implicit.",
+      "steps": [
+        "Merchant interest expressed",
+        "Products submitted informally",
+        "Customer checkout with a finance option",
+        "Finance request",
+        "Order fulfilment",
+        "Merchant payout",
+        "After-sales servicing"
+      ],
+      "risks": [
+        "Responsibility overlap between marketplace, merchant and provider",
+        "Unclear repayment ownership",
+        "Scope expansion across channels",
+        "Financial reconciliation complexity",
+        "Regulatory exposure if lending logic drifted internal"
+      ],
+      "gaps": [
+        "No defined merchant approval criteria or authority",
+        "No payout trigger",
+        "No refund path for a financed purchase",
+        "No servicing responsibility split",
+        "No decline handling at checkout"
+      ]
+    },
+    "processGaps": [
+      "The lending decision and the order confirmation were described as one step, when they are two events owned by two organisations",
+      "Payout was described as 'after the sale' — which could mean order, dispatch, delivery or the end of the return window, each with a different financial exposure",
+      "Merchant onboarding had no verification standard, so risk was unquantified",
+      "Returns on a financed purchase had no path at all — the money involves a third party",
+      "After-sales responsibility defaulted to whoever the customer called, which is not a design"
+    ],
+    "keyDiscoveryQuestions": [
+      "Who makes the lending decision, and are they licensed to make it?",
+      "What does the customer see while the finance decision is pending, and what happens on decline?",
+      "What event earns a merchant their money — and do you hold payout for the return window?",
+      "When a financed order is returned, who refunds whom, and in what order?",
+      "After the sale, who does the customer believe they are dealing with — and who is contractually responsible?",
+      "Which of these channels must exist on day one, and which are ambitions?"
+    ],
+    "futureState": {
+      "summary": "A phased operating model: controlled merchant onboarding, lending decisions held externally, an explicit order state machine gated on the finance decision, and payout triggered by confirmed delivery after the return window.",
+      "steps": [
+        "Merchant application and verification",
+        "Merchant approval",
+        "Product submission",
+        "Catalogue approval",
+        "Customer checkout with cash or instalment selection",
+        "Finance application to external provider",
+        "Provider decision returned",
+        "Order confirmed only on approval",
+        "Fulfilment and courier assignment",
+        "Delivery confirmed",
+        "Return window elapses",
+        "Commission calculated and payout executed",
+        "After-sales handled per responsibility matrix"
+      ],
+      "controls": [
+        "Manual merchant approval retained deliberately",
+        "Mandatory logistics data before a product can list",
+        "Lending decision external by design",
+        "Order confirmation gated on the provider's response",
+        "Payout trigger tied to confirmed delivery plus return window",
+        "Written responsibility matrix for servicing and collections"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "A marketplace layer for merchant and catalogue operations, an external finance provider as the lending authority, and the financial platform as the source of truth for money. The commerce system holds state and orchestration; it does not calculate credit and it does not own the ledger.",
+      "layers": [
+        {
+          "name": "Marketplace / commerce layer",
+          "role": "Merchant records, catalogue, orders, order state machine, customer experience"
+        },
+        {
+          "name": "External finance provider",
+          "role": "Lending decision, repayment schedule and the repayment relationship with the customer — outside the build"
+        },
+        {
+          "name": "Financial platform (ERP / accounting)",
+          "role": "Source of truth for invoices, credit notes, payouts and reconciliation"
+        },
+        {
+          "name": "Support layer",
+          "role": "Servicing and after-sales tickets, routed by responsibility rather than by channel"
+        },
+        {
+          "name": "Logistics integrations",
+          "role": "Courier assignment, consignment creation, tracking and delivery confirmation"
+        }
+      ],
+      "dataFlow": [
+        "Merchant application → verification → merchant record with commercial terms",
+        "Product submission → automated checks → manual approval → published catalogue",
+        "Checkout with instalment → application to provider → decision → order state updated",
+        "Order confirmed → stock allocated → courier assigned → dispatched → delivery confirmed",
+        "Delivery confirmed + return window elapsed → commission calculated → payout instruction → ledger entry in the financial platform",
+        "Return raised → inspection → outcome → refund coordinated with the provider where financed"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Merchant and catalogue approval workflow",
+        "verdict": "configuration",
+        "reasoning": "A status model with approval routing and reason codes; no custom build needed, and keeping it configurable meant criteria could change without development."
+      },
+      {
+        "requirement": "Lending decision and repayment schedule",
+        "verdict": "external",
+        "reasoning": "This is the provider's product and, in most markets, their licence. Building it internally would have created regulatory exposure for no commercial gain."
+      },
+      {
+        "requirement": "Commission and payout calculation",
+        "verdict": "configuration",
+        "reasoning": "Held as rule data per merchant rather than logic in code — commission structures change per merchant and per campaign, and hard-coding them guarantees a change request every quarter."
+      },
+      {
+        "requirement": "Ledger, credit notes and reconciliation",
+        "verdict": "external",
+        "reasoning": "The financial platform already owned this. Recreating it in the commerce layer would have produced two versions of the truth about money."
+      },
+      {
+        "requirement": "Courier assignment rules",
+        "verdict": "custom",
+        "reasoning": "Selection depended on dimensions, handling requirements and destination in combinations no standard rule engine expressed — a contained piece of custom logic with a clear boundary."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Partner website and physical-store channels",
+        "decision": "Out of Phase 1",
+        "reasoning": "Each channel imposes its own order states and fulfilment rules. Adding them before the core model was proven would have made the state machine unfinishable."
+      },
+      {
+        "requirement": "Automated merchant approval",
+        "decision": "Out of scope — manual retained",
+        "reasoning": "Brand risk outweighed throughput at launch. The decision was made explicitly and its cost (a human bottleneck) was documented rather than discovered later."
+      },
+      {
+        "requirement": "Internal credit assessment",
+        "decision": "Explicitly excluded",
+        "reasoning": "A boundary, not a feature deferral. Written into the scope so that nobody could add it by increment."
+      },
+      {
+        "requirement": "Collections and repayment chasing",
+        "decision": "Provider responsibility, documented",
+        "reasoning": "The provider owns the repayment relationship. The marketplace's obligation is routing the customer correctly when they call the wrong party — which they will."
+      }
+    ],
+    "dependencies": [
+      "Finance provider API access, sandbox and decision-response contract",
+      "Signed commercial terms defining commission, payout timing and return liability",
+      "Courier accounts and rate cards",
+      "Merchant verification standard agreed with compliance",
+      "Financial platform integration credentials"
+    ],
+    "clientResponsibilities": [
+      "Agree the payout trigger commercially before it is built",
+      "Confirm the servicing and collections responsibility split with the provider in writing",
+      "Provide merchant verification criteria and name the approving role",
+      "Resource manual approval at launch volumes",
+      "Confirm refund treatment for financed orders with the provider"
+    ],
+    "risks": [
+      "Regulatory exposure if lending logic drifted inside the commerce layer by increment",
+      "Provider downtime blocking checkout with no defined fallback",
+      "Payout before the return window creating unrecoverable exposure",
+      "Manual approval becoming the growth ceiling",
+      "Customers contacting the wrong party for repayment issues and receiving no answer"
+    ],
+    "contribution": [
+      "Separated a bundled requirement into commerce, lending, merchant operations, fulfilment and servicing as distinct concerns with owners",
+      "Established the lending boundary and wrote it into scope as an exclusion rather than a deferral",
+      "Designed the order state machine with the finance decision as an explicit gate",
+      "Defined the payout trigger and surfaced its financial exposure to the client as a decision, not an assumption",
+      "Modelled merchant onboarding, catalogue approval and the responsibility matrix for after-sales",
+      "Phased the channels and documented what each additional channel would cost the state model",
+      "Produced the discovery question set, process flows, architecture and Initial System Overview"
+    ],
+    "deliverablesProduced": [
+      "Discovery question set",
+      "Current-requirement and future-state process flows",
+      "Solution architecture with source-of-truth model",
+      "Initial System Overview",
+      "Scope, assumptions, dependencies and client responsibilities",
+      "Risk register"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "A launchable Phase 1 with the lending boundary held externally, a payout trigger the business had consciously chosen, and channel ambitions phased rather than abandoned. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Finance & Commerce",
+      "Operations & Custom Applications",
+      "Automation & Integration",
+      "Customer & CRM"
+    ]
+  },
+  {
+    "slug": "marine-licensing-relationship-architecture",
+    "title": "Marine Licensing and Relationship Architecture",
+    "locationContext": "European marine and yacht services business",
+    "status": "Anonymised portfolio case",
+    "featured": true,
+    "featureOrder": 2,
+    "industrySlugs": [
+      "marine-yacht-licensing",
+      "professional-services"
+    ],
+    "processSlugs": [
+      "licence-management",
+      "contract-management",
+      "renewal-management",
+      "multi-company-multi-currency",
+      "approval-management"
+    ],
+    "serviceSlugs": [
+      "business-process-discovery",
+      "crm-solution-architecture",
+      "scope-requirement-documentation",
+      "iso-preparation",
+      "partner-white-label-support"
+    ],
+    "deliverableSlugs": [
+      "discovery-questions",
+      "solution-architecture",
+      "initial-system-overview",
+      "process-flow"
+    ],
+    "engagementStages": [
+      "discovery",
+      "process-mapping",
+      "architecture",
+      "requirement-documentation"
+    ],
+    "executiveSummary": "A marine services business needed a system to manage licensing and contracts around vessels. The difficulty was not the workflow — it was the relationship model. A single vessel could have six different company roles attached to it at the same time, each capable of changing independently, and each mattering for a different reason. Most of the value of this engagement was in refusing to flatten that.",
+    "industryContext": "In marine and yacht services, the vessel is the asset, but the vessel is not the customer. Ownership, management, licensing, billing, brokerage and shipyard involvement are separate commercial relationships that can sit against the same vessel simultaneously — and can each change without the others changing.",
+    "businessModel": "Licensing and management services delivered around vessels, with revenue tied to contracts and licences whose parties are frequently not the same entity that pays, operates or owns the asset.",
+    "operationalChallenge": [
+      "Model a vessel with several simultaneous company roles rather than one 'account'",
+      "Track which party holds which role, and for what period",
+      "Handle the billing party being a different entity from the owner and the operator",
+      "Support brokers and shipyards as participants without treating them as customers",
+      "Manage licences and contracts with renewal cycles across multiple currencies and entities",
+      "Preserve history: who was responsible for this vessel last year is a real question"
+    ],
+    "stakeholders": [
+      "Vessel owner",
+      "Management company",
+      "Licensee company",
+      "Billing company",
+      "Broker",
+      "Shipyard",
+      "Crew",
+      "Finance manager",
+      "Licensing administrator"
+    ],
+    "currentState": {
+      "summary": "Relationships were held across documents, spreadsheets and institutional memory. The register could describe a vessel, but not reliably answer who was responsible for it, in what capacity, on a given date.",
+      "steps": [
+        "Vessel recorded",
+        "Parties known informally",
+        "Contracts stored as documents",
+        "Licences issued and tracked manually",
+        "Renewals prompted by memory",
+        "Billing routed by the person who knows"
+      ],
+      "risks": [
+        "Wrong party invoiced",
+        "Renewal missed",
+        "No history of role changes",
+        "Key-person dependency",
+        "Contract terms not extractable as data"
+      ],
+      "gaps": [
+        "No structured party-role model",
+        "No validity periods against roles",
+        "No renewal automation",
+        "Broker and shipyard participation unmodelled",
+        "Currency and entity handling ad hoc"
+      ]
+    },
+    "processGaps": [
+      "The single-customer assumption in standard CRM objects could not express six concurrent roles against one asset",
+      "Role changes had no effective dates, so the register described now and forgot then",
+      "The billing party was inferred rather than recorded, which is an invoicing error waiting to happen",
+      "Renewals depended on a person, not a date field",
+      "Contract terms lived in prose, so nothing downstream could act on them"
+    ],
+    "keyDiscoveryQuestions": [
+      "Who can be involved with one vessel, and in what capacity?",
+      "Can one company hold more than one role against the same vessel at the same time?",
+      "Who receives the invoice, and is that ever a different party from the owner?",
+      "What happens to every role when the vessel is sold?",
+      "Do you need to know who was responsible last year, and why?",
+      "Which of these parties is a customer, and which is a participant?"
+    ],
+    "futureState": {
+      "summary": "A vessel-centric data model with parties attached through dated role relationships, so that responsibility, billing and licensing can each be answered independently — and historically.",
+      "steps": [
+        "Vessel registered as the central asset",
+        "Companies registered once, independent of role",
+        "Roles attached to the vessel with validity periods",
+        "Contract created referencing the relevant parties and their roles",
+        "Licence issued against the vessel with a validity period",
+        "Renewal cycle triggered from the licence date",
+        "Role change recorded as a dated event, not an overwrite",
+        "Historical position queryable at any date"
+      ],
+      "controls": [
+        "Role relationships carry effective and end dates",
+        "A company record exists once and holds many roles",
+        "Billing party explicit on every contract",
+        "Renewal monitoring driven by data, not memory",
+        "Role changes append to history rather than replacing it"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "A relationship-first CRM design: vessel as the central object, company as an independent object, and a dated junction between them carrying the role. Contracts and licences reference the junction, not the company directly.",
+      "layers": [
+        {
+          "name": "Asset layer",
+          "role": "Vessel as the central record with identity and specification"
+        },
+        {
+          "name": "Party layer",
+          "role": "Companies and individuals recorded once, independent of the roles they hold"
+        },
+        {
+          "name": "Relationship layer",
+          "role": "Dated role links between party and asset — owner, manager, licensee, billing party, broker, shipyard"
+        },
+        {
+          "name": "Agreement layer",
+          "role": "Contracts and licences referencing the parties in their roles, with validity and renewal data"
+        },
+        {
+          "name": "Finance interface",
+          "role": "Billing directed to the recorded billing party, in the correct entity and currency"
+        }
+      ],
+      "dataFlow": [
+        "Vessel registered → companies linked through dated role relationships",
+        "Contract created → references parties by role, not by assumption",
+        "Licence issued against vessel → validity period set → renewal cycle scheduled",
+        "Role change → new dated relationship appended → prior relationship end-dated",
+        "Invoice → routed to the billing party recorded for that period"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Multiple concurrent company roles per vessel",
+        "verdict": "custom",
+        "reasoning": "No standard account-contact model expresses this. A dated relationship object was the only design that answered the business's real questions without lying about them."
+      },
+      {
+        "requirement": "Contract and licence records",
+        "verdict": "configuration",
+        "reasoning": "Standard objects with structured key terms and validity dates were sufficient once the party model was right."
+      },
+      {
+        "requirement": "Renewal monitoring",
+        "verdict": "standard",
+        "reasoning": "Date-driven notification is standard functionality; the difficulty was never the reminder, it was knowing who to remind."
+      },
+      {
+        "requirement": "Multi-currency and multi-entity billing",
+        "verdict": "external",
+        "reasoning": "The accounting platform owns currency, tax and fiscal rules. The CRM records which party bills and in which entity — it does not recreate the ledger."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Flattening the model to one customer per vessel",
+        "decision": "Rejected",
+        "reasoning": "It would have made the build faster and the system wrong. The whole point of the engagement was the relationship complexity."
+      },
+      {
+        "requirement": "Full historical reconstruction of past roles",
+        "decision": "Phased",
+        "reasoning": "The model supports history from go-live. Back-filling prior years is a data project with its own scope and its own cost."
+      },
+      {
+        "requirement": "Crew and shipyard operational management",
+        "decision": "Out of Phase 1",
+        "reasoning": "Participants in the relationship model, not subjects of it. Managing their work is a different system."
+      }
+    ],
+    "dependencies": [
+      "Confirmed list of role types and whether any are mutually exclusive",
+      "Accounting platform entity and currency structure",
+      "Existing vessel and company data for migration",
+      "Legal confirmation of what the licence register must retain"
+    ],
+    "clientResponsibilities": [
+      "Confirm the complete role taxonomy — adding a seventh role later changes the model",
+      "Confirm which party is billed in each scenario",
+      "Cleanse existing vessel and company data",
+      "Decide how much history must be migrated"
+    ],
+    "risks": [
+      "A missing role type discovered after build changes the relationship model",
+      "Data migration from documents and spreadsheets is larger than it looks",
+      "Users may want a simple 'customer' field and reintroduce ambiguity by habit",
+      "Historical accuracy expectations exceeding the data that exists"
+    ],
+    "contribution": [
+      "Identified that the requirement was a data-modelling problem, not a workflow problem",
+      "Designed the dated party-role relationship model that allowed six simultaneous roles per vessel",
+      "Refused the flattened single-customer design and documented why",
+      "Separated the party layer from the role layer so a company is recorded once and holds many roles",
+      "Defined billing-party routing explicitly rather than by inference",
+      "Kept currency, tax and ledger concerns in the accounting platform",
+      "Produced the client-facing Initial System Overview against the partner's document standard"
+    ],
+    "deliverablesProduced": [
+      "Discovery question set",
+      "Relationship and data model",
+      "Solution architecture",
+      "Initial System Overview in the partner's template",
+      "Scope and phase recommendation"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "A data model that can answer who is responsible for a vessel, in what capacity, at any date — and a licensing register that does not depend on the person who remembers. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Customer & CRM",
+      "Operations & Custom Applications",
+      "Finance & Commerce",
+      "Analytics & Documents"
+    ]
+  },
+  {
+    "slug": "b2b-distribution-crm-over-erp",
+    "title": "CRM Over an Existing ERP: Deciding the Source of Truth",
+    "locationContext": "South African B2B laboratory and instrumentation distributor",
+    "status": "Anonymised portfolio case",
+    "featured": true,
+    "featureOrder": 3,
+    "industrySlugs": [
+      "warehouse-fulfilment",
+      "manufacturing",
+      "professional-services",
+      "retail-ecommerce"
+    ],
+    "processSlugs": [
+      "lead-capture",
+      "lead-qualification",
+      "lead-to-deal",
+      "opportunity-management",
+      "quotation-management",
+      "quote-to-cash",
+      "invoice-and-payment-tracking",
+      "inventory-movement"
+    ],
+    "serviceSlugs": [
+      "business-process-discovery",
+      "current-state-process-mapping",
+      "crm-solution-architecture",
+      "scope-requirement-documentation",
+      "iso-preparation",
+      "effort-estimation-support"
+    ],
+    "deliverableSlugs": [
+      "discovery-questions",
+      "process-flow",
+      "solution-architecture",
+      "initial-system-overview"
+    ],
+    "engagementStages": [
+      "discovery",
+      "process-mapping",
+      "architecture",
+      "requirement-documentation",
+      "estimation"
+    ],
+    "executiveSummary": "A B2B distributor of laboratory supplies and scientific instruments had working inventory and accounting platforms and no visibility of its sales pipeline. The temptation was to replace things. The correct answer was a CRM layer that adds the sales process without touching either system of record — which made 'who owns the customer?' the central architectural question of the engagement.",
+    "industryContext": "Technical distribution runs on a large SKU catalogue, margin discipline and long relationships with a small number of buyers. Quoting requires live-ish stock and price; the operational systems already hold both. What the business lacked was everything between an enquiry arriving and a quote being produced.",
+    "businessModel": "B2B reseller and distributor supplying laboratory consumables, chemicals and instruments to food and beverage, water, mining, pharmaceutical and manufacturing customers. Roughly a dozen users across sales, management and external sales, with expansion expected.",
+    "operationalChallenge": [
+      "No pipeline visibility — management could not see what sales was working on",
+      "No follow-up structure, so opportunities depended on individual memory",
+      "Reporting assembled manually from spreadsheets",
+      "Quoting took around half an hour against an aspiration of a few minutes",
+      "Enquiries arrived via a shared mailbox, telephone, messaging and personal email with no single record",
+      "Stock and pricing lived in the inventory platform; sales needed to see them without leaving the CRM",
+      "Existing platforms were working and were not to be replaced"
+    ],
+    "stakeholders": [
+      "Sales associates",
+      "Account managers",
+      "External sales",
+      "Sales management",
+      "Finance",
+      "Customers"
+    ],
+    "currentState": {
+      "summary": "Two operational systems doing their jobs well, with the entire sales process happening in inboxes, phone calls and the heads of the people doing it.",
+      "steps": [
+        "Enquiry arrives on one of several channels",
+        "Sales associate picks it up",
+        "Quotation prepared in the inventory platform",
+        "Negotiation by email and phone",
+        "Quote approved or lost in the inventory platform",
+        "Invoice and payment handled in the accounting platform",
+        "Reporting assembled by hand"
+      ],
+      "risks": [
+        "Pipeline invisible to management",
+        "Opportunities lost to forgotten follow-up",
+        "No comparable data across associates",
+        "Reporting effort consuming management time",
+        "Customer history fragmented across inboxes"
+      ],
+      "gaps": [
+        "No lead record",
+        "No qualification criteria",
+        "No stage model",
+        "No activity history",
+        "No link between quote, invoice and payment outside the operational systems"
+      ]
+    },
+    "processGaps": [
+      "Nothing recorded the enquiry before it became a quotation, so lead-source and conversion data did not exist",
+      "The quotation existed in the inventory platform but the negotiation around it existed nowhere",
+      "Won and lost were determined by an action in the inventory platform, which the CRM would need to observe rather than own",
+      "Customer master data lived in the inventory platform, so the CRM could not be allowed to create customers",
+      "The full lifecycle — deal to delivery to invoice to payment — was not visible in any single place"
+    ],
+    "keyDiscoveryQuestions": [
+      "Which system produces the official quotation, and who says so?",
+      "Where does the master customer record live — and is the CRM allowed to create one?",
+      "What does the salesperson do manually that nobody currently records?",
+      "Does sales need live stock, or stock as at this morning?",
+      "How long does deal-to-cash take today, and who could tell me?",
+      "What links a quotation in one system to an invoice in another?",
+      "What reporting does management build by hand every month?"
+    ],
+    "futureState": {
+      "summary": "The CRM records the sales process and the timeline; the inventory platform keeps pricing, stock and the official quotation; the accounting platform keeps invoices and payments. Every state a salesperson creates by hand gets time-stamped in the CRM, with references linking the systems.",
+      "steps": [
+        "Enquiry captured as a lead with source",
+        "Qualified against defined criteria",
+        "Converted to a deal with mandatory data",
+        "Quotation produced in the inventory platform",
+        "Quote number and value recorded against the deal",
+        "Negotiation state time-stamped in the CRM",
+        "Approval or rejection in the inventory platform reflected as won or lost",
+        "Delivery tracked to completion",
+        "Invoice raised in the accounting platform",
+        "Payment recorded in the accounting platform",
+        "Full history retained against the customer in the CRM"
+      ],
+      "controls": [
+        "Inventory platform remains the pricing and quotation authority",
+        "Accounting platform remains the payment authority",
+        "CRM never creates a customer master record",
+        "SKU as the linking identifier between systems",
+        "Every manual action has a corresponding recorded state",
+        "Reference numbers mandatory on the deal"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "A CRM sales layer over two retained systems of record. The architecture question was not which features to build but which system is allowed to be right about what — and the answer had to be written down before anything else could be estimated.",
+      "layers": [
+        {
+          "name": "CRM (sales layer)",
+          "role": "Leads, qualification, deals, stages, activity history, timeline, pipeline reporting. Owns nothing financial."
+        },
+        {
+          "name": "Inventory / operations platform",
+          "role": "Master customer record, SKU catalogue, stock, pricing, margin and the official quotation. Retained."
+        },
+        {
+          "name": "Accounting platform",
+          "role": "Invoices, payments and the financial ledger. Retained. Payments recorded here only."
+        },
+        {
+          "name": "Integration layer",
+          "role": "Reference and state synchronisation between the systems, at a frequency chosen against real API constraints"
+        }
+      ],
+      "dataFlow": [
+        "Enquiry (mailbox, phone, messaging) → lead in CRM with source",
+        "Deal in CRM → quotation created in the inventory platform → quote number and value written back to the deal",
+        "Approval action in the inventory platform → deal marked won in CRM; rejection → lost with reason",
+        "Stock and price surfaced to sales from the inventory platform, refreshed at an agreed interval",
+        "Invoice raised in the accounting platform → status reflected against the CRM record, read-only",
+        "Payment recorded in the accounting platform → status reflected, never edited from the CRM"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Pipeline, stages, activities and reporting",
+        "verdict": "standard",
+        "reasoning": "This is what a CRM is for. No custom work was justified."
+      },
+      {
+        "requirement": "Quotation generation",
+        "verdict": "external",
+        "reasoning": "The inventory platform validates discount, tax, margin and stock and owns the quote number sequence. A second quoting engine would have created two versions of the price."
+      },
+      {
+        "requirement": "Customer master record",
+        "verdict": "external",
+        "reasoning": "Customers are created in the inventory platform. Allowing CRM creation would have produced two customer databases within a month."
+      },
+      {
+        "requirement": "Stock and price visibility in the CRM",
+        "verdict": "custom",
+        "reasoning": "A read-only surface fed from the inventory platform. The design question was refresh frequency against API limits, not whether to build it."
+      },
+      {
+        "requirement": "Payment status visibility",
+        "verdict": "configuration",
+        "reasoning": "Reflected read-only from the accounting platform. The client reasonably asked why payment data belonged in the CRM at all — the answer had to be an account-management use case, not a habit."
+      },
+      {
+        "requirement": "Duplicate SKU flagging",
+        "verdict": "custom",
+        "reasoning": "Requested by the client against a large active catalogue. Contained, and useful precisely because the SKU is the identifier linking the systems."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Replacing the inventory or accounting platform",
+        "decision": "Explicitly excluded",
+        "reasoning": "Both were working. The problem was the absence of a sales layer, not the presence of operational ones."
+      },
+      {
+        "requirement": "Real-time stock and price synchronisation",
+        "decision": "Scoped against actual API behaviour, not the aspiration",
+        "reasoning": "'Real time' is a phrase, not a specification. The honest answer was an agreed refresh interval plus on-demand refresh, and saying so early avoided an unwinnable expectation."
+      },
+      {
+        "requirement": "Historical data migration",
+        "decision": "Deferred pending a data assessment",
+        "reasoning": "The client's own answer on migration was 'uncertain' and referenced a legacy system. Scoping a migration against uncertainty is how estimates fail."
+      },
+      {
+        "requirement": "Supplier RFQ and quoting automation",
+        "decision": "Phase 2",
+        "reasoning": "A genuine ambition, and a different process family. Including it would have delayed the visibility the business needed now."
+      }
+    ],
+    "dependencies": [
+      "API access to the inventory platform, including a separate trial environment for development",
+      "Confirmation of the SKU convention and catalogue integrity",
+      "Mailbox access for enquiry capture",
+      "Agreement on which reports management actually needs",
+      "Client decision on historical data"
+    ],
+    "clientResponsibilities": [
+      "Confirm that the inventory platform remains the quotation and customer authority",
+      "Define what 'handover' and 'follow-up' mean in their own operation — questions the client rightly turned back on the consultant",
+      "Decide the acceptable stock refresh interval",
+      "Resolve the historical data question",
+      "Make sales associates available to validate the stage model"
+    ],
+    "risks": [
+      "Sales continuing to quote outside the CRM because it remains faster",
+      "Two systems drifting toward both owning the customer",
+      "API rate limits making the promised freshness undeliverable",
+      "Reflected financial data raising access questions nobody had considered",
+      "Migration scope expanding once the legacy data is actually examined"
+    ],
+    "contribution": [
+      "Reframed the request from 'implement a CRM' to 'decide what each system is allowed to be right about'",
+      "Established the source-of-truth model across three platforms and wrote it into the client-facing document",
+      "Designed the sales lifecycle so that every manual action a salesperson takes is recorded as a time-stamped state in the CRM, with the external quote number carried across",
+      "Specified the data elements per stage and what is automated versus manual — the distinction that drives the estimate",
+      "Interrogated 'real time' against actual API constraints instead of accepting the phrase",
+      "Wrote the discovery question set, ran it through the client, and treated their pushback questions as findings rather than noise",
+      "Produced process flows for lead qualification, deal and quotation, application data flow, and the source-of-truth responsibility model",
+      "Delivered the Initial System Overview through four versions to a partner's document standard"
+    ],
+    "deliverablesProduced": [
+      "Discovery question set",
+      "Lead qualification and deal/quotation process flows",
+      "Application data flow diagram",
+      "Source-of-truth and responsibility model",
+      "Initial System Overview (iterated to final)",
+      "Scope, assumptions and dependencies",
+      "Estimation inputs"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "Pipeline visibility and a recorded sales history without disturbing two working operational systems, and a written source-of-truth model that removes the most expensive argument a project like this can have. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Customer & CRM",
+      "Finance & Commerce",
+      "Automation & Integration",
+      "Analytics & Documents"
+    ]
+  },
+  {
+    "slug": "ecd-training-verification-crm",
+    "title": "Training, Assessment and Verification Lifecycle",
+    "locationContext": "South African early-childhood development sector organisation",
+    "status": "Anonymised portfolio case",
+    "featured": true,
+    "featureOrder": 4,
+    "industrySlugs": [
+      "education-training",
+      "nonprofit",
+      "professional-services"
+    ],
+    "processSlugs": [
+      "lead-capture",
+      "lead-qualification",
+      "form-to-crm",
+      "booking-journeys",
+      "approval-management",
+      "licence-management",
+      "role-and-permission-governance",
+      "uat-and-change-control",
+      "project-delivery"
+    ],
+    "serviceSlugs": [
+      "business-process-discovery",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "scope-requirement-documentation",
+      "trd-preparation",
+      "architecture-review"
+    ],
+    "deliverableSlugs": [
+      "process-flow",
+      "functional-requirements",
+      "technical-requirements",
+      "solution-architecture"
+    ],
+    "engagementStages": [
+      "discovery",
+      "process-mapping",
+      "architecture",
+      "requirement-documentation",
+      "delivery-leadership"
+    ],
+    "executiveSummary": "A sector organisation running study and training programmes needed its assessment and verification lifecycle in a CRM. The requirement arrived as eleven working documents, several meeting transcripts, a workshop board and a set of flow proposals that did not entirely agree with each other. The work was to reconcile them into one implementation-ready specification — and to decide what Phase 1 would not include.",
+    "industryContext": "Training and assessment organisations carry a structural complexity that a sales-oriented CRM does not anticipate: a participant is assessed by an assessor, against competencies, at an event, resulting in a verification outcome that may be partial. Those are not deals, and pretending they are produces a system nobody uses.",
+    "businessModel": "Study and training programmes delivered to participants in the early-childhood development sector, with assessors, trainers and partner organisations involved in delivery and verification.",
+    "operationalChallenge": [
+      "Two distinct request types — study and training — following different lifecycles through the same intake",
+      "A training event serving multiple training requests simultaneously",
+      "Assessors, trainers, competencies and skills needing structured records that no standard module provided",
+      "Verification outcomes that could be partial rather than pass/fail",
+      "Web forms writing into the CRM against existing records",
+      "Source material spread across working documents, transcripts and workshop boards, with contradictions between them",
+      "A client-facing specification that could not expose any of the internal reconciliation work"
+    ],
+    "stakeholders": [
+      "Participants",
+      "Assessors",
+      "Trainers",
+      "Operations director",
+      "Programme administrators",
+      "Partner organisations",
+      "Delivery partner"
+    ],
+    "currentState": {
+      "summary": "The process existed and worked, distributed across people, spreadsheets and a learning platform. No single system held the relationship between a participant, an assessor, an event and a verification outcome.",
+      "steps": [
+        "Enquiry received",
+        "Request type established informally",
+        "Programme scheduled",
+        "Participants and assessors matched by hand",
+        "Assessment conducted",
+        "Verification decided",
+        "Outcome recorded across systems"
+      ],
+      "risks": [
+        "Assessment and verification history not queryable",
+        "Event capacity and demand not linked",
+        "Assessor skills matched from memory",
+        "Partial outcomes with no consistent treatment"
+      ],
+      "gaps": [
+        "No structured assessor or trainer profile",
+        "No competency or skill model",
+        "No verification record",
+        "No link between an event and the requests it serves",
+        "Form submissions not writing to records"
+      ]
+    },
+    "processGaps": [
+      "The source material described the same process differently in different places, and nobody had reconciled them",
+      "Study and training requests were being modelled together despite different lifecycles",
+      "The relationship between one training event and many training requests had no representation",
+      "Verification could be partial, and no design accounted for that",
+      "Trainer availability and publishing were assumed automatic; they were not",
+      "Form submissions carrying record identifiers had no validation step, which is an integrity problem, not a convenience one"
+    ],
+    "keyDiscoveryQuestions": [
+      "Are study and training the same process with a different label, or genuinely different lifecycles?",
+      "Can one event serve several requests, and if so, what does that do to the data model?",
+      "What is the final positive state for each lifecycle — what does 'finished well' mean?",
+      "Can a verification be partial, and if so, what happens next?",
+      "What does a form submission need to know about an existing record before it writes to it?",
+      "Which of these requirements is Phase 1, and which is the ambition?"
+    ],
+    "futureState": {
+      "summary": "One intake with two typed lifecycles, custom modules for the things a sales CRM cannot express, and blueprint-driven state transitions with defined final states — plus an explicit exclusion list for Phase 1.",
+      "steps": [
+        "Enquiry captured and qualified",
+        "Request typed as study or training",
+        "Study lifecycle or training lifecycle followed via its own blueprint",
+        "Training event created and linked to multiple training requests",
+        "Participants and assessors matched against structured skills",
+        "Assessment conducted",
+        "Verification recorded, including partial outcomes",
+        "Final positive state reached and reported"
+      ],
+      "controls": [
+        "Deal type determines the blueprint, not the user",
+        "Defined final positive state per lifecycle",
+        "Structured competency and skill records rather than free text",
+        "Form-submitted record identifiers validated before write",
+        "Manual steps documented as manual rather than assumed automatic"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "Standard CRM objects for intake and request handling, plus a set of custom modules for the domain concepts that no standard object represents: events, assessor profiles, competencies, skills, the assessor-skill link, and verification itself.",
+      "layers": [
+        {
+          "name": "Intake layer",
+          "role": "Leads, qualification, and typed requests routed into the correct lifecycle"
+        },
+        {
+          "name": "Request layer",
+          "role": "Study and training requests as typed records, each with its own blueprint and final state"
+        },
+        {
+          "name": "Domain modules",
+          "role": "Training event, participant-assessor, verification, competency, assessor profile, skills, assessor-skill link, trainer profile"
+        },
+        {
+          "name": "Form layer",
+          "role": "Public and internal forms writing into the CRM with validated record identifiers"
+        },
+        {
+          "name": "Excluded from Phase 1",
+          "role": "Assessor, trainer and partner portals; external data-sync APIs; replacement of the existing learning platform"
+        }
+      ],
+      "dataFlow": [
+        "Enquiry → lead → qualification → typed request",
+        "Training request → linked to a training event (many requests to one event)",
+        "Event → participant-assessor records → competency assessment → verification outcome",
+        "Assessor profile ↔ skills, via an explicit link record rather than a multi-select field",
+        "Form submission → identifier validated → record created or updated"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Study and training requests",
+        "verdict": "configuration",
+        "reasoning": "Modelled as typed records on a standard object rather than as separate custom modules. A separate study module was considered and rejected — it would have doubled the maintenance for a difference that a type field expresses."
+      },
+      {
+        "requirement": "Training event, verification, competency, assessor and trainer profiles",
+        "verdict": "custom",
+        "reasoning": "These are the domain. No standard object represents an assessor's skill set or a partial verification outcome, and forcing them into one would have made the system a filing cabinet."
+      },
+      {
+        "requirement": "Assessor-to-skill relationship",
+        "verdict": "custom",
+        "reasoning": "A link record rather than a multi-select, because the relationship carries its own data and needs to be queryable from both sides."
+      },
+      {
+        "requirement": "Lifecycle state transitions",
+        "verdict": "standard",
+        "reasoning": "Blueprint functionality handled this natively once the state model was agreed."
+      },
+      {
+        "requirement": "Trainer availability and website publishing",
+        "verdict": "external",
+        "reasoning": "Kept manual in Phase 1 by decision. Automating it depended on systems outside the phase, and the honest thing was to document it as manual rather than imply otherwise."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Assessor, trainer and partner portals",
+        "decision": "Out of Phase 1",
+        "reasoning": "Each portal is an external-user surface with its own permission model and support burden. Phase 1 needed the internal lifecycle to be right first."
+      },
+      {
+        "requirement": "External data-sync APIs and learning-platform replacement",
+        "decision": "Out of Phase 1",
+        "reasoning": "Large, separable, and dependent on decisions the organisation had not made."
+      },
+      {
+        "requirement": "A separate custom module for study requests",
+        "decision": "Rejected in favour of a typed record",
+        "reasoning": "The lifecycles differ; the object does not. Type plus blueprint expresses it with a fraction of the maintenance."
+      },
+      {
+        "requirement": "Automated trainer availability",
+        "decision": "Manual in Phase 1, documented as such",
+        "reasoning": "An assumed automation that does not exist is worse than an acknowledged manual step."
+      }
+    ],
+    "dependencies": [
+      "Client decisions on open lifecycle options before build",
+      "Confirmed competency and skill taxonomy",
+      "Form platform access and identifier strategy",
+      "Existing learning-platform data structure"
+    ],
+    "clientResponsibilities": [
+      "Resolve the open lifecycle decisions rather than deferring them into build",
+      "Confirm the skill and competency taxonomy",
+      "Provide business users for UAT who run the process, not only manage it",
+      "Own the manual steps Phase 1 leaves manual"
+    ],
+    "risks": [
+      "Source material contradictions resurfacing as change requests during build",
+      "Partial verification treatment expanding once real cases arrive",
+      "Form identifier tampering if validation is treated as optional",
+      "Portals being reintroduced by increment",
+      "A client-facing document leaking internal reasoning and undermining confidence"
+    ],
+    "contribution": [
+      "Reconciled eleven working documents, meeting transcripts, workshop boards and flow proposals into one coherent specification",
+      "Audited the specification against the source material and against six implementation scenarios, then applied the findings silently rather than narrating them to the client",
+      "Established the study-versus-training modelling decision and the one-event-to-many-requests relationship",
+      "Defined the custom module set and justified each one against a standard alternative",
+      "Defined the final positive state for each lifecycle — the question that turns a flow into a specification",
+      "Insisted on identifier validation for form submissions as an integrity requirement",
+      "Set the flowchart standard (state, transition, negative transition, final positive state) and produced the lifecycle diagrams to it",
+      "Enforced the client-facing discipline: no change logs, no internal provenance, no transcript citations, no named individuals — the document reads as a specification, not as evidence of effort"
+    ],
+    "deliverablesProduced": [
+      "Technical Requirement Document (iterated through audit cycles)",
+      "Five lifecycle flowcharts to a defined visual standard",
+      "Gap and alignment audit against source material",
+      "Custom module specification",
+      "Phase 1 exclusion list",
+      "Open decision register"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "One implementation-ready specification in place of eleven partially-agreeing sources, with a Phase 1 boundary the organisation had explicitly chosen. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Customer & CRM",
+      "Operations & Custom Applications",
+      "Analytics & Documents",
+      "Marketing & Communication"
+    ]
+  },
+  {
+    "slug": "retail-support-transformation",
+    "title": "Retail Customer-Support Transformation",
+    "locationContext": "Multi-channel retail business",
+    "status": "Anonymised portfolio case",
+    "featured": true,
+    "featureOrder": 5,
+    "industrySlugs": [
+      "retail-ecommerce",
+      "customer-support-operations",
+      "fashion-jewellery"
+    ],
+    "processSlugs": [
+      "enquiry-to-resolution",
+      "ticket-management",
+      "sla-and-escalation",
+      "complaint-management",
+      "return-and-exchange",
+      "defect-and-damage-resolution",
+      "return-to-refund",
+      "whatsapp-nurture"
+    ],
+    "serviceSlugs": [
+      "business-process-discovery",
+      "current-state-process-mapping",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "uat-adoption-planning"
+    ],
+    "deliverableSlugs": [
+      "process-flow",
+      "functional-requirements",
+      "solution-architecture",
+      "uat-plan"
+    ],
+    "engagementStages": [
+      "discovery",
+      "process-mapping",
+      "architecture",
+      "requirement-documentation",
+      "uat"
+    ],
+    "executiveSummary": "A retail business was handling customer enquiries across messaging, social media, email and phone, with returns, exchanges, damage and defects all treated as the same kind of problem. The work was to separate the outcomes, define what 'resolved' means, and build a single support process that survives four channels.",
+    "industryContext": "Retail support is where the whole operation shows its cracks: a support conversation is really an order problem, a stock problem or a logistics problem wearing a different hat. Designing the support process without touching the order and returns processes produces a faster way to fail.",
+    "businessModel": "Multi-channel retail selling directly to consumers, with support arriving on whichever channel the customer already uses.",
+    "operationalChallenge": [
+      "Enquiries arriving on messaging, social, email and phone with only some becoming records",
+      "The same customer handled by several agents who could not see each other's replies",
+      "Returns, exchanges, refunds, defects and transit damage all called 'a return'",
+      "No definition of resolved, so tickets closed early and reopened",
+      "Customers chasing because nobody told them anything",
+      "Priority set by whoever complained loudest"
+    ],
+    "stakeholders": [
+      "Customer",
+      "Support agents",
+      "Team lead",
+      "Warehouse",
+      "Finance",
+      "Courier",
+      "Management"
+    ],
+    "currentState": {
+      "summary": "Support happened wherever the customer put it. Some of it became a ticket. The rest lived in a channel inbox, a personal phone, or a colleague's memory.",
+      "steps": [
+        "Customer messages on any channel",
+        "Whoever sees it responds",
+        "Issue investigated by conversation",
+        "Outcome agreed verbally",
+        "Sometimes recorded"
+      ],
+      "risks": [
+        "No history against the customer",
+        "Inconsistent outcomes for identical problems",
+        "Courier and supplier claim windows missed",
+        "Stock not adjusted on returns",
+        "No basis for measuring anything"
+      ],
+      "gaps": [
+        "No channel-to-ticket capture",
+        "No classification",
+        "No SLA",
+        "No definition of resolution",
+        "No distinction between failure types"
+      ]
+    },
+    "processGaps": [
+      "Four channels, one of which was somebody's personal phone, and no single record",
+      "Defect, transit damage and misuse were resolved identically despite the money being entirely different",
+      "Refunds were issued before inspection, or long after, depending on the agent",
+      "Evidence was requested inconsistently, so courier and supplier claims failed later",
+      "Categories had grown organically until reporting was meaningless"
+    ],
+    "keyDiscoveryQuestions": [
+      "Every way a customer can reach you — including the ones you wish they did not use?",
+      "What are the genuinely different failure types, and does the money differ per type?",
+      "When is the customer refunded — on request, on collection, or on inspection?",
+      "What does 'resolved' mean here, and who says so?",
+      "How long do you have to claim against a courier or a supplier?",
+      "What are the top five things customers contact you about, and why do they keep happening?"
+    ],
+    "futureState": {
+      "summary": "Every channel creates a ticket. Classification decides the path. Return, exchange, refund, repair, transit damage and defect are separate outcomes with separate evidence requirements and separate liability.",
+      "steps": [
+        "Enquiry captured from any channel as a ticket",
+        "Classified and prioritised by rule",
+        "Assigned with an SLA",
+        "Customer acknowledged",
+        "Path followed per classification",
+        "Evidence collected where liability may be claimed",
+        "Inspection where goods are involved",
+        "Outcome executed — refund, exchange, repair, reject",
+        "Stock disposition recorded",
+        "Recovery claim raised against courier or supplier",
+        "Customer informed",
+        "Closed with category and root cause"
+      ],
+      "controls": [
+        "Every channel creates a ticket",
+        "Mandatory classification before assignment",
+        "SLA per priority with business hours",
+        "Evidence requirements per failure type",
+        "Inspection before refund",
+        "Mandatory closure category and root cause"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "A helpdesk as the single support surface, integrated to the channels customers actually use, with links out to the order, stock and finance systems rather than copies of them.",
+      "layers": [
+        {
+          "name": "Helpdesk",
+          "role": "Ticket capture, classification, assignment, SLA, resolution and history"
+        },
+        {
+          "name": "Channel integrations",
+          "role": "Messaging, social, email and telephony feeding tickets rather than inboxes"
+        },
+        {
+          "name": "Commerce / order system",
+          "role": "Order and item reference, remains the source of truth for the order"
+        },
+        {
+          "name": "Inventory",
+          "role": "Stock disposition on returns — resaleable, damaged, write-off"
+        },
+        {
+          "name": "Finance",
+          "role": "Refunds and credit notes, executed where the ledger lives"
+        }
+      ],
+      "dataFlow": [
+        "Channel message → ticket with customer and order match",
+        "Classification → path (query, return, exchange, defect, transit damage, complaint)",
+        "Return authorised → goods received → inspection outcome → stock disposition",
+        "Outcome → refund or replacement executed in the system that owns it",
+        "Liability determined → recovery claim raised against courier or supplier",
+        "Closure category and root cause → trend reporting"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Ticketing, SLA, assignment and escalation",
+        "verdict": "standard",
+        "reasoning": "Core helpdesk functionality. Building any of it would have been indefensible."
+      },
+      {
+        "requirement": "Channel integrations",
+        "verdict": "external",
+        "reasoning": "Dependent on third-party business-messaging approval, which is a timeline risk outside the project's control and had to be flagged as a dependency, not a task."
+      },
+      {
+        "requirement": "Return, exchange and defect paths",
+        "verdict": "configuration",
+        "reasoning": "Distinct ticket types with their own required fields and evidence rules — configuration, not code."
+      },
+      {
+        "requirement": "Liability and recovery tracking",
+        "verdict": "custom",
+        "reasoning": "Claim windows, evidence and recovery against couriers and suppliers had no standard representation, and the money involved justified the build."
+      },
+      {
+        "requirement": "Stock disposition on return",
+        "verdict": "external",
+        "reasoning": "Inventory owns stock. The helpdesk records the decision and the inventory system records the movement."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Agents continuing to answer on the channel directly",
+        "decision": "Designed out, with a transition plan",
+        "reasoning": "The system cannot beat a habit that is faster. The channel had to route into the helpdesk so the fast path and the recorded path were the same path."
+      },
+      {
+        "requirement": "Category taxonomy",
+        "decision": "Rebuilt and capped",
+        "reasoning": "The existing categories had grown until reporting meant nothing. A smaller set with a defined owner was worth more than a complete one."
+      },
+      {
+        "requirement": "Root cause on every ticket",
+        "decision": "Mandatory on complaints and failures only",
+        "reasoning": "Mandating it everywhere guarantees it becomes noise."
+      }
+    ],
+    "dependencies": [
+      "Business-messaging account and template approval",
+      "Order system reference access",
+      "Courier claim window and evidence requirements",
+      "Finance refund authority limits"
+    ],
+    "clientResponsibilities": [
+      "Confirm the definition of resolved",
+      "Set refund authority limits",
+      "Retire the personal-phone channel",
+      "Provide agents for UAT",
+      "Own the category taxonomy after go-live"
+    ],
+    "risks": [
+      "Channel approval delaying go-live regardless of build readiness",
+      "Agents reverting to the channel because it is faster",
+      "Category proliferation returning within a year",
+      "Evidence collection failing at the customer, which is where every claim starts",
+      "Refund timing conflicting between customer expectation and finance policy"
+    ],
+    "contribution": [
+      "Separated one 'returns' process into distinct outcomes with distinct liability and distinct evidence",
+      "Designed the channel-to-ticket capture so the recorded path is also the fast path",
+      "Defined resolution, and made someone accountable for saying so",
+      "Built the priority and SLA matrix from what the business had actually promised, not from what sounded reasonable",
+      "Introduced evidence requirements tied to claim windows, so recovery stops failing silently",
+      "Rebuilt the category taxonomy to a size that produces usable trend data",
+      "Structured UAT around real scenarios from the operation rather than a happy-path demo"
+    ],
+    "deliverablesProduced": [
+      "Current and future-state support process flows",
+      "Classification and priority matrix",
+      "Functional requirements",
+      "Evidence and liability rules",
+      "UAT plan and scenarios"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "One support process across four channels, distinct outcomes for distinct failures, and trend data the business can act on. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Customer & CRM",
+      "Marketing & Communication",
+      "Finance & Commerce",
+      "Automation & Integration"
+    ]
+  },
+  {
+    "slug": "field-service-job-lifecycle",
+    "title": "Field Service: Three Job Types, One System",
+    "locationContext": "Installation and home-improvement services business",
+    "status": "Anonymised portfolio case",
+    "featured": false,
+    "industrySlugs": [
+      "home-improvement-installations",
+      "professional-services"
+    ],
+    "processSlugs": [
+      "field-operations",
+      "partial-payments",
+      "quote-to-cash",
+      "project-delivery",
+      "uat-and-change-control",
+      "mileage-tracking",
+      "after-sales-servicing",
+      "customer-onboarding"
+    ],
+    "serviceSlugs": [
+      "current-state-process-mapping",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "implementation-planning",
+      "uat-adoption-planning",
+      "delivery-quality-review"
+    ],
+    "deliverableSlugs": [
+      "process-flow",
+      "functional-requirements",
+      "implementation-plan",
+      "uat-plan",
+      "scope-deviation-report"
+    ],
+    "engagementStages": [
+      "process-mapping",
+      "architecture",
+      "requirement-documentation",
+      "delivery-leadership",
+      "uat"
+    ],
+    "executiveSummary": "An installation business needed field service, CRM, accounting and support working as one operation. The design decision that mattered was refusing to force three genuinely different job types down one workflow — and the delivery lesson was that address validation, deposit rules and skill-based scheduling are never as small as they look at scoping.",
+    "industryContext": "Installation work is not a ticket and not a project — it is somewhere between. The job has a quote, a deposit, a scheduled visit, a skilled resource, parts, a customer standing in their own home, and an invoice that should not wait for paperwork to come back from a van.",
+    "businessModel": "Installation and home-improvement services sold to consumers, delivered by field teams, with jobs varying from standard fits to bespoke work and larger multi-visit projects.",
+    "operationalChallenge": [
+      "Three job types with genuinely different workflows being described as one process",
+      "Scheduling done by whiteboard and phone, with skills matched from memory",
+      "Deposits calculated by rules that lived in someone's head",
+      "Job completion evidenced by photographs in a messaging group",
+      "Invoicing waiting for paperwork to return from site",
+      "Support, sales, job and accounting data sitting in four places"
+    ],
+    "stakeholders": [
+      "Customer",
+      "Sales",
+      "Scheduler",
+      "Field technicians",
+      "Operations manager",
+      "Finance",
+      "Support"
+    ],
+    "currentState": {
+      "summary": "A working business held together by coordination effort. Every job type flowed through the same informal path, and the differences between them were absorbed by people rather than expressed by the process.",
+      "steps": [
+        "Enquiry",
+        "Quote",
+        "Deposit",
+        "Scheduling by whiteboard",
+        "Technician dispatched",
+        "Work done",
+        "Photos sent",
+        "Paperwork returned",
+        "Invoice raised"
+      ],
+      "risks": [
+        "Wrong technician or missing parts on site",
+        "Deposit gate applied inconsistently",
+        "Invoice delay",
+        "No first-time-fix data",
+        "Customer expectations set by whoever answered the phone"
+      ],
+      "gaps": [
+        "No job-type distinction in the workflow",
+        "No skill matching",
+        "No address validation",
+        "No structured completion evidence",
+        "No link from job to invoice"
+      ]
+    },
+    "processGaps": [
+      "Standard, custom and project work were being forced through one blueprint, so exceptions were the norm",
+      "Deposit calculation differed per job type and was undocumented",
+      "Address quality was assumed, and failed dispatches were treated as bad luck",
+      "Skill requirements existed but only in the scheduler's head",
+      "Completion evidence had no home, so invoicing was blocked by logistics rather than by work"
+    ],
+    "keyDiscoveryQuestions": [
+      "What are the genuinely different job types, and how does the work differ?",
+      "What has to be true before a technician is dispatched?",
+      "How is the deposit calculated — and are there exceptions?",
+      "What is captured on site today, and on what device?",
+      "What triggers the invoice?",
+      "Does the technician have signal where the work happens?"
+    ],
+    "futureState": {
+      "summary": "Job type determines the blueprint. Skills and parts are checked before dispatch. Completion evidence is captured on site and releases the invoice.",
+      "steps": [
+        "Enquiry to quote",
+        "Deposit calculated by rule and taken",
+        "Job created with its type",
+        "Type-specific blueprint applied",
+        "Requirements assessed — skills, parts, access, duration",
+        "Scheduled to a qualified resource",
+        "Dispatched with full job detail",
+        "Work performed and recorded on site",
+        "Time and parts captured",
+        "Completion evidence and customer sign-off",
+        "Invoice triggered",
+        "Job closed and support handover"
+      ],
+      "controls": [
+        "Job type drives the workflow, not a generic path",
+        "Deposit gate before scheduling",
+        "Skill and part checks before dispatch",
+        "Address validated before scheduling",
+        "Mandatory completion evidence",
+        "Invoice triggered by completion, not by paperwork"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "Field service as the operational core, CRM for the customer relationship, accounting for money and a helpdesk for post-installation support — with the job as the record that connects them.",
+      "layers": [
+        {
+          "name": "Field service",
+          "role": "Job lifecycle, scheduling, dispatch, on-site capture, completion"
+        },
+        {
+          "name": "CRM",
+          "role": "Customer, enquiry, quotation and relationship history"
+        },
+        {
+          "name": "Accounting",
+          "role": "Deposits, invoices and payments — the financial source of truth"
+        },
+        {
+          "name": "Helpdesk",
+          "role": "Post-installation support tied to the job and the asset"
+        }
+      ],
+      "dataFlow": [
+        "Enquiry → quote → deposit invoice raised in accounting",
+        "Deposit confirmed → job created with type → blueprint applied",
+        "Job requirements → scheduling against skills and availability",
+        "Dispatch → on-site capture of time, parts and evidence → completion",
+        "Completion → invoice raised in accounting → payment recorded",
+        "Post-installation issue → helpdesk ticket linked to the job"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Job scheduling and dispatch",
+        "verdict": "standard",
+        "reasoning": "Core field-service functionality."
+      },
+      {
+        "requirement": "Three job-type workflows",
+        "verdict": "configuration",
+        "reasoning": "Separate blueprints per job type. Forcing one workflow would have been faster to build and wrong from the first bespoke job."
+      },
+      {
+        "requirement": "Deposit calculation",
+        "verdict": "custom",
+        "reasoning": "Rules varied by job type and value in ways standard functionality did not express. Contained, but real — and larger than the original scope allowed for."
+      },
+      {
+        "requirement": "Address validation",
+        "verdict": "custom",
+        "reasoning": "Failed dispatches trace back to address quality. Underestimated at scoping and reported as a scope deviation rather than absorbed."
+      },
+      {
+        "requirement": "Skill-based scheduling",
+        "verdict": "custom",
+        "reasoning": "The skill model had to exist before matching could happen, which made this a data project as well as a scheduling one."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "One blueprint for all job types",
+        "decision": "Rejected",
+        "reasoning": "The three job types differ in the work, not the label. One blueprint would have produced permanent workarounds."
+      },
+      {
+        "requirement": "Deposit rules, address validation and skill-based scheduling",
+        "decision": "Recognised as additional effort and reported",
+        "reasoning": "Each had been scoped as a small item and was not. Reporting the deviation against the baseline is the alternative to absorbing it silently and losing the estimate."
+      },
+      {
+        "requirement": "Blueprint rework after initial build",
+        "decision": "Handled as change control",
+        "reasoning": "The requirement moved. Documenting it as a change rather than a defect kept the baseline meaningful."
+      }
+    ],
+    "dependencies": [
+      "Skill taxonomy defined by operations",
+      "Address data source",
+      "Deposit rules confirmed by finance",
+      "Mobile device and connectivity reality on site"
+    ],
+    "clientResponsibilities": [
+      "Define the skill taxonomy",
+      "Confirm deposit rules per job type in writing",
+      "Provide technicians for UAT, not only office staff",
+      "Accept that completion evidence is mandatory"
+    ],
+    "risks": [
+      "Connectivity on site making mobile capture unreliable",
+      "Technicians reverting to the messaging group",
+      "Skill data being incomplete at go-live",
+      "Scope absorbed as goodwill until the margin disappears"
+    ],
+    "contribution": [
+      "Established that three job types needed three blueprints, and defended it against the simpler wrong answer",
+      "Documented the blueprint workflows for each job type across successive user-manual versions",
+      "Produced the scope deviation and additional effort report covering address validation, deposit calculation, skill-based scheduling and blueprint rework — so the extra work was decided, not absorbed",
+      "Designed the completion-evidence gate that releases invoicing from paperwork",
+      "Structured UAT around real job types with the technicians who would run them",
+      "Produced the user documentation to the partner's brand standard"
+    ],
+    "deliverablesProduced": [
+      "Job-type process flows and blueprints",
+      "Functional requirements",
+      "Full user manual across versions",
+      "Scope deviation and additional effort report",
+      "UAT plan"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "One operation across field service, CRM, accounting and support, with job types that behave like the different work they are — and a scope baseline that stayed honest under pressure. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Operations & Custom Applications",
+      "Customer & CRM",
+      "Finance & Commerce"
+    ]
+  },
+  {
+    "slug": "claims-process-rebuild",
+    "title": "Claims Process Rebuild with Cascading Classification",
+    "locationContext": "Flooring supply and installation business",
+    "status": "Anonymised portfolio case",
+    "featured": false,
+    "industrySlugs": [
+      "home-improvement-installations",
+      "retail-ecommerce",
+      "customer-support-operations"
+    ],
+    "processSlugs": [
+      "complaint-management",
+      "defect-and-damage-resolution",
+      "approval-management",
+      "quality-control",
+      "enquiry-to-resolution"
+    ],
+    "serviceSlugs": [
+      "existing-system-review",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "trd-preparation",
+      "scope-requirement-documentation"
+    ],
+    "deliverableSlugs": [
+      "technical-requirements",
+      "process-flow",
+      "solution-architecture"
+    ],
+    "engagementStages": [
+      "discovery",
+      "process-mapping",
+      "architecture",
+      "requirement-documentation"
+    ],
+    "executiveSummary": "A flooring supply and installation business needed its claims process rebuilt across CRM, a custom application, forms and document storage. Five separate source materials described the process, none of them the same way. The core design problem was a three-level cascading classification — product type, claim type, issue type — that determined everything downstream, and which had been treated as a dropdown.",
+    "industryContext": "Flooring and installation claims sit between retail support, manufacturing defect and installation quality. The same customer complaint can be a product fault, an installation error or a site condition, and the correct process, the evidence required and the party who pays are different in each case.",
+    "businessModel": "A flooring supply and installation business selling and installing flooring and related products, with claims arriving from customers and requiring inspection before liability can be established.",
+    "operationalChallenge": [
+      "Product type, claim type and issue type interact in a cascading dependency that drives the entire downstream process",
+      "Inspectors are involved in the workflow but sit partly outside the organisation",
+      "Five source materials described the process differently and had never been reconciled",
+      "Evidence and inspection outcomes lived in email and documents",
+      "Approval and liability decisions had no consistent structure"
+    ],
+    "stakeholders": [
+      "Customer",
+      "Claims administrator",
+      "Inspector",
+      "Installer",
+      "Supplier / manufacturer",
+      "Finance",
+      "Management"
+    ],
+    "currentState": {
+      "summary": "A claims process that worked through people and email, with classification decided case by case and outcomes recorded inconsistently.",
+      "steps": [
+        "Claim received",
+        "Classified informally",
+        "Inspector engaged",
+        "Inspection carried out",
+        "Outcome decided",
+        "Remedy agreed",
+        "Recorded across documents and email"
+      ],
+      "risks": [
+        "Inconsistent liability decisions",
+        "Evidence lost",
+        "Supplier recovery not pursued",
+        "No trend data on failure causes",
+        "Inspector engagement dependent on individuals"
+      ],
+      "gaps": [
+        "No structured classification model",
+        "No inspection record",
+        "No evidence requirements per claim type",
+        "No approval structure",
+        "No link between claim, product and installation"
+      ]
+    },
+    "processGaps": [
+      "The cascading dependency between product type, claim type and issue type was being handled as three unrelated dropdowns, which means every combination is possible — including the impossible ones",
+      "Inspector participation had no defined access path, so a workflow step depended on someone outside the system",
+      "Evidence requirements varied by claim type but were not encoded, so claims failed later for missing evidence",
+      "Approval authority for remedies was undefined",
+      "The five source materials contained genuine contradictions that a build would have inherited"
+    ],
+    "keyDiscoveryQuestions": [
+      "Which combinations of product, claim and issue type are actually possible — and which are nonsense?",
+      "Who inspects, and are they internal, contracted or independent?",
+      "What evidence must exist before liability can be determined?",
+      "Who is allowed to approve a remedy, and up to what value?",
+      "When these five documents disagree, which one is right?",
+      "What happens to a claim where the inspector is unavailable?"
+    ],
+    "futureState": {
+      "summary": "Classification as a controlled cascading structure held as data, driving the evidence requirements, the inspection path and the approval route.",
+      "steps": [
+        "Claim logged against the customer, product and installation",
+        "Product type selected",
+        "Claim type filtered by product type",
+        "Issue type filtered by claim type",
+        "Evidence requirements applied per combination",
+        "Inspection triggered where the classification requires it",
+        "Inspector records findings",
+        "Liability determined",
+        "Approval routed by remedy value",
+        "Remedy executed",
+        "Supplier or installer recovery raised",
+        "Root cause recorded",
+        "Claim closed"
+      ],
+      "controls": [
+        "Cascading classification held as configurable data, not code",
+        "Evidence requirements per classification combination",
+        "Inspection as a gated step where required",
+        "Approval authority by remedy value",
+        "Mandatory root cause before closure"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "CRM for the customer and claim record, a custom application for the classification and inspection structure, forms for structured capture from parties outside the CRM, and document storage for evidence.",
+      "layers": [
+        {
+          "name": "CRM",
+          "role": "Customer, claim record, communication and history"
+        },
+        {
+          "name": "Custom application",
+          "role": "Cascading classification model, inspection records, evidence requirements and liability decisions"
+        },
+        {
+          "name": "Forms",
+          "role": "Structured capture from inspectors and other parties without full system access"
+        },
+        {
+          "name": "Document storage",
+          "role": "Evidence, inspection reports and supporting documentation"
+        }
+      ],
+      "dataFlow": [
+        "Claim raised in CRM against customer, product and installation",
+        "Classification cascade applied → evidence requirements determined",
+        "Inspection required → form issued to inspector → findings captured back against the claim",
+        "Evidence stored and linked to the claim record",
+        "Liability determined → approval routed → remedy executed",
+        "Recovery raised against supplier or installer → root cause logged"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Cascading product / claim / issue classification",
+        "verdict": "custom",
+        "reasoning": "A dependency table held as data. Hard-coding the combinations would have made every business change a development request, and the combinations change."
+      },
+      {
+        "requirement": "Claim record and customer history",
+        "verdict": "standard",
+        "reasoning": "Standard CRM objects were sufficient once classification was modelled properly."
+      },
+      {
+        "requirement": "Inspector participation",
+        "verdict": "configuration",
+        "reasoning": "Structured forms rather than system licences. Inspectors need to contribute, not to browse — and giving external parties full access is a permission problem nobody wants."
+      },
+      {
+        "requirement": "Evidence storage",
+        "verdict": "standard",
+        "reasoning": "Document storage linked to the claim, with retention handled where retention belongs."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Inspector portal with full system access",
+        "decision": "Rejected in favour of forms",
+        "reasoning": "Lower cost, lower risk, and it matches what inspectors actually do — submit findings, not manage records."
+      },
+      {
+        "requirement": "Classification combinations",
+        "decision": "Blocked pending a client-supplied dependency table",
+        "reasoning": "The model cannot be built from guesses. This was raised as an open item rather than assumed, because a wrong cascade is invisible until it is expensive."
+      },
+      {
+        "requirement": "Additional workflow requirements identified during reconciliation",
+        "decision": "Registered as open items",
+        "reasoning": "Several requirements existed in one source and not the others. Recording them as open rather than resolving them unilaterally kept the specification honest."
+      }
+    ],
+    "dependencies": [
+      "Client-supplied cascading dependency table for product, claim and issue type",
+      "Confirmation of specific workflow requirements identified as gaps",
+      "Inspector contact and access model",
+      "Approval authority matrix"
+    ],
+    "clientResponsibilities": [
+      "Supply the classification dependency table",
+      "Resolve the contradictions between their own source materials",
+      "Confirm approval authority limits",
+      "Confirm the inspector engagement model"
+    ],
+    "risks": [
+      "Building the cascade before the dependency table exists guarantees rework",
+      "Contradictions between source materials resurfacing as change requests",
+      "Inspector availability constraining the process regardless of system design",
+      "Evidence requirements being relaxed in practice and claims failing at recovery"
+    ],
+    "contribution": [
+      "Reconciled five source materials into one Technical Requirement Document, recording contradictions as open items rather than silently choosing",
+      "Identified the cascading classification as the structural centre of the process rather than a UI detail",
+      "Specified it as a configurable dependency table so the business can change combinations without a developer",
+      "Designed inspector participation through structured forms rather than system access",
+      "Tied evidence requirements to the classification combination so recovery stops failing on missing proof",
+      "Raised the unresolved dependency table and specific workflow gaps as blockers rather than assumptions",
+      "Drafted the client-facing communication to the agreed format"
+    ],
+    "deliverablesProduced": [
+      "Technical Requirement Document reconciling five source materials",
+      "Classification and dependency model",
+      "Process flows",
+      "Open item and blocker register"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "A claims process where classification drives evidence, inspection and liability by rule rather than by case-by-case judgement — with the unresolved dependencies visible as blockers before build rather than after. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Customer & CRM",
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ]
+  },
+  {
+    "slug": "nonprofit-operational-application",
+    "title": "Non-profit Operational Application",
+    "locationContext": "Non-profit rescue organisation",
+    "status": "Anonymised portfolio case",
+    "featured": false,
+    "industrySlugs": [
+      "nonprofit"
+    ],
+    "processSlugs": [
+      "asset-management",
+      "vehicle-management",
+      "field-operations",
+      "approval-management",
+      "role-and-permission-governance",
+      "customer-onboarding"
+    ],
+    "serviceSlugs": [
+      "business-process-discovery",
+      "crm-solution-architecture",
+      "scope-requirement-documentation",
+      "implementation-planning"
+    ],
+    "deliverableSlugs": [
+      "process-flow",
+      "solution-architecture",
+      "functional-requirements"
+    ],
+    "engagementStages": [
+      "discovery",
+      "process-mapping",
+      "architecture",
+      "requirement-documentation"
+    ],
+    "executiveSummary": "A non-profit rescue organisation needed to manage volunteers, training, incidents, assets, vehicles and donors — none of which is a sales pipeline. The work was to recognise that a standard CRM would only carry part of it, and to design a custom operational application for the rest without building a second CRM by accident.",
+    "industryContext": "Non-profits are frequently sold CRM as a donor tool and then asked to run their entire operation in it. The operational side — volunteers, equipment, vehicles, incidents, training currency — has more in common with field operations and asset management than with fundraising.",
+    "businessModel": "A volunteer-based rescue organisation funded by donations, operating equipment and vehicles, responding to incidents, and maintaining trained and current volunteers.",
+    "operationalChallenge": [
+      "Volunteers, not employees — availability, training currency and role qualification all matter and none are HR records",
+      "Assets and vehicles needing custody, maintenance and compliance tracking",
+      "Incidents requiring records that link people, equipment and outcome",
+      "Training currency determining who may do what",
+      "Donors needing relationship management that is genuinely CRM work",
+      "Limited budget and limited administrative capacity, which is a design constraint"
+    ],
+    "stakeholders": [
+      "Volunteers",
+      "Operations coordinators",
+      "Training officers",
+      "Fleet and equipment custodians",
+      "Donors",
+      "Management committee"
+    ],
+    "currentState": {
+      "summary": "Spreadsheets and institutional knowledge, held together by a small number of committed people who each hold part of the picture.",
+      "steps": [
+        "Volunteer joins",
+        "Training recorded on a spreadsheet",
+        "Incident happens",
+        "Response coordinated by phone",
+        "Equipment issued informally",
+        "Records written up afterwards, sometimes"
+      ],
+      "risks": [
+        "Training currency unknown at the moment it matters",
+        "Equipment custody untracked",
+        "Vehicle compliance dates missed",
+        "Incident records incomplete",
+        "Key-person dependency across the whole operation"
+      ],
+      "gaps": [
+        "No volunteer record with qualification currency",
+        "No asset register with custody",
+        "No incident model",
+        "No structured link between donor and operational activity"
+      ]
+    },
+    "processGaps": [
+      "Training currency was known by the training officer, not by the system, at exactly the moment it needed to be known by a coordinator",
+      "Equipment custody was informal, so 'where is it' had no answer",
+      "Vehicle compliance was tracked in calendar reminders",
+      "Incidents were reconstructed after the fact rather than recorded during",
+      "The donor relationship and the operational reality had no connection, which is a fundraising loss as well as an admin one"
+    ],
+    "keyDiscoveryQuestions": [
+      "What does a volunteer need to be current in before they can attend an incident?",
+      "Who is allowed to issue equipment, and does anyone record it?",
+      "What must be true for this vehicle to be legal to drive today?",
+      "What do you need to be able to say about an incident afterwards, and to whom?",
+      "Who administers this system when it is live — and how many hours do they have?"
+    ],
+    "futureState": {
+      "summary": "A custom operational application for volunteers, training, incidents, assets and vehicles, with CRM used for the donor relationship — each doing what it is actually for.",
+      "steps": [
+        "Volunteer registered with role and qualifications",
+        "Training recorded with currency dates",
+        "Qualification currency gates incident roles",
+        "Incident logged with people, equipment and vehicles involved",
+        "Equipment issued and returned as custody events",
+        "Vehicle compliance monitored with advance alerts",
+        "Asset maintenance scheduled",
+        "Operational reporting",
+        "Donor relationship managed in CRM"
+      ],
+      "controls": [
+        "Training currency as a gate, not a report",
+        "Custody transfer as a recorded event",
+        "Compliance dates with lead-time alerts",
+        "Role-based access appropriate to a volunteer organisation",
+        "Incident record completeness before closure"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "A custom application for the operational domain, CRM for donors, and a deliberately small administrative surface — because the organisation's real constraint is administrative capacity, not licence cost.",
+      "layers": [
+        {
+          "name": "Custom operational application",
+          "role": "Volunteers, training currency, incidents, assets, vehicles, custody"
+        },
+        {
+          "name": "CRM",
+          "role": "Donors and supporter relationships"
+        },
+        {
+          "name": "Reporting",
+          "role": "Operational and governance reporting for the committee"
+        },
+        {
+          "name": "Access layer",
+          "role": "Role-based permissions appropriate to volunteers rather than employees"
+        }
+      ],
+      "dataFlow": [
+        "Volunteer record → training records → currency status",
+        "Incident → linked volunteers (currency-checked), equipment and vehicles",
+        "Equipment issue → custody event → return event",
+        "Vehicle compliance dates → advance alerts → renewal",
+        "Operational activity → committee reporting",
+        "Donor records → CRM, separate from operational data"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Volunteers, training currency, incidents, assets, vehicles",
+        "verdict": "custom",
+        "reasoning": "None of these is a lead, deal or contact. Forcing them into CRM objects would have produced a system that technically holds the data and answers no question anyone asks."
+      },
+      {
+        "requirement": "Donor management",
+        "verdict": "standard",
+        "reasoning": "This genuinely is CRM work and needed nothing custom."
+      },
+      {
+        "requirement": "Compliance date monitoring",
+        "verdict": "standard",
+        "reasoning": "Date-driven alerts are standard. The value was in getting the dates into a system at all."
+      },
+      {
+        "requirement": "Role and permission model",
+        "verdict": "configuration",
+        "reasoning": "Volunteers are not employees and the access model has to reflect that — configuration, but thought about deliberately."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Running everything in the CRM",
+        "decision": "Rejected",
+        "reasoning": "Cheaper on paper. It would have produced a donor system with operational data hidden in custom fields, which is the outcome this organisation was already living with in spreadsheets."
+      },
+      {
+        "requirement": "Administrative burden",
+        "decision": "Treated as a hard design constraint",
+        "reasoning": "A volunteer organisation has no spare administrator. A design that needs one has failed regardless of how good it is."
+      },
+      {
+        "requirement": "Donor and operational data",
+        "decision": "Kept separate",
+        "reasoning": "Different audiences, different access, different purposes. Merging them creates a privacy problem and a usability one."
+      }
+    ],
+    "dependencies": [
+      "Confirmed qualification and currency rules",
+      "Existing asset and vehicle records",
+      "Committee agreement on reporting requirements",
+      "Named system owner"
+    ],
+    "clientResponsibilities": [
+      "Define qualification currency rules",
+      "Cleanse the asset and vehicle registers",
+      "Name a system owner with realistic hours",
+      "Accept a smaller Phase 1 than the wish list"
+    ],
+    "risks": [
+      "Administrative capacity below what any system needs",
+      "Register data quality at go-live",
+      "Volunteer adoption where the alternative is a familiar spreadsheet",
+      "Scope growing to match ambition rather than capacity"
+    ],
+    "contribution": [
+      "Established that the operational domain needed a custom application and the donor domain did not",
+      "Modelled training currency as a gate on incident participation rather than a report nobody opens",
+      "Designed custody as an event so equipment location has an answer",
+      "Treated administrative capacity as a design constraint rather than an implementation detail",
+      "Kept donor and operational data separate for access and privacy reasons",
+      "Phased the scope to what the organisation could actually run"
+    ],
+    "deliverablesProduced": [
+      "Process flows for volunteer, incident, asset and vehicle management",
+      "Custom application data architecture",
+      "Functional requirements",
+      "Phase recommendation"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "An operational system that answers the questions the organisation actually asks — who is current, where is the equipment, is the vehicle legal — with donor management kept where it belongs. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Operations & Custom Applications",
+      "Customer & CRM",
+      "Analytics & Documents"
+    ]
+  },
+  {
+    "slug": "webhook-to-helpdesk-integration",
+    "title": "Webhook-to-Helpdesk Integration",
+    "locationContext": "Partner-led integration project",
+    "status": "Anonymised portfolio case",
+    "featured": false,
+    "industrySlugs": [
+      "customer-support-operations",
+      "telecommunications",
+      "professional-services"
+    ],
+    "processSlugs": [
+      "enquiry-to-resolution",
+      "ticket-management",
+      "sla-and-escalation"
+    ],
+    "serviceSlugs": [
+      "crm-solution-architecture",
+      "scope-requirement-documentation",
+      "architecture-review",
+      "partner-white-label-support"
+    ],
+    "deliverableSlugs": [
+      "solution-architecture",
+      "technical-requirements",
+      "process-flow"
+    ],
+    "engagementStages": [
+      "architecture",
+      "requirement-documentation"
+    ],
+    "executiveSummary": "An external platform needed to raise support tickets automatically when defined events occurred. Technically small. The design work was everything around it: what happens when the payload is wrong, what happens when the same event fires twice, and what a ticket created by a machine at 3am is supposed to do next.",
+    "industryContext": "Event-driven integration is usually scoped as a connection. The connection is the easy part. The process design — deduplication, failure handling, ownership of a machine-created record — is where these projects either work or quietly produce a queue nobody trusts.",
+    "businessModel": "A partner-led engagement supporting an external platform that needed operational events to become actionable support records.",
+    "operationalChallenge": [
+      "External platform events needing to create tickets automatically",
+      "Payloads varying in completeness",
+      "Duplicate events firing for the same underlying incident",
+      "No defined owner for a ticket nobody raised",
+      "Failures needing to be visible rather than silent"
+    ],
+    "stakeholders": [
+      "External platform",
+      "Support team",
+      "Team lead",
+      "Partner",
+      "End customer"
+    ],
+    "currentState": {
+      "summary": "Events happened on the platform and reached the support team by whatever route someone had improvised — or did not reach them at all.",
+      "steps": [
+        "Event occurs on external platform",
+        "Someone notices",
+        "Ticket raised manually if it seems important"
+      ],
+      "risks": [
+        "Events missed entirely",
+        "Response depending on someone watching",
+        "No audit trail from event to resolution",
+        "Duplicate effort on the same incident"
+      ],
+      "gaps": [
+        "No automated capture",
+        "No deduplication",
+        "No failure visibility",
+        "No ownership rule for automated tickets"
+      ]
+    },
+    "processGaps": [
+      "The integration was described as 'send a webhook and create a ticket', which omits every decision that matters",
+      "Duplicate events had no treatment, so one incident could become five tickets",
+      "A malformed or incomplete payload had no defined outcome — silently dropping it is the default and the worst option",
+      "An automatically-created ticket had no owner, no priority rule and no SLA",
+      "There was no way to tell whether the integration had stopped working"
+    ],
+    "keyDiscoveryQuestions": [
+      "What event, exactly, should create a ticket — and what should not?",
+      "What is the minimum payload for a ticket to be actionable?",
+      "If the same event fires twice, is that two tickets or one?",
+      "Who owns a ticket that no human raised?",
+      "What happens when the payload is malformed — and who finds out?",
+      "How would you know if this integration silently stopped?"
+    ],
+    "futureState": {
+      "summary": "Defined events, validated payloads, conditional ticket creation with deduplication, explicit ownership and visible failure handling.",
+      "steps": [
+        "Event occurs on the external platform",
+        "Webhook fires to the endpoint",
+        "Payload validated against the required contract",
+        "Deduplication check against recent events",
+        "Conditional logic determines whether a ticket is warranted",
+        "Ticket created with classification, priority and owner",
+        "SLA applied",
+        "Support handles as a normal ticket",
+        "Errors logged and surfaced",
+        "Integration health visible"
+      ],
+      "controls": [
+        "Explicit event contract",
+        "Payload validation before creation",
+        "Deduplication window",
+        "Assignment and priority rules for machine-created tickets",
+        "Error logging with alerting",
+        "Health visibility"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "A webhook endpoint with validation and conditional logic in front of the helpdesk, so the helpdesk receives decisions rather than raw events.",
+      "layers": [
+        {
+          "name": "External platform",
+          "role": "Event source. Outside the project's control."
+        },
+        {
+          "name": "Integration layer",
+          "role": "Endpoint, payload validation, deduplication, conditional logic, error handling and logging"
+        },
+        {
+          "name": "Helpdesk",
+          "role": "Ticket creation, classification, assignment, SLA and resolution"
+        },
+        {
+          "name": "Monitoring",
+          "role": "Error visibility and integration health"
+        }
+      ],
+      "dataFlow": [
+        "Platform event → webhook → endpoint",
+        "Payload validated → invalid payloads logged and surfaced, never silently dropped",
+        "Deduplication check → duplicate suppressed or appended to the existing ticket",
+        "Conditional rules → ticket created with classification, priority and owner",
+        "Ticket → normal support process",
+        "Errors → log → alert"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Ticket creation, SLA and assignment",
+        "verdict": "standard",
+        "reasoning": "Helpdesk functionality. Nothing to build."
+      },
+      {
+        "requirement": "Payload validation and conditional logic",
+        "verdict": "custom",
+        "reasoning": "The contract with the external platform is specific, and validating it is the difference between a useful queue and a noisy one."
+      },
+      {
+        "requirement": "Deduplication",
+        "verdict": "custom",
+        "reasoning": "The definition of a duplicate is a business rule, not a technical default. It had to be decided before it could be built."
+      },
+      {
+        "requirement": "Error handling and health visibility",
+        "verdict": "custom",
+        "reasoning": "Silent failure is the standard behaviour of an unmonitored integration, and it is the failure mode that costs the most trust."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Changes to the external platform",
+        "decision": "Out of scope",
+        "reasoning": "Not the project's system. The integration must tolerate what the platform sends, including what it sends badly."
+      },
+      {
+        "requirement": "Retry and replay",
+        "decision": "Defined explicitly rather than assumed",
+        "reasoning": "Whether a failed event is retried, dropped or replayed is a decision with operational consequences and belongs in the specification."
+      },
+      {
+        "requirement": "Automated resolution",
+        "decision": "Excluded",
+        "reasoning": "The integration creates the record. Deciding what to do about it remains a human job."
+      }
+    ],
+    "dependencies": [
+      "Event contract and payload specification from the external platform",
+      "Endpoint availability and authentication",
+      "Deduplication rule confirmed by the business",
+      "Alert recipients"
+    ],
+    "clientResponsibilities": [
+      "Define which events warrant a ticket",
+      "Confirm the deduplication rule",
+      "Name the owner for machine-created tickets",
+      "Nominate who receives error alerts"
+    ],
+    "risks": [
+      "Payload contract changing without notice on the external side",
+      "Duplicate storms creating ticket noise and destroying trust in the queue",
+      "Silent failure going unnoticed",
+      "Automated tickets with no owner accumulating"
+    ],
+    "contribution": [
+      "Turned 'send a webhook, create a ticket' into a specification with an event contract, validation, deduplication and failure handling",
+      "Established the deduplication rule as a business decision rather than a technical default",
+      "Insisted on visible error handling — a silently failing integration is worse than none",
+      "Defined ownership, classification and SLA for tickets nobody raised",
+      "Kept automated resolution out of scope and said why"
+    ],
+    "deliverablesProduced": [
+      "Integration architecture",
+      "Event and payload contract",
+      "Conditional logic and deduplication specification",
+      "Error handling and monitoring requirements"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "Platform events becoming actionable tickets with owners and SLAs, and an integration whose failures are visible rather than silent. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Automation & Integration",
+      "Customer & CRM"
+    ]
+  },
+  {
+    "slug": "manufacturing-quality-tooling-process",
+    "title": "Manufacturing Quality and Tooling Process",
+    "locationContext": "Manufacturing business with an internal tool room",
+    "status": "Anonymised portfolio case",
+    "featured": false,
+    "industrySlugs": [
+      "manufacturing"
+    ],
+    "processSlugs": [
+      "quality-control",
+      "approval-management",
+      "vendor-management",
+      "defect-and-damage-resolution",
+      "asset-management"
+    ],
+    "serviceSlugs": [
+      "current-state-process-mapping",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "scope-requirement-documentation"
+    ],
+    "deliverableSlugs": [
+      "process-flow",
+      "functional-requirements",
+      "solution-architecture"
+    ],
+    "engagementStages": [
+      "discovery",
+      "process-mapping",
+      "architecture",
+      "requirement-documentation"
+    ],
+    "executiveSummary": "A manufacturer needed its quality-control and tool-room processes structured: forms, agreements, trial cycles and participation from departments and suppliers outside the core team. The design constraint was that the shop floor's paper forms were fast, and any replacement that was slower would simply be ignored.",
+    "industryContext": "Manufacturing quality is iterative, not linear. First articles, trials, adjustments and re-inspection loop until the part is right — a workflow shaped for a sales pipeline cannot express that, and neither can a form that assumes one submission.",
+    "businessModel": "A manufacturing operation with an internal tool room, external departments and suppliers participating in quality and trial cycles.",
+    "operationalChallenge": [
+      "Quality checks captured on paper and filed",
+      "Trial and first-article cycles run informally and iteratively",
+      "External departments and suppliers participating without system access",
+      "Agreements and forms living outside any process",
+      "Non-conformance recorded but root cause and corrective action not linked",
+      "Tool-room work coordinated verbally"
+    ],
+    "stakeholders": [
+      "Production",
+      "QC inspectors",
+      "Tool room / engineering",
+      "Suppliers",
+      "External departments",
+      "Quality manager",
+      "Customers"
+    ],
+    "currentState": {
+      "summary": "A working quality culture with no system underneath it. The knowledge existed; the data did not.",
+      "steps": [
+        "Part produced",
+        "Inspected",
+        "Result recorded on paper",
+        "Failures discussed",
+        "Tool room adjusts",
+        "Trial run",
+        "Re-inspected",
+        "Filed"
+      ],
+      "risks": [
+        "Repeat root causes invisible",
+        "Corrective actions closed without verification",
+        "Supplier quality trends unknown",
+        "Trial history not retained",
+        "Paper lost"
+      ],
+      "gaps": [
+        "No structured inspection record",
+        "No non-conformance model",
+        "No trial cycle representation",
+        "No external participation path",
+        "No trend data"
+      ]
+    },
+    "processGaps": [
+      "Inspection results were recorded but not queryable, so the same root cause recurred without anyone being able to prove it",
+      "Trial cycles are iterative and were being described as a linear approval",
+      "External departments and suppliers were part of the process but had no way in",
+      "Corrective actions were closed rather than verified",
+      "The paper form was fast, and no one had asked why it had survived"
+    ],
+    "keyDiscoveryQuestions": [
+      "Where do you find problems today, and where should you?",
+      "What is recorded on paper, and why has that survived every previous system?",
+      "How many trial cycles does a difficult part take, and what changes between them?",
+      "Who outside your company takes part in this process, and how do they contribute today?",
+      "Is a corrective action ever verified, or just closed?",
+      "Where does material go when it fails?"
+    ],
+    "futureState": {
+      "summary": "Defined inspection points with structured capture, non-conformance with mandatory root cause, iterative trial cycles modelled as cycles, and controlled participation for external parties through forms.",
+      "steps": [
+        "Quality criteria defined per item and stage",
+        "Inspection triggered at defined points",
+        "Result captured with evidence",
+        "Pass, fail or conditional decision",
+        "Non-conformance raised on fail",
+        "Root cause investigated",
+        "Corrective action assigned",
+        "Tool-room adjustment",
+        "Trial cycle run and re-inspected",
+        "Verification of corrective action",
+        "Closure",
+        "Trend review"
+      ],
+      "controls": [
+        "Defined inspection points",
+        "Mandatory evidence",
+        "Segregation of failed material",
+        "No closure without root cause and verification",
+        "Approval on conditional release",
+        "Trial cycles recorded as iterations, not overwrites"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "A custom application for the quality and tooling domain, with structured forms as the participation path for parties outside it, and capture designed to be at least as fast as the paper it replaces.",
+      "layers": [
+        {
+          "name": "Quality application",
+          "role": "Criteria, inspections, non-conformance, corrective actions, trial cycles"
+        },
+        {
+          "name": "Forms",
+          "role": "Shop-floor and external capture, designed for speed"
+        },
+        {
+          "name": "Asset / tooling records",
+          "role": "Tools and their history"
+        },
+        {
+          "name": "Reporting",
+          "role": "Trends by part, batch, supplier and root cause"
+        }
+      ],
+      "dataFlow": [
+        "Inspection point reached → structured capture with evidence",
+        "Fail → non-conformance raised → material segregated",
+        "Root cause investigation → corrective action assigned to an owner",
+        "Tool-room adjustment → trial cycle → re-inspection → iteration recorded",
+        "Verification → closure",
+        "Closed records → trend reporting by part, batch, supplier and cause"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Inspection, non-conformance and trial cycles",
+        "verdict": "custom",
+        "reasoning": "The iterative shape of a trial cycle has no standard representation. Modelling it as a linear approval would have been faster and would have lost the history that makes the data worth having."
+      },
+      {
+        "requirement": "Shop-floor and external capture",
+        "verdict": "configuration",
+        "reasoning": "Structured forms rather than system licences, for the same reason as anywhere else: participants need to contribute, not browse."
+      },
+      {
+        "requirement": "Approval on conditional release",
+        "verdict": "standard",
+        "reasoning": "Standard approval routing was sufficient once the authority was defined."
+      },
+      {
+        "requirement": "Trend reporting",
+        "verdict": "standard",
+        "reasoning": "Reporting was never the problem; structured data was."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Replacing paper forms wholesale",
+        "decision": "Only where the digital path is faster",
+        "reasoning": "A slower replacement will be bypassed and the data will be worse than the paper. Speed on the floor was treated as a requirement, not a nice-to-have."
+      },
+      {
+        "requirement": "Full system access for suppliers and external departments",
+        "decision": "Rejected in favour of forms",
+        "reasoning": "Controlled participation at a fraction of the cost and none of the permission risk."
+      },
+      {
+        "requirement": "Trial cycle modelling",
+        "decision": "Iterative by design",
+        "reasoning": "The business runs iterations. A system that only records the last one is recording the least useful part."
+      }
+    ],
+    "dependencies": [
+      "Quality criteria per part or stage",
+      "Supplier and external department contact model",
+      "Tooling register",
+      "Approval authority for conditional release"
+    ],
+    "clientResponsibilities": [
+      "Define inspection points and criteria",
+      "Provide the tooling register",
+      "Confirm who may authorise conditional release",
+      "Make shop-floor staff available to test capture speed"
+    ],
+    "risks": [
+      "Digital capture being slower than paper and therefore ignored",
+      "External participation depending on parties with no incentive",
+      "Root cause defaulting to a convenient answer",
+      "Trial cycle complexity growing beyond the model"
+    ],
+    "contribution": [
+      "Modelled the trial cycle as an iteration rather than a linear approval",
+      "Treated shop-floor capture speed as a hard requirement rather than a usability preference",
+      "Designed external participation through forms rather than access",
+      "Made verification, not closure, the end of a corrective action",
+      "Structured the data so trend analysis by part, batch, supplier and root cause becomes possible for the first time"
+    ],
+    "deliverablesProduced": [
+      "Quality and tooling process flows",
+      "Non-conformance and corrective action model",
+      "Functional requirements",
+      "Forms and participation design"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "Quality data that supports trend analysis, trial cycles recorded as the iterations they are, and capture the shop floor will actually use. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Operations & Custom Applications",
+      "Analytics & Documents"
+    ]
+  },
+  {
+    "slug": "partner-configurator-scoping-tool",
+    "title": "Partner Scoping Configurator: Auditing a Product Before It Ships",
+    "locationContext": "European Zoho implementation partner",
+    "status": "Anonymised portfolio case",
+    "featured": true,
+    "featureOrder": 6,
+    "industrySlugs": [
+      "professional-services",
+      "telecommunications"
+    ],
+    "processSlugs": [
+      "lead-capture",
+      "quotation-management",
+      "campaign-to-sales-handoff",
+      "project-delivery"
+    ],
+    "serviceSlugs": [
+      "partner-white-label-support",
+      "existing-system-review",
+      "architecture-review",
+      "opportunity-scoping-support",
+      "delivery-quality-review"
+    ],
+    "deliverableSlugs": [
+      "system-review-report",
+      "solution-architecture",
+      "process-flow"
+    ],
+    "engagementStages": [
+      "discovery",
+      "architecture",
+      "requirement-documentation",
+      "delivery-leadership"
+    ],
+    "executiveSummary": "An implementation partner wanted a self-service configurator that would let prospects assemble an implementation package and see a price. The build existed and demonstrated well. The audit found that its entire structuring axis contradicted the partner's own product list, that its pricing matched none of the three figures in circulation, and that internal cost fields were exposed in the public bundle. The value was not in building it — it was in finding those before a prospect did.",
+    "industryContext": "Partner-led sales tooling sits between marketing and delivery. A configurator is a commercial artefact: it makes a price promise on behalf of a delivery team who were not in the room, and it does that at scale, unsupervised.",
+    "businessModel": "A regional implementation partner selling packaged implementation work, wanting to capture qualified leads through a self-service estimate tool rather than a first sales call.",
+    "operationalChallenge": [
+      "The configurator was structured on an axis the partner's own product catalogue did not use",
+      "Three different retail figures existed for the same package, from three different sources",
+      "The rate arithmetic in the tool matched neither the partner's cost model nor either retail formula",
+      "Internal-only fields including cost and effort data were exposed in the public client bundle",
+      "A reproducible crash existed in one category and had not surfaced during the demo",
+      "Effort estimates were missing for the large majority of add-on items",
+      "The partner wanted price shown only after lead capture — inverting the tool's flow"
+    ],
+    "stakeholders": [
+      "Partner principal",
+      "Partner's prospects",
+      "Delivery team",
+      "Marketing",
+      "Technical lead"
+    ],
+    "currentState": {
+      "summary": "A working, demonstrable application with a clear commercial intent, built ahead of the commercial decisions it depended on.",
+      "steps": [
+        "Prospect selects a category",
+        "Selects features",
+        "Sees a price",
+        "Submits contact details"
+      ],
+      "risks": [
+        "Quoting a price the partner would not honour",
+        "Prospects screenshotting estimates and shopping them",
+        "Exposed internal cost data",
+        "A crash in a live sales flow",
+        "Structuring the offer on an axis the partner had rejected"
+      ],
+      "gaps": [
+        "No agreed package model",
+        "No agreed retail price",
+        "No effort data behind most items",
+        "No lead delivery into CRM",
+        "No funnel measurement"
+      ]
+    },
+    "processGaps": [
+      "The product model was undecided — one package or six — and the tool had assumed one",
+      "The pricing question was not a bug; it was three stakeholders holding three different numbers and nobody reconciling them",
+      "Price was shown before contact capture, which is a commercial decision the tool had made by default",
+      "Lead delivery was by email, so nothing reached the CRM and nothing could be measured",
+      "The funnel had one URL, so drop-off could not be attributed to a step"
+    ],
+    "keyDiscoveryQuestions": [
+      "Is this one package or six? Because the tool has already answered.",
+      "What is the real retail price — and which of these three figures do you stand behind?",
+      "Who supplies the effort estimates for the items that have none?",
+      "Should a prospect see a price before you know who they are?",
+      "What is a lead here — an email, or a record in your CRM?",
+      "How will you know which step people leave at?"
+    ],
+    "futureState": {
+      "summary": "The commercial model decided first, then the tool restructured around it: contact capture before price, leads delivered as CRM records, a URL per step for funnel attribution, and internal data removed from the client bundle.",
+      "steps": [
+        "Prospect enters the configurator",
+        "Qualifying branch — new to the platform or existing user",
+        "Migration source captured",
+        "Package and add-ons selected",
+        "Contact details captured",
+        "Price revealed",
+        "Thank-you step",
+        "Lead delivered as a CRM record",
+        "Funnel drop-off measured per step"
+      ],
+      "controls": [
+        "Commercial model agreed before build",
+        "Price gated behind contact capture",
+        "Internal cost and effort fields excluded from the client bundle",
+        "One URL per step",
+        "Leads as records, not emails",
+        "Fixed-price positioning defined by the partner"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "A multi-step client-side configurator with routed steps for analytics, contact capture ahead of price reveal, and a server-side boundary keeping internal commercial data out of the browser.",
+      "layers": [
+        {
+          "name": "Configurator front-end",
+          "role": "Step-routed wizard, selection state, validation, localisation"
+        },
+        {
+          "name": "Pricing model",
+          "role": "Retail prices derived from an agreed commercial model — not from internal cost arithmetic exposed to the client"
+        },
+        {
+          "name": "Lead delivery",
+          "role": "Submission to the partner's CRM as a lead record, with the estimate attached"
+        },
+        {
+          "name": "Analytics layer",
+          "role": "Per-step URLs and tag management for funnel drop-off attribution"
+        },
+        {
+          "name": "Internal data boundary",
+          "role": "Cost, effort and internal scope data kept server-side or out of the artefact entirely"
+        }
+      ],
+      "dataFlow": [
+        "Prospect journey → step-routed URLs → analytics events per step",
+        "Selections → retail price computed from the agreed model",
+        "Contact capture → price reveal → thank-you step",
+        "Submission → lead record in the partner's CRM with the configuration and estimate",
+        "Internal cost and effort data → never sent to the client bundle"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Wizard, selection state and validation",
+        "verdict": "custom",
+        "reasoning": "A bespoke commercial front-end. Reasonable to build; the question was never whether, but what it should say."
+      },
+      {
+        "requirement": "Pricing logic",
+        "verdict": "configuration",
+        "reasoning": "Must be data the partner can change, and must reflect a commercial decision that had not yet been made. Building logic on an undecided price is building twice."
+      },
+      {
+        "requirement": "Lead delivery",
+        "verdict": "standard",
+        "reasoning": "CRM lead creation is standard. Email-only delivery was a project-team constraint, not a requirement — and it cost the partner measurement."
+      },
+      {
+        "requirement": "Funnel analytics",
+        "verdict": "standard",
+        "reasoning": "Tag management and per-step routes. Standard, but only possible if the routing is designed for it."
+      },
+      {
+        "requirement": "Internal cost fields in the client bundle",
+        "verdict": "external",
+        "reasoning": "Not a feature at all — a data-exposure defect. Internal commercial data does not belong in a public artefact under any framing."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Continue building against an undecided package model",
+        "decision": "Blocked",
+        "reasoning": "One package or six changes the entire structure. Building either while the question is open guarantees rework, and saying so is more useful than shipping."
+      },
+      {
+        "requirement": "Price before contact capture",
+        "decision": "Inverted at the partner's direction",
+        "reasoning": "The partner's commercial judgement — prospects screenshot an estimate and take it elsewhere. The tool's flow had encoded the opposite assumption without anyone deciding it."
+      },
+      {
+        "requirement": "Structuring axis",
+        "decision": "Escalated as a contradiction, not resolved unilaterally",
+        "reasoning": "The tool used one axis; the partner's catalogue used another and the partner had rejected the first. That is a commercial decision, not a design preference."
+      },
+      {
+        "requirement": "Missing effort estimates",
+        "decision": "Raised as a blocking dependency with a named owner required",
+        "reasoning": "A price with no effort behind it is a guess the delivery team has to honour."
+      }
+    ],
+    "dependencies": [
+      "Partner decision on the package model",
+      "Confirmed retail pricing",
+      "Effort estimates for the outstanding items",
+      "CRM lead endpoint",
+      "Tag management container"
+    ],
+    "clientResponsibilities": [
+      "Decide the package model",
+      "Confirm the retail price and stand behind it",
+      "Supply the missing effort data or nominate who will",
+      "Own the fixed-price positioning commercially"
+    ],
+    "risks": [
+      "A public tool quoting a price the delivery team cannot deliver at",
+      "Internal cost data reaching prospects or competitors",
+      "A reproducible crash in a live sales funnel",
+      "Rework if the package model is decided after build",
+      "Fixed-price positioning without effort data behind it"
+    ],
+    "contribution": [
+      "Audited the live application against the partner's own product catalogue and the meeting record, and reported the contradiction rather than building around it",
+      "Reconciled three conflicting retail figures and showed that the tool's rate matched none of them",
+      "Found and reproduced a crash that had not appeared in the demo",
+      "Identified internal cost, effort and scope fields exposed in the public bundle as a commercial data-exposure issue",
+      "Reduced the position to three decisions blocking development, each with an owner, rather than a list of findings",
+      "Produced the audit report, a standalone context brief for handover, and a post-demo change specification",
+      "Audited an implementation prompt against the demo record to check that what was about to be built matched what had actually been agreed",
+      "Distinguished the partner's commercial decisions from the project team's technical constraints, and did not let the second masquerade as the first"
+    ],
+    "deliverablesProduced": [
+      "Audit report reconciling the meeting record, the live application and the product catalogue",
+      "Coverage matrix against the partner's implementation item list",
+      "Standalone context brief for handover",
+      "Post-demo change request specification",
+      "Implementation prompt audit"
+    ],
+    "effect": {
+      "type": "achieved",
+      "statement": "Three commercial decisions surfaced as explicit blockers before further development, a data-exposure issue caught before public launch, and a reproducible crash found before it appeared in a live sales funnel. Commercial outcomes were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Custom Front-Ends & Portals",
+      "Customer & CRM",
+      "Marketing & Communication"
+    ]
+  },
+  {
+    "slug": "driving-school-portal",
+    "title": "Driving School Portal: Custom Front-End Over an Operational Process",
+    "locationContext": "Slovenian driver training business",
+    "status": "Anonymised portfolio case",
+    "featured": false,
+    "industrySlugs": [
+      "education-training",
+      "mobility-rental",
+      "automotive"
+    ],
+    "processSlugs": [
+      "booking-journeys",
+      "customer-onboarding",
+      "invoice-and-payment-tracking",
+      "role-and-permission-governance",
+      "project-delivery"
+    ],
+    "serviceSlugs": [
+      "crm-solution-architecture",
+      "implementation-planning",
+      "existing-system-review",
+      "delivery-quality-review"
+    ],
+    "deliverableSlugs": [
+      "solution-architecture",
+      "implementation-plan",
+      "system-review-report"
+    ],
+    "engagementStages": [
+      "architecture",
+      "requirement-documentation",
+      "delivery-leadership",
+      "uat"
+    ],
+    "executiveSummary": "A driver training business needed a customer-facing portal for enrolment, scheduling and payment. A standard CRM would not have been an appropriate surface for the public, so the work was a custom front-end over a structured operational process — with the delivery lesson sitting in payments, staging discipline and an admin dashboard that had been assumed complete.",
+    "industryContext": "Driver training is a booking business with a compliance layer: sessions, instructors, vehicles and progression against a required curriculum. The customer is a member of the public who will never be given a system licence, which forces a portal rather than an internal application.",
+    "businessModel": "A driver training business selling courses and sessions to the public, delivered by instructors against vehicles and scheduled capacity.",
+    "operationalChallenge": [
+      "A public-facing surface for enrolment, purchase and scheduling",
+      "Local payment methods alongside international card processing",
+      "Administrative capability for staff without exposing internal systems",
+      "A staging-to-production path that does not break live customers",
+      "An admin dashboard whose completeness had been assumed rather than verified"
+    ],
+    "stakeholders": [
+      "Students",
+      "Instructors",
+      "Administrators",
+      "Business owner",
+      "Payment providers"
+    ],
+    "currentState": {
+      "summary": "A business running on manual enrolment and scheduling, with a portal in late-stage development and a set of gaps that had not been catalogued.",
+      "steps": [
+        "Student enquires",
+        "Enrols manually",
+        "Pays by whatever route is available",
+        "Sessions scheduled by staff",
+        "Progress tracked informally"
+      ],
+      "risks": [
+        "Manual enrolment limiting growth",
+        "Payment friction losing customers",
+        "Scheduling conflicts",
+        "Admin capability assumed rather than verified"
+      ],
+      "gaps": [
+        "No self-service enrolment",
+        "No local payment method",
+        "Admin dashboard incomplete",
+        "No structured progression tracking"
+      ]
+    },
+    "processGaps": [
+      "The admin dashboard was treated as done; an audit found several required capabilities missing entirely",
+      "Local payment gateway integration was blocked on credentials that had not been requested early enough",
+      "Staging and production discipline had not been established, which is a process gap rather than a technical one",
+      "Booking capacity and instructor availability had no single source"
+    ],
+    "keyDiscoveryQuestions": [
+      "Who is the user here — and would you ever give them a licence to your internal system?",
+      "How do customers in this market expect to pay?",
+      "What does an administrator need to do daily that the dashboard cannot do today?",
+      "What is the path from staging to production, and who decides?",
+      "Who maintains availability, and how often is it wrong?"
+    ],
+    "futureState": {
+      "summary": "A public portal for enrolment, purchase and booking, an administrative surface built for the people who run the business, and a deployment path that separates staging from live.",
+      "steps": [
+        "Student registers on the portal",
+        "Selects a course or session",
+        "Pays via card or local method",
+        "Booking confirmed against real availability",
+        "Sessions delivered and recorded",
+        "Progress visible to the student",
+        "Administrators manage capacity, content and records",
+        "Reporting for the business"
+      ],
+      "controls": [
+        "Public surface separate from internal systems",
+        "Payment confirmation before booking is committed",
+        "Role-based administrative access",
+        "Staging-to-production release discipline",
+        "Availability from a maintained source"
+      ]
+    },
+    "solutionArchitecture": {
+      "summary": "A custom web application with its own data layer and payment integrations, deployed through a staging environment, with an administrative surface sized to what staff actually do.",
+      "layers": [
+        {
+          "name": "Public portal",
+          "role": "Registration, course selection, purchase, booking, progress"
+        },
+        {
+          "name": "Admin surface",
+          "role": "Capacity, content, instructor and record management for staff"
+        },
+        {
+          "name": "Data layer",
+          "role": "Students, courses, sessions, bookings, payments"
+        },
+        {
+          "name": "Payment integrations",
+          "role": "International card processing plus the local method the market expects"
+        },
+        {
+          "name": "Deployment",
+          "role": "Staging environment, migrations and a controlled production release path"
+        }
+      ],
+      "dataFlow": [
+        "Registration → student record",
+        "Course or session selection → availability check → provisional booking",
+        "Payment → confirmation → booking committed",
+        "Session delivery → attendance and progress recorded",
+        "Admin actions → capacity, content and records",
+        "Staging → verified → production"
+      ]
+    },
+    "standardVsCustom": [
+      {
+        "requirement": "Public-facing portal",
+        "verdict": "custom",
+        "reasoning": "The user is a member of the public. Internal systems are not a public surface, and no amount of configuration makes them one."
+      },
+      {
+        "requirement": "Card payments",
+        "verdict": "external",
+        "reasoning": "A payment provider's job. Building any part of it would be indefensible."
+      },
+      {
+        "requirement": "Local payment method",
+        "verdict": "external",
+        "reasoning": "Market expectation, provider-dependent — and blocked on credentials, which made it a dependency to raise early rather than a task to schedule."
+      },
+      {
+        "requirement": "Admin dashboard",
+        "verdict": "custom",
+        "reasoning": "Audited against what administrators actually do, which turned out to be more than had been built."
+      }
+    ],
+    "scopeDecisions": [
+      {
+        "requirement": "Admin dashboard completeness",
+        "decision": "Audited rather than assumed",
+        "reasoning": "The missing capabilities — including record upload, lookup, status workflow and a booking form — were found by review, not by go-live. That is the cheaper order."
+      },
+      {
+        "requirement": "Local payment gateway",
+        "decision": "Dependency escalated, not scheduled",
+        "reasoning": "Blocked on client-supplied credentials. Scheduling work that cannot start is how plans lose credibility."
+      },
+      {
+        "requirement": "Staging-to-production discipline",
+        "decision": "Established as process",
+        "reasoning": "Late-stage projects fail at release, not at build."
+      }
+    ],
+    "dependencies": [
+      "Local payment provider credentials from the client",
+      "Course and curriculum structure",
+      "Instructor and vehicle capacity data",
+      "Production domain and hosting"
+    ],
+    "clientResponsibilities": [
+      "Provide payment provider credentials",
+      "Confirm course structure and pricing",
+      "Maintain availability data",
+      "Nominate administrators and test the dashboard against real tasks"
+    ],
+    "risks": [
+      "Payment integration blocked indefinitely on credentials",
+      "Admin gaps surfacing after go-live rather than before",
+      "Availability drift if maintenance is manual",
+      "Production environment hygiene — a live domain is an operational asset and needs to be treated as one"
+    ],
+    "contribution": [
+      "Established that a public user base requires a custom portal rather than an internal system with permissions",
+      "Audited the admin dashboard against real administrative tasks and produced the gap list before go-live rather than after",
+      "Escalated the payment gateway credential dependency as a blocker rather than scheduling around it",
+      "Established staging-to-production release discipline as a process requirement",
+      "Produced phase roadmap documentation so the remaining work had a shape rather than a backlog"
+    ],
+    "deliverablesProduced": [
+      "Solution and deployment architecture",
+      "Admin dashboard gap audit",
+      "Phase roadmap documentation",
+      "Release and environment process"
+    ],
+    "effect": {
+      "type": "expected",
+      "statement": "A public enrolment and booking surface backed by a verified administrative capability, with the gaps found by audit rather than by customers. Outcome measures were not published.",
+      "verifiedMetrics": []
+    },
+    "technology": [
+      "Custom Front-Ends & Portals",
+      "Finance & Commerce",
+      "Operations & Custom Applications"
+    ]
+  }
+]

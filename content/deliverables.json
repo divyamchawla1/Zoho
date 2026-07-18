@@ -1,0 +1,350 @@
+[
+  {
+    "slug": "discovery-questions",
+    "name": "Discovery Questions",
+    "shortName": "Discovery",
+    "purpose": "A structured question set built for the specific business model, department, process and data situation — designed to surface the decisions the client has not yet made.",
+    "audience": [
+      "Client stakeholders",
+      "Partner",
+      "Delivery team"
+    ],
+    "contains": [
+      "Business model questions",
+      "Process and ownership questions",
+      "Data and reporting questions",
+      "Integration and access questions",
+      "Adoption and growth questions",
+      "Explicit open decisions"
+    ],
+    "sampleOutline": [
+      "Business model and commercial context",
+      "Departments and responsibilities",
+      "Current process by stage",
+      "Data sources and source of truth",
+      "Reporting expectations",
+      "Integration and access requirements",
+      "Constraints and compliance",
+      "Open decisions for the client"
+    ],
+    "relatedServices": [
+      "business-process-discovery",
+      "discovery-call-support"
+    ]
+  },
+  {
+    "slug": "process-flow",
+    "name": "Current & Future-State Process Flow",
+    "shortName": "Flow",
+    "purpose": "A visual model of how the process runs today, where it fails, and how it should run next.",
+    "audience": [
+      "Client",
+      "Business stakeholders",
+      "Delivery team"
+    ],
+    "contains": [
+      "Current-state flow",
+      "Gap and failure annotations",
+      "Future-state flow",
+      "State and transition model",
+      "Control and approval points",
+      "Exception branches"
+    ],
+    "sampleOutline": [
+      "Legend: state, transition, negative transition, final positive state",
+      "Current-state flow with gap markers",
+      "Gap and risk summary",
+      "Future-state flow",
+      "Approval and control points",
+      "Exception handling"
+    ],
+    "relatedServices": [
+      "current-state-process-mapping",
+      "future-state-process-redesign"
+    ]
+  },
+  {
+    "slug": "initial-system-overview",
+    "name": "Initial System Overview",
+    "shortName": "ISO",
+    "purpose": "The client-facing document that turns a discovery conversation into a proposal a business owner can approve — business understanding, proposed solution, boundaries and phases in one place.",
+    "audience": [
+      "Client decision-maker",
+      "Partner",
+      "Internal delivery team"
+    ],
+    "contains": [
+      "Business understanding",
+      "Current challenges",
+      "Proposed solution and applications",
+      "High-level architecture",
+      "Scope",
+      "Assumptions",
+      "Dependencies",
+      "Client responsibilities",
+      "Out-of-scope items",
+      "Implementation phases",
+      "Preliminary estimate direction"
+    ],
+    "sampleOutline": [
+      "Document control",
+      "Business understanding",
+      "Current challenges",
+      "Proposed solution",
+      "Application architecture and source-of-truth model",
+      "Process flows",
+      "Scope and phasing",
+      "Assumptions and dependencies",
+      "Client responsibilities",
+      "Out of scope",
+      "Next steps"
+    ],
+    "relatedServices": [
+      "scope-requirement-documentation",
+      "iso-preparation",
+      "partner-white-label-support"
+    ]
+  },
+  {
+    "slug": "functional-requirements",
+    "name": "Functional Requirement Document",
+    "shortName": "FRD",
+    "purpose": "Defines what the system does, in business language, with enough precision that it can be tested.",
+    "audience": [
+      "Client",
+      "Business analyst",
+      "Developer",
+      "QA"
+    ],
+    "contains": [
+      "Functional modules",
+      "User journeys",
+      "Workflow behaviour",
+      "Statuses and transitions",
+      "Fields and rules",
+      "Notifications",
+      "Reports",
+      "Department responsibilities",
+      "Acceptance requirements"
+    ],
+    "sampleOutline": [
+      "Scope summary",
+      "Users and roles",
+      "Module-by-module functional detail",
+      "Status and blueprint behaviour",
+      "Automation and notifications",
+      "Reporting",
+      "Acceptance criteria",
+      "Open decisions"
+    ],
+    "relatedServices": [
+      "scope-requirement-documentation",
+      "frd-preparation"
+    ]
+  },
+  {
+    "slug": "technical-requirements",
+    "name": "Technical Requirement Document",
+    "shortName": "TRD",
+    "purpose": "The implementation-ready specification: setup, data model, automation, integrations, security and migration — written so a delivery team does not need to guess.",
+    "audience": [
+      "Client (when client-facing)",
+      "Delivery team",
+      "Developers"
+    ],
+    "contains": [
+      "Application setup and company settings",
+      "Time zones, currencies, fiscal year, holidays",
+      "Users, roles, profiles, permissions",
+      "Data model and module relationships",
+      "Field-level specification",
+      "Blueprints and status transitions",
+      "Automation rules",
+      "Integrations and APIs",
+      "Security",
+      "Migration",
+      "Technical dependencies"
+    ],
+    "sampleOutline": [
+      "Document control",
+      "Solution overview",
+      "Application setup",
+      "Users, roles and permissions",
+      "Data model",
+      "Module specifications",
+      "Process blueprints",
+      "Automation",
+      "Integrations",
+      "Reporting",
+      "Migration",
+      "Diagrams",
+      "Assumptions and dependencies"
+    ],
+    "relatedServices": [
+      "scope-requirement-documentation",
+      "trd-preparation"
+    ]
+  },
+  {
+    "slug": "solution-architecture",
+    "name": "Solution Architecture",
+    "shortName": "Architecture",
+    "purpose": "Shows which applications are involved, which one owns which record, how data moves and where the boundaries are.",
+    "audience": [
+      "Client",
+      "Partner",
+      "Delivery team"
+    ],
+    "contains": [
+      "Application map",
+      "Source-of-truth and responsibility model",
+      "Data flow",
+      "Integration boundaries",
+      "Custom-versus-standard positions",
+      "Phased design"
+    ],
+    "sampleOutline": [
+      "Application landscape",
+      "Source of truth per record type",
+      "High-level data flow",
+      "Integration points and direction",
+      "What is standard, configured, custom or external",
+      "Phase boundaries"
+    ],
+    "relatedServices": [
+      "crm-solution-architecture",
+      "zoho-solution-architecture",
+      "architecture-review"
+    ]
+  },
+  {
+    "slug": "implementation-plan",
+    "name": "Implementation Plan",
+    "shortName": "Plan",
+    "purpose": "Turns an approved scope into a sequence someone can actually run.",
+    "audience": [
+      "Client",
+      "Partner",
+      "Delivery team"
+    ],
+    "contains": [
+      "Phases and activities",
+      "Dependencies",
+      "Owners",
+      "Effort estimates",
+      "Testing",
+      "Training",
+      "Go-live",
+      "Support",
+      "Risk controls"
+    ],
+    "sampleOutline": [
+      "Phase breakdown",
+      "Activity and owner matrix",
+      "Dependency register",
+      "Estimate summary",
+      "Testing and UAT schedule",
+      "Training plan",
+      "Go-live plan",
+      "Support model",
+      "Risks and mitigations"
+    ],
+    "relatedServices": [
+      "implementation-planning",
+      "effort-estimation-support"
+    ]
+  },
+  {
+    "slug": "uat-plan",
+    "name": "UAT & Testing Plan",
+    "shortName": "UAT",
+    "purpose": "Structures business validation so that acceptance is a decision, not an argument.",
+    "audience": [
+      "Client business users",
+      "Delivery team"
+    ],
+    "contains": [
+      "Requirement-based scenarios",
+      "Role-based test paths",
+      "Test data requirements",
+      "Issue classification (defect versus change request)",
+      "Acceptance criteria",
+      "Go-live readiness checklist"
+    ],
+    "sampleOutline": [
+      "Testing scope and roles",
+      "Scenario list mapped to requirements",
+      "Test data",
+      "Execution and logging process",
+      "Issue classification rules",
+      "Acceptance criteria",
+      "Go-live readiness checklist"
+    ],
+    "relatedServices": [
+      "uat-adoption-planning",
+      "delivery-quality-review"
+    ]
+  },
+  {
+    "slug": "system-review-report",
+    "name": "System Review Report",
+    "shortName": "Review",
+    "purpose": "An honest assessment of an existing system against the process it was supposed to serve.",
+    "audience": [
+      "Client",
+      "Partner"
+    ],
+    "contains": [
+      "Configuration findings",
+      "Process-alignment gaps",
+      "Adoption observations",
+      "Prioritised improvements",
+      "Quick wins",
+      "Roadmap"
+    ],
+    "sampleOutline": [
+      "Review scope and method",
+      "What is working",
+      "Findings by area",
+      "Process-alignment gaps",
+      "Adoption and usability observations",
+      "Quick wins",
+      "Prioritised backlog",
+      "Roadmap"
+    ],
+    "relatedServices": [
+      "existing-system-review",
+      "architecture-review"
+    ]
+  },
+  {
+    "slug": "scope-deviation-report",
+    "name": "Scope Deviation Report",
+    "shortName": "Deviation",
+    "purpose": "Documents where a live build has moved beyond the approved scope, what it costs and who decides.",
+    "audience": [
+      "Client",
+      "Partner",
+      "Delivery team"
+    ],
+    "contains": [
+      "Approved scope reference",
+      "Observed deviation",
+      "Origin of the change",
+      "Effort implication",
+      "Decision required",
+      "Options"
+    ],
+    "sampleOutline": [
+      "Baseline scope reference",
+      "Deviation register",
+      "Effort implication per item",
+      "Recommendation",
+      "Decisions required"
+    ],
+    "relatedServices": [
+      "delivery-quality-review",
+      "implementation-planning"
+    ]
+  }
+]

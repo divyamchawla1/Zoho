@@ -1,0 +1,95 @@
+{
+  "message": "Technology is selected after the process is understood.",
+  "note": "Grouped by the business capability it serves, not by vendor. My deepest implementation specialisation is the Zoho ecosystem, but the architecture decision comes first and the product name comes second.",
+  "groups": [
+    {
+      "slug": "customer-and-crm",
+      "name": "Customer & CRM",
+      "capability": "Hold one reliable record of the customer, the pipeline and every commitment made to them.",
+      "items": [
+        "Zoho CRM",
+        "Zoho Desk",
+        "Zoho SalesIQ",
+        "Zoho Bookings",
+        "Zoho Forms"
+      ]
+    },
+    {
+      "slug": "operations-and-custom",
+      "name": "Operations & Custom Applications",
+      "capability": "Model operational work that no standard CRM object represents cleanly.",
+      "items": [
+        "Zoho Creator",
+        "Zoho Projects",
+        "Zoho FSM",
+        "Zoho RouteIQ",
+        "Zoho WorkDrive",
+        "Zoho Cliq"
+      ]
+    },
+    {
+      "slug": "finance-and-commerce",
+      "name": "Finance & Commerce",
+      "capability": "Keep one financial source of truth and let every other system reference it.",
+      "items": [
+        "Zoho Books",
+        "Zoho Inventory",
+        "Shopify",
+        "WooCommerce",
+        "Amazon",
+        "Third-party ERP and accounting platforms",
+        "External lending engines"
+      ]
+    },
+    {
+      "slug": "marketing-and-communication",
+      "name": "Marketing & Communication",
+      "capability": "Reach the right segment through the channel the customer already uses.",
+      "items": [
+        "Zoho Campaigns",
+        "WhatsApp Business",
+        "Meta",
+        "Email nurture journeys",
+        "Landing-page capture"
+      ]
+    },
+    {
+      "slug": "automation-and-integration",
+      "name": "Automation & Integration",
+      "capability": "Move data between systems without a person retyping it.",
+      "items": [
+        "Zoho Flow",
+        "REST APIs",
+        "Webhooks",
+        "Deluge",
+        "AWS Lambda",
+        "Courier platforms",
+        "Payment providers",
+        "External portals"
+      ]
+    },
+    {
+      "slug": "analytics-and-documents",
+      "name": "Analytics & Documents",
+      "capability": "Turn operational data into a report someone will actually open.",
+      "items": [
+        "Zoho Analytics",
+        "Zoho Writer",
+        "Zoho Sign",
+        "Cross-application dashboards"
+      ]
+    },
+    {
+      "slug": "custom-front-ends",
+      "name": "Custom Front-Ends & Portals",
+      "capability": "Give external users a purpose-built surface when an internal application would not be appropriate.",
+      "items": [
+        "Next.js / React",
+        "TypeScript",
+        "Supabase",
+        "Customer and partner portals",
+        "Configurator and quotation interfaces"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "shortIntroduction": "I work in the gap between how a business actually operates and what its software assumes. I study the operation first, map what is really happening, design a future state the team can live with, and only then decide what should be built.",
+  "professionalNarrative": [
+    "Most requirements do not arrive as requirements. They arrive as a call recording, a screenshot, three spreadsheets, a strong opinion and a deadline. My work starts there.",
+    "I enter unfamiliar industries regularly. The first job is never the software — it is understanding the business model, who is accountable for what, and which step everyone quietly works around.",
+    "I sit between the client and the people who build. I translate in both directions: business intent into implementable requirements, and technical constraint into a decision a business owner can actually make.",
+    "I stay involved past the design. Scope, estimation, delivery coordination, testing, UAT and go-live readiness are part of the same job — a process that is elegant on paper and unusable in practice has not been designed, only drawn.",
+    "I also run my own e-commerce business. Product data, stock, listings, fulfilment, returns and support are not case studies for me; they are things I have had to get wrong at my own cost.",
+    "I use AI heavily as a consulting layer — transcript analysis, requirement structuring, risk surfacing, documentation. I am not an AI engineer and do not present myself as one. The judgement is mine; the leverage is the tool's."
+  ],
+  "coreRoles": [
+    {
+      "slug": "business-process-consultant",
+      "title": "Business Process Consultant",
+      "description": "Understands the business model, maps how work actually flows, finds the bottlenecks and ownership gaps, and designs a future state that people will use.",
+      "outputs": [
+        "Current-state process",
+        "Gap and risk analysis",
+        "Future-state workflow",
+        "Responsibility model"
+      ]
+    },
+    {
+      "slug": "solution-architect",
+      "title": "Solution Architect",
+      "description": "Turns the agreed process into applications, modules, data relationships, automation and integration boundaries — and avoids the applications the business does not need.",
+      "outputs": [
+        "Application architecture",
+        "Data model",
+        "Integration map",
+        "Phase plan"
+      ]
+    },
+    {
+      "slug": "functional-consultant",
+      "title": "Functional Consultant",
+      "description": "Defines the behaviour: fields, statuses, blueprints, approvals, permissions, notifications, portals and reports — each with a business reason attached.",
+      "outputs": [
+        "Functional requirements",
+        "Status and blueprint design",
+        "Role and permission model",
+        "Reporting requirements"
+      ]
+    },
+    {
+      "slug": "implementation-lead",
+      "title": "Implementation Project Lead",
+      "description": "Carries the design into delivery: phases, estimates, dependencies, developer coordination, testing layers, UAT and go-live readiness.",
+      "outputs": [
+        "Implementation plan",
+        "Estimate and dependencies",
+        "Test and UAT structure",
+        "Go-live readiness"
+      ]
+    }
+  ],
+  "roleIntersection": {
+    "intro": "None of these four roles describes the work on its own. The value is the overlap — and the overlap is where most projects fail.",
+    "axes": [
+      {
+        "name": "Business understanding",
+        "description": "Knowing why the process exists before deciding how to change it."
+      },
+      {
+        "name": "Process design",
+        "description": "Structuring how work should flow, who owns each step and where the controls sit."
+      },
+      {
+        "name": "System architecture",
+        "description": "Choosing applications, data relationships and integration boundaries that hold up under real use."
+      },
+      {
+        "name": "Delivery reality",
+        "description": "Effort, dependencies, testing and adoption — the constraints that decide whether a design survives."
+      }
+    ],
+    "centre": "Implementation-ready decisions"
+  },
+  "capabilityMap": [
+    {
+      "slug": "discovery-analysis",
+      "name": "Discovery & Analysis",
+      "capabilities": [
+        "Business model analysis",
+        "Stakeholder mapping",
+        "Discovery question design",
+        "Transcript and source reconciliation",
+        "Pain-point and root-cause analysis",
+        "Data-readiness assessment"
+      ]
+    },
+    {
+      "slug": "process-design",
+      "name": "Process Design",
+      "capabilities": [
+        "Current-state mapping",
+        "Handoff and exception analysis",
+        "Future-state redesign",
+        "Status and lifecycle modelling",
+        "Approval and control design",
+        "Responsibility (RACI-style) modelling"
+      ]
+    },
+    {
+      "slug": "solution-architecture",
+      "name": "Solution Architecture",
+      "capabilities": [
+        "Application selection",
+        "Data modelling and relationship design",
+        "Source-of-truth definition",
+        "Integration and API boundary design",
+        "Role and permission architecture",
+        "Standard-versus-custom judgement",
+        "Phasing"
+      ]
+    },
+    {
+      "slug": "documentation",
+      "name": "Requirement Documentation",
+      "capabilities": [
+        "Initial System Overview (ISO)",
+        "Functional Requirement Document (FRD)",
+        "Technical Requirement Document (TRD)",
+        "Process flowcharts and architecture diagrams",
+        "Acceptance criteria",
+        "Client-facing and partner-branded writing"
+      ]
+    },
+    {
+      "slug": "delivery",
+      "name": "Delivery & Quality",
+      "capabilities": [
+        "Scope definition and protection",
+        "Effort estimation support",
+        "Implementation planning",
+        "Developer and BA coordination",
+        "Layered testing",
+        "UAT design and facilitation",
+        "Scope deviation reporting",
+        "Go-live and adoption planning"
+      ]
+    },
+    {
+      "slug": "commercial",
+      "name": "Commercial & Partner",
+      "capabilities": [
+        "Partner-led and white-label delivery",
+        "Discovery call support",
+        "Opportunity scoping",
+        "Client-facing communication in sensitive situations",
+        "Cross-border delivery"
+      ]
+    },
+    {
+      "slug": "ai-assisted",
+      "name": "AI-Assisted Consulting",
+      "capabilities": [
+        "Transcript-to-requirement structuring",
+        "Document generation pipelines",
+        "Discovery question generation",
+        "Gap and contradiction auditing",
+        "Reusable consulting frameworks"
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "title": "Process before product",
+      "description": "The application is a consequence of the decision, not the decision itself. Choosing software early is how businesses end up with five systems and one spreadsheet that still runs everything."
+    },
+    {
+      "title": "The simplest thing that holds",
+      "description": "Custom development is a liability with a maintenance cost attached. If standard functionality does the job at 80%, the remaining 20% needs to justify itself out loud."
+    },
+    {
+      "title": "Ambiguity is the deliverable",
+      "description": "Anyone can document a clear requirement. The job is the unclear one — and the honest output of discovery is often a list of decisions the client has not made yet."
+    },
+    {
+      "title": "Design for the person who did not ask for this",
+      "description": "Most users did not request the system. If the design assumes enthusiasm, it will fail. It has to work for someone doing it at 4pm on a Friday."
+    },
+    {
+      "title": "Scope is a kindness",
+      "description": "Clear boundaries — in scope, out of scope, assumptions, dependencies, client responsibilities — protect the client as much as the delivery team. Vagueness always gets billed to someone."
+    },
+    {
+      "title": "No claim without evidence",
+      "description": "I would rather describe what was designed and why than attach an invented percentage to it."
+    }
+  ],
+  "timeline": [
+    {
+      "period": "TBD",
+      "title": "Business process and Zoho solution consulting",
+      "description": "Discovery, architecture, documentation and delivery leadership across CRM and operational transformation projects, largely partner-led and international. Dates to be confirmed."
+    },
+    {
+      "period": "TBD",
+      "title": "E-commerce and jewellery business operator",
+      "description": "Running a product business end to end: catalogue, listings, inventory, marketplace channels, fulfilment, support and marketing. Dates to be confirmed."
+    },
+    {
+      "period": "Ongoing",
+      "title": "AI-assisted consulting system",
+      "description": "Building a reusable AI-supported method for discovery analysis, requirement structuring, documentation and delivery quality."
+    }
+  ],
+  "differentiators": [
+    "Business-first thinking",
+    "Ability to structure ambiguity",
+    "The connection between process and technology",
+    "Scope discipline",
+    "Practical solutioning over impressive solutioning",
+    "Communication that survives contact with non-technical stakeholders",
+    "Documentation that a client, a partner and a developer can all use",
+    "Cross-industry pattern recognition",
+    "Delivery and adoption awareness",
+    "Partner-led and white-label delivery experience"
+  ],
+  "markets": [
+    "India",
+    "South Africa",
+    "Australia",
+    "United States",
+    "Slovenia",
+    "New Zealand",
+    "Botswana",
+    "Wider international partner environments"
+  ],
+  "operatorExperience": {
+    "intro": "I am not only a consultant looking at commerce operations from the outside. I run an e-commerce and jewellery business, which changes how I read a requirement.",
+    "points": [
+      "Product data is never as clean as the requirement assumes it is.",
+      "Stock accuracy is a process problem long before it is a system problem.",
+      "Returns and damage are not edge cases; they are a permanent share of volume.",
+      "Marketplace channels each impose their own rules on your catalogue, and they do not negotiate.",
+      "A support conversation and an order record are the same event seen from two sides.",
+      "The cost of a bad workflow is paid daily by whoever has to work around it."
+    ]
+  },
+  "aiPosition": {
+    "intro": "I use AI as an intelligence and productivity layer for consulting work. It is a practical position, not a specialism I claim.",
+    "doing": [
+      "Turning long discovery transcripts into structured requirements and open questions",
+      "Reconciling contradictory source material into one coherent document",
+      "Generating and pressure-testing discovery questions per industry and process",
+      "Auditing documents for gaps, contradictions and unstated assumptions",
+      "Producing consistent client-facing and partner-branded documentation",
+      "Building reusable consulting frameworks and knowledge structures"
+    ],
+    "notDoing": [
+      "Positioning as an AI engineer or machine-learning specialist",
+      "Selling AI as the answer to a process problem",
+      "Letting a generated document leave without a human decision behind every line"
+    ]
+  }
+}

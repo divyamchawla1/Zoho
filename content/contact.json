@@ -1,0 +1,84 @@
+{
+  "headline": "Have a complicated process that is difficult to explain?",
+  "supportingText": "Bring the rough requirement, the existing workflow or the operational problem. I will help structure it into a clear process and a practical solution direction.",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "email",
+      "label": "Work email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "name": "company",
+      "label": "Company",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "industry",
+      "label": "Industry",
+      "type": "select",
+      "required": false,
+      "options": [
+        "Retail & e-commerce",
+        "Financial services & lending",
+        "Healthcare & medical",
+        "Education & training",
+        "Marine & licensing",
+        "Telecommunications",
+        "Manufacturing",
+        "Energy & utilities",
+        "Mobility, rental & automotive",
+        "Non-profit",
+        "Professional services",
+        "Marketplace / reseller",
+        "Other"
+      ]
+    },
+    {
+      "name": "process",
+      "label": "What process needs attention?",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "name": "tools",
+      "label": "Current tools",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "collaboration",
+      "label": "Preferred collaboration type",
+      "type": "select",
+      "required": false
+    },
+    {
+      "name": "message",
+      "label": "Additional context",
+      "type": "textarea",
+      "required": false
+    }
+  ],
+  "collaborationOptions": [
+    "Business process discovery",
+    "Process mapping and redesign",
+    "CRM or solution architecture",
+    "Requirement documentation (ISO / FRD / TRD)",
+    "Implementation planning and estimation",
+    "Existing system review",
+    "UAT and adoption planning",
+    "Partner or white-label support",
+    "Not sure yet"
+  ],
+  "responseNote": "You do not need a tidy brief. A messy explanation is a normal starting point — structuring it is the work.",
+  "email": "TBD",
+  "linkedin": "TBD",
+  "scheduling": "TBD"
+}

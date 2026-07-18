@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colour tokens — docs/02-design-system.md. These are the same colours used
+     in client-delivery diagrams; do not treat them as decorative. */
+  --color-ink-950: #08111f;
+  --color-ink-900: #0d1726;
+  --color-ink-800: #172338;
+
+  --color-paper-50: #f7f5ef;
+  --color-paper-100: #efece4;
+  --color-paper-200: #e1ddd2;
+
+  --color-accent-500: #4f7cff;
+  --color-accent-400: #6f92ff;
+  /* Darkened accent for body-size text on paper-50. accent-500 on paper-50 is
+     3.40:1 — fails WCAG AA at body size (needs 4.5:1). accent-text is 5.18:1.
+     Reserve accent-500 for graphics, large display type and dark surfaces. */
+  --color-accent-text: #3a5fcf;
+
+  --color-teal-500: #22b8a7;
+  --color-warning-500: #dfa949;
+  --color-success-500: #3fae7a;
+  --color-danger-500: #d86666;
+  --color-violet-500: #8068f2;
+
+  /* Darkened text-safe variants — like accent-text, every semantic colour
+     above fails WCAG AA (4.5:1) as body-size text on paper-50/paper-100
+     (measured 1.8–3.7:1). All pass comfortably (4.5–8.9:1) as text on dark
+     ink surfaces, so use the -500 value there. Use these -text variants for
+     text/labels on paper surfaces; reserve -500 for borders, fills (with
+     dark ink-950 text on top) and dark-surface text. */
+  --color-danger-text: #b15454;
+  --color-teal-text: #177d72;
+  --color-warning-text: #8c6a2e;
+  --color-success-text: #2d7d58;
+  --color-violet-text: #725dd7;
+
+  /* Type */
+  --font-display: var(--font-sora), Manrope, "Space Grotesk", sans-serif;
+  --font-body: var(--font-inter), "DM Sans", sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Shapes — squared, not soft. Circles are used explicitly for process
+     nodes / status markers only, via rounded-full. */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius: 4px;
+}
+
+/* Content width — reading ~720px, page max ~1440px. Used via arbitrary
+   values (max-w-[--content-max]) rather than a Tailwind max-w-* scale key,
+   since the v4 --container-* namespace drives a different utility set. */
+:root {
+  --content-reading: 45rem;
+  --content-max: 90rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-paper-200);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper-50);
+    color: var(--color-ink-950);
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+
+  /* Designed focus state — visible, never removed. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-500);
+    color: var(--color-paper-50);
+  }
+}
+
+/* Hero transformation fades — plain CSS instead of a motion library, since
+   these two fades are all the animation the homepage needs. Values must
+   match the Tailwind classes applied alongside them in HeroTransformation. */
+@keyframes hero-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

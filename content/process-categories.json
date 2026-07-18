@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "customer-and-sales",
+    "name": "Customer & Sales",
+    "description": "How demand is captured, qualified, converted and retained."
+  },
+  {
+    "slug": "service-and-support",
+    "name": "Service & Support",
+    "description": "How enquiries, complaints, returns and defects are received, owned and resolved."
+  },
+  {
+    "slug": "commerce-and-fulfilment",
+    "name": "Commerce & Fulfilment",
+    "description": "How products are listed, ordered, picked, delivered and returned."
+  },
+  {
+    "slug": "finance-operations",
+    "name": "Finance Operations",
+    "description": "The business process around money: quoting, invoicing, instalments, commission and payout. Process design, not accounting advice."
+  },
+  {
+    "slug": "operations-and-governance",
+    "name": "Operations & Governance",
+    "description": "How work, assets, contracts, approvals, permissions and quality are controlled."
+  },
+  {
+    "slug": "marketing-and-engagement",
+    "name": "Marketing & Engagement",
+    "description": "How campaigns, forms, bookings and nurture journeys connect to the sales process."
+  }
+]

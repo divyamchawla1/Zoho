@@ -1,0 +1,100 @@
+{
+  "name": "Divyam Chawla",
+  "primaryTitle": "Business Process Consultant",
+  "specialistTitle": "Business Process Consultant specialising in CRM, operational transformation and Zoho solution architecture",
+  "seniorTitle": "Business Process Transformation Consultant & Solution Architect",
+  "profileLine": "Business Process Consultant | CRM and Operational Transformation | Solution Architecture",
+  "headline": "I map how businesses work—and design how they should work next.",
+  "summary": "I help organisations convert complex, unstructured business requirements into clear processes, practical software architecture and implementation-ready plans.",
+  "supportingStatement": "From discovery and process mapping to solution architecture, scope, implementation planning and UAT, I help businesses move from operational confusion to structured digital systems.",
+  "locationDisplay": "India · Working with clients and implementation partners internationally",
+  "primaryCta": {
+    "label": "Explore My Work",
+    "href": "/work"
+  },
+  "secondaryCta": {
+    "label": "Browse the Process Library",
+    "href": "/processes"
+  },
+  "contactCta": {
+    "label": "Discuss Your Process",
+    "href": "/contact"
+  },
+  "nav": [
+    {
+      "label": "Work",
+      "href": "/work"
+    },
+    {
+      "label": "Industries",
+      "href": "/industries"
+    },
+    {
+      "label": "Process Library",
+      "href": "/processes"
+    },
+    {
+      "label": "Methodology",
+      "href": "/methodology"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "footerNav": [
+    {
+      "label": "Work",
+      "href": "/work"
+    },
+    {
+      "label": "Industries",
+      "href": "/industries"
+    },
+    {
+      "label": "Process Library",
+      "href": "/processes"
+    },
+    {
+      "label": "Methodology",
+      "href": "/methodology"
+    },
+    {
+      "label": "Services",
+      "href": "/services"
+    },
+    {
+      "label": "Engagement Models",
+      "href": "/engagement-models"
+    },
+    {
+      "label": "Deliverables",
+      "href": "/deliverables"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Insights",
+      "href": "/insights"
+    },
+    {
+      "label": "FAQ",
+      "href": "/faq"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "anonymisationNotice": "Client work is described in anonymised form. Names, commercial terms and confidential material are withheld. Descriptions cover process design and architectural reasoning only."
+}

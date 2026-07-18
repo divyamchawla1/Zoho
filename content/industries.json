@@ -1,0 +1,1319 @@
+[
+  {
+    "slug": "retail-ecommerce",
+    "name": "Retail & E-commerce",
+    "exposure": "operator-experience",
+    "summary": "Multi-channel selling, where the support conversation, the stock figure and the order record are the same event seen from three sides.",
+    "overview": [
+      "Retail businesses rarely have a software problem. They have a data problem, a stock problem and a returns problem that software gets blamed for.",
+      "The pattern is consistent: each sales channel imposes its own rules on the catalogue, its own order states and its own service expectations, and the business ends up maintaining a translation layer made of people.",
+      "I work on this from both sides — as a consultant designing commerce and support processes, and as someone who runs an e-commerce business and has paid for these mistakes personally."
+    ],
+    "typicalProblems": [
+      "Product data assembled per channel by hand",
+      "Stock figures that differ between the sales system and the warehouse",
+      "Returns, exchanges, defects and transit damage all handled as one process",
+      "Enquiries arriving on four channels and only some becoming records",
+      "Margin calculated on supplier price rather than landed cost",
+      "Order states that mean different things per channel"
+    ],
+    "processes": [
+      "after-sales-servicing",
+      "campaign-segmentation",
+      "campaign-to-sales-handoff",
+      "catalogue-approval",
+      "commission-management",
+      "complaint-management",
+      "courier-assignment",
+      "customer-nurturing",
+      "defect-and-damage-resolution",
+      "delivery-management",
+      "email-nurture",
+      "enquiry-to-resolution",
+      "form-to-crm",
+      "installment-checkout",
+      "inventory-movement",
+      "invoice-and-payment-tracking",
+      "landed-cost",
+      "lead-capture",
+      "lead-qualification",
+      "lead-to-deal",
+      "merchant-onboarding",
+      "merchant-payout",
+      "opportunity-management",
+      "order-to-fulfilment",
+      "product-onboarding",
+      "quotation-management",
+      "quote-to-cash",
+      "return-and-exchange",
+      "return-to-refund",
+      "sla-and-escalation",
+      "ticket-management",
+      "vendor-management",
+      "whatsapp-nurture"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Multi-channel retail business",
+        "summary": "Support transformation across messaging, social, email and phone, separating returns, exchanges, defects and transit damage into distinct outcomes with distinct liability.",
+        "caseStudySlug": "retail-support-transformation"
+      },
+      {
+        "descriptor": "Financial-services marketplace",
+        "summary": "Marketplace architecture covering merchant onboarding, catalogue approval, instalment checkout and payout.",
+        "caseStudySlug": "marketplace-installment-commerce"
+      }
+    ],
+    "architectureConsiderations": [
+      "Decide which system owns stock quantity before anything else",
+      "The order state model must survive every channel, or you will maintain several",
+      "Returns need a stock disposition state, not a status",
+      "Support tooling must link to the order system rather than copy it",
+      "Landed cost belongs in inventory or accounting, never in a CRM"
+    ],
+    "commonRisks": [
+      "Stock accuracy is a discipline problem a system exposes rather than solves",
+      "Marketplace rules are non-negotiable and change without consultation",
+      "Reverse logistics is assumed to work like forward logistics",
+      "Category taxonomies grow until reporting is meaningless"
+    ],
+    "deliverables": [
+      "process-flow",
+      "functional-requirements",
+      "solution-architecture",
+      "uat-plan"
+    ],
+    "services": [
+      "business-process-discovery",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "existing-system-review"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "claims-process-rebuild",
+      "marketplace-installment-commerce",
+      "retail-support-transformation"
+    ]
+  },
+  {
+    "slug": "marketplaces-resellers",
+    "name": "Marketplaces & Reseller Businesses",
+    "exposure": "solutioning-experience",
+    "summary": "Multi-party commerce, where the hardest questions are commercial boundaries rather than features.",
+    "overview": [
+      "A marketplace is not a shop with more suppliers. It is a set of relationships between parties who each have their own interests, and the system's job is to hold those boundaries.",
+      "Almost every genuinely difficult decision here — merchant approval, payout trigger, return liability, servicing responsibility — is commercial. The technology follows once someone has decided."
+    ],
+    "typicalProblems": [
+      "Merchant onboarding by email and spreadsheet, with no verification standard",
+      "Payout trigger undefined until the first return after payment",
+      "Commission structures that differ per merchant and live in a spreadsheet",
+      "Third-party merchant orders following an entirely separate path",
+      "After-sales responsibility defaulting to whoever the customer calls",
+      "Manual approval as the growth ceiling"
+    ],
+    "processes": [
+      "after-sales-servicing",
+      "approval-management",
+      "catalogue-approval",
+      "commission-management",
+      "courier-assignment",
+      "customer-onboarding",
+      "defect-and-damage-resolution",
+      "delivery-management",
+      "enquiry-to-resolution",
+      "installment-checkout",
+      "inventory-movement",
+      "invoice-and-payment-tracking",
+      "landed-cost",
+      "lead-capture",
+      "merchant-onboarding",
+      "merchant-payout",
+      "order-to-fulfilment",
+      "product-onboarding",
+      "quotation-management",
+      "quote-to-cash",
+      "return-and-exchange",
+      "return-to-refund",
+      "role-and-permission-governance",
+      "ticket-management"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Financial-services marketplace",
+        "summary": "Direct resale and third-party merchant models through one storefront, with instalment purchasing and an external finance provider.",
+        "caseStudySlug": "marketplace-installment-commerce"
+      }
+    ],
+    "architectureConsiderations": [
+      "Model the payout trigger as a commercial decision with a financial exposure attached",
+      "Commission rules belong in configurable data, never in code",
+      "The financial platform owns the ledger; the marketplace holds state",
+      "Merchant suspension must be designed in from the start, not retrofitted",
+      "Manual approval is a legitimate choice — document its cost"
+    ],
+    "commonRisks": [
+      "Payout before the return window creates unrecoverable exposure",
+      "Merchant data quality becomes your data quality",
+      "Brand-protective manual approval caps throughput",
+      "Responsibility ambiguity between marketplace, merchant and provider lands on the customer"
+    ],
+    "deliverables": [
+      "discovery-questions",
+      "process-flow",
+      "solution-architecture",
+      "initial-system-overview"
+    ],
+    "services": [
+      "business-process-discovery",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "scope-requirement-documentation"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "fashion-jewellery",
+    "name": "Fashion & Jewellery",
+    "exposure": "operator-experience",
+    "summary": "Product businesses where catalogue quality, channel rules and customer experience are the operation.",
+    "overview": [
+      "I run an e-commerce and jewellery business. This is not project exposure — it is the operation I am accountable for.",
+      "What it teaches is unglamorous: product data is never as clean as a requirement assumes, marketplace channels do not negotiate their attribute rules, and returns are a permanent share of volume rather than an exception."
+    ],
+    "typicalProblems": [
+      "Product attributes assembled differently for each marketplace",
+      "Images and copy blocking listings",
+      "Stock accuracy across channels",
+      "Returns and exchanges as a standing volume, not an edge case",
+      "Social and messaging channels carrying real support load with no record"
+    ],
+    "processes": [
+      "campaign-segmentation",
+      "catalogue-approval",
+      "courier-assignment",
+      "customer-nurturing",
+      "defect-and-damage-resolution",
+      "email-nurture",
+      "enquiry-to-resolution",
+      "inventory-movement",
+      "landed-cost",
+      "order-to-fulfilment",
+      "product-onboarding",
+      "return-and-exchange",
+      "return-to-refund",
+      "whatsapp-nurture"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Own e-commerce and jewellery business",
+        "summary": "Direct operator experience across catalogue, listings, inventory, marketplace channels, fulfilment, support and marketing."
+      },
+      {
+        "descriptor": "Multi-channel retail business",
+        "summary": "Support and returns transformation across four channels.",
+        "caseStudySlug": "retail-support-transformation"
+      }
+    ],
+    "architectureConsiderations": [
+      "Master product data needs one owner and one convention",
+      "Channel eligibility rules should be data, not judgement",
+      "Support on messaging channels needs to route into a record, not a phone",
+      "Returns need disposition states before they need a policy page"
+    ],
+    "commonRisks": [
+      "Marketplace attribute requirements change without notice",
+      "Enrichment quietly becomes an internal cost",
+      "Personal-phone support leaves no history",
+      "Promotions interact badly with partial refunds and tax"
+    ],
+    "deliverables": [
+      "process-flow",
+      "solution-architecture"
+    ],
+    "services": [
+      "business-process-discovery",
+      "current-state-process-mapping",
+      "existing-system-review"
+    ],
+    "caseStudies": [
+      "retail-support-transformation"
+    ]
+  },
+  {
+    "slug": "financial-services-lending",
+    "name": "Financial Services & Lending",
+    "exposure": "solutioning-experience",
+    "summary": "Commerce with a lending decision inside it — where the architecture question is what you are not allowed to do.",
+    "overview": [
+      "Instalment purchasing looks like a checkout feature. It is a licensed activity wearing a checkout feature's clothes.",
+      "The consistent work here is boundary-drawing: the lending decision stays with the provider, the ledger stays with the financial platform, and the commerce system holds state and orchestration. The temptation to drift across those lines by increment is the main risk."
+    ],
+    "typicalProblems": [
+      "Business drifting toward building a credit engine it is not licensed to operate",
+      "Order confirmed before the finance decision returns",
+      "Undefined responsibility for repayment chasing versus servicing",
+      "No refund path for a financed purchase",
+      "Provider downtime with no fallback decision",
+      "Customers calling the wrong party and receiving no answer"
+    ],
+    "processes": [
+      "after-sales-servicing",
+      "approval-management",
+      "campaign-segmentation",
+      "campaign-to-sales-handoff",
+      "commission-management",
+      "complaint-management",
+      "customer-nurturing",
+      "customer-onboarding",
+      "email-nurture",
+      "installment-checkout",
+      "lead-capture",
+      "lead-qualification",
+      "lead-to-deal",
+      "merchant-onboarding",
+      "merchant-payout",
+      "opportunity-management",
+      "renewal-management",
+      "return-to-refund",
+      "role-and-permission-governance"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Financial-services marketplace",
+        "summary": "Instalment checkout with an external finance provider, with the lending decision held externally by design and written into scope as an exclusion.",
+        "caseStudySlug": "marketplace-installment-commerce"
+      }
+    ],
+    "architectureConsiderations": [
+      "The lending decision belongs to the licensed party — write it in as an exclusion, not a deferral",
+      "Order confirmation must be gated on the provider's decision",
+      "The financial platform is the source of truth for money",
+      "Servicing and collections need a written responsibility split before launch",
+      "Access control on financial data is a compliance question"
+    ],
+    "commonRisks": [
+      "Regulatory exposure if lending logic drifts internal",
+      "Provider downtime blocking checkout",
+      "Refunds on financed orders involving a third party you do not control",
+      "Customers contacting the retailer about repayments regardless of the contract"
+    ],
+    "deliverables": [
+      "discovery-questions",
+      "solution-architecture",
+      "initial-system-overview",
+      "process-flow"
+    ],
+    "services": [
+      "business-process-discovery",
+      "crm-solution-architecture",
+      "scope-requirement-documentation",
+      "architecture-review"
+    ],
+    "caseStudies": [
+      "marketplace-installment-commerce"
+    ]
+  },
+  {
+    "slug": "healthcare-medical",
+    "name": "Healthcare & Medical Services",
+    "exposure": "project-exposure",
+    "summary": "Service operations with field activity, where coordination and record-keeping carry more weight than pipeline.",
+    "overview": [
+      "My involvement here has been on the operational and customer-service side — support processes, field activity, coordination between departments and communication workflows — rather than clinical systems.",
+      "The pattern that repeats: the operational record and the customer conversation are held in different places, and the person on the phone can see neither."
+    ],
+    "typicalProblems": [
+      "Support enquiries with no link to the service record",
+      "Field activity coordinated by phone",
+      "Mileage and routing handled informally",
+      "Returns and servicing of equipment with no asset history",
+      "Department handoffs with no owner"
+    ],
+    "processes": [
+      "after-sales-servicing",
+      "asset-management",
+      "booking-journeys",
+      "complaint-management",
+      "delivery-management",
+      "enquiry-to-resolution",
+      "field-operations",
+      "mileage-tracking",
+      "role-and-permission-governance",
+      "sla-and-escalation",
+      "ticket-management",
+      "vehicle-management",
+      "whatsapp-nurture"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Healthcare services operation",
+        "summary": "Customer-service operations, field activity, mileage and routing discussions, returns and servicing, and departmental communication workflows."
+      }
+    ],
+    "architectureConsiderations": [
+      "Access control on personal data is a legal constraint, not a preference",
+      "Service history belongs against the asset, not the ticket",
+      "Field capacity needs modelling before scheduling can be automated",
+      "Communication workflows need a record, not a channel"
+    ],
+    "commonRisks": [
+      "Data sensitivity constrains design choices that would be routine elsewhere",
+      "Field connectivity is not guaranteed",
+      "Location tracking has employee-relations implications",
+      "Departmental boundaries are organisational, not technical"
+    ],
+    "deliverables": [
+      "process-flow",
+      "functional-requirements"
+    ],
+    "services": [
+      "business-process-discovery",
+      "current-state-process-mapping",
+      "crm-solution-architecture"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "education-training",
+    "name": "Education & Training",
+    "exposure": "solutioning-experience",
+    "summary": "Participant, assessor and event relationships that a sales-shaped CRM does not anticipate.",
+    "overview": [
+      "Training organisations get sold CRM and then discover that a participant is not a lead, an assessment is not a deal, and a partial verification outcome has nowhere to go.",
+      "The work is usually modelling: what are the real objects, which of them a standard module can carry, and which need to exist in their own right."
+    ],
+    "typicalProblems": [
+      "Different request types forced through one lifecycle",
+      "Events serving multiple requests with no representation of that",
+      "Assessor and trainer skills matched from memory",
+      "Verification outcomes that can be partial",
+      "Availability maintained manually and wrong by lunchtime",
+      "Multi-entity structures with shared participants"
+    ],
+    "processes": [
+      "approval-management",
+      "booking-journeys",
+      "campaign-segmentation",
+      "campaign-to-sales-handoff",
+      "customer-nurturing",
+      "customer-onboarding",
+      "email-nurture",
+      "form-to-crm",
+      "invoice-and-payment-tracking",
+      "lead-capture",
+      "lead-qualification",
+      "lead-to-deal",
+      "licence-management",
+      "multi-company-multi-currency",
+      "partial-payments",
+      "project-delivery",
+      "renewal-management",
+      "role-and-permission-governance",
+      "subscription-and-renewal-billing",
+      "uat-and-change-control",
+      "whatsapp-nurture"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "South African early-childhood development sector organisation",
+        "summary": "Study and training lifecycles, training events, assessor and competency modelling, and a verification lifecycle including partial outcomes.",
+        "caseStudySlug": "ecd-training-verification-crm"
+      },
+      {
+        "descriptor": "Slovenian driver training business",
+        "summary": "Public enrolment, booking and payment portal over a structured operational process.",
+        "caseStudySlug": "driving-school-portal"
+      }
+    ],
+    "architectureConsiderations": [
+      "Decide early which concepts are typed records and which need custom modules",
+      "The final positive state of each lifecycle is the question that turns a flow into a specification",
+      "Link records beat multi-selects when the relationship carries its own data",
+      "Form-submitted identifiers must be validated server-side",
+      "Public users need a portal, not a licence"
+    ],
+    "commonRisks": [
+      "Modelling everything as a deal produces a system nobody uses",
+      "Manual availability drifts, and pretending otherwise is worse",
+      "Portals get reintroduced by increment",
+      "Multi-entity fiscal and currency differences are assumed identical"
+    ],
+    "deliverables": [
+      "process-flow",
+      "technical-requirements",
+      "functional-requirements",
+      "solution-architecture"
+    ],
+    "services": [
+      "business-process-discovery",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "trd-preparation"
+    ],
+    "caseStudies": [
+      "driving-school-portal",
+      "ecd-training-verification-crm"
+    ]
+  },
+  {
+    "slug": "marine-yacht-licensing",
+    "name": "Marine & Yacht Licensing",
+    "exposure": "solutioning-experience",
+    "summary": "The clearest relationship-modelling problem I have worked on: one asset, six concurrent company roles.",
+    "overview": [
+      "A vessel is the asset, and the vessel is not the customer. Ownership, management, licensing, billing, brokerage and shipyard involvement are separate relationships that can sit against the same vessel at once, and each can change independently.",
+      "Standard account-contact models cannot express this. The engagement value was in refusing to flatten it."
+    ],
+    "typicalProblems": [
+      "A single 'customer' field where six roles exist",
+      "The billing party assumed to be the owner",
+      "Role changes overwriting history rather than appending to it",
+      "Renewals depending on someone remembering",
+      "Contract terms living in prose so nothing downstream can act on them",
+      "Brokers and shipyards treated as customers"
+    ],
+    "processes": [
+      "contract-management",
+      "licence-management",
+      "multi-company-multi-currency",
+      "renewal-management"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "European marine and yacht services business",
+        "summary": "Vessel-centric data model with dated party-role relationships supporting six simultaneous company roles per vessel.",
+        "caseStudySlug": "marine-licensing-relationship-architecture"
+      }
+    ],
+    "architectureConsiderations": [
+      "Model parties independently of the roles they hold",
+      "Role relationships need effective and end dates or history is lost",
+      "The billing party must be explicit on every agreement",
+      "Currency, tax and fiscal rules belong in the accounting platform",
+      "History is a requirement, not a nice-to-have — 'who was responsible last year' is a real question"
+    ],
+    "commonRisks": [
+      "A missing role type discovered after build changes the model",
+      "Users reintroduce ambiguity by asking for a simple customer field",
+      "Migration from documents and spreadsheets is larger than it looks",
+      "Historical expectations exceeding the data that exists"
+    ],
+    "deliverables": [
+      "discovery-questions",
+      "solution-architecture",
+      "initial-system-overview"
+    ],
+    "services": [
+      "business-process-discovery",
+      "crm-solution-architecture",
+      "iso-preparation",
+      "partner-white-label-support"
+    ],
+    "caseStudies": [
+      "marine-licensing-relationship-architecture"
+    ]
+  },
+  {
+    "slug": "telecommunications",
+    "name": "Telecommunications",
+    "exposure": "project-exposure",
+    "summary": "Customer portals, service processes and multi-phase delivery, usually through a partner.",
+    "overview": [
+      "My exposure here has been around customer-facing portals, service and sales workflows, and phased implementation in partner-led delivery models rather than network operations.",
+      "The recurring theme is subscription and service state: what the customer has, what they are entitled to, and whether the support desk can see either."
+    ],
+    "typicalProblems": [
+      "Service entitlement invisible to the person answering the phone",
+      "Subscription changes pro-rated by hand",
+      "Portals delivered as a phase and then treated as the whole project",
+      "External systems owning data the CRM assumes it has",
+      "Multi-phase scope eroding under commercial pressure"
+    ],
+    "processes": [
+      "asset-management",
+      "campaign-to-sales-handoff",
+      "complaint-management",
+      "contract-management",
+      "customer-onboarding",
+      "enquiry-to-resolution",
+      "field-operations",
+      "form-to-crm",
+      "invoice-and-payment-tracking",
+      "lead-capture",
+      "lead-qualification",
+      "lead-to-deal",
+      "mileage-tracking",
+      "multi-company-multi-currency",
+      "opportunity-management",
+      "project-delivery",
+      "quotation-management",
+      "quote-to-cash",
+      "renewal-management",
+      "sla-and-escalation",
+      "subscription-and-renewal-billing",
+      "ticket-management",
+      "uat-and-change-control"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Australian telecommunications provider",
+        "summary": "Customer portal, service and sales process work within a partner-led, multi-phase implementation."
+      },
+      {
+        "descriptor": "Partner-led integration project",
+        "summary": "Event-driven ticket creation from an external platform with validation, deduplication and failure handling.",
+        "caseStudySlug": "webhook-to-helpdesk-integration"
+      }
+    ],
+    "architectureConsiderations": [
+      "Entitlement must be visible where the conversation happens",
+      "Portals carry their own permission and support burden",
+      "Billing rules belong in the billing system",
+      "Phase boundaries need written entry and exit criteria to survive"
+    ],
+    "commonRisks": [
+      "Portal scope expanding into a second product",
+      "Involuntary churn from payment failures is larger than expected",
+      "External system dependencies not tracked as risks",
+      "Phase erosion"
+    ],
+    "deliverables": [
+      "process-flow",
+      "solution-architecture",
+      "implementation-plan"
+    ],
+    "services": [
+      "crm-solution-architecture",
+      "implementation-planning",
+      "partner-white-label-support"
+    ],
+    "caseStudies": [
+      "partner-configurator-scoping-tool",
+      "webhook-to-helpdesk-integration"
+    ]
+  },
+  {
+    "slug": "manufacturing",
+    "name": "Manufacturing",
+    "exposure": "solutioning-experience",
+    "summary": "Quality, tooling and trial cycles — iterative processes that linear workflows cannot express.",
+    "overview": [
+      "Manufacturing quality is a loop: first article, trial, adjustment, re-inspection, until the part is right. A system that records only the final state has recorded the least useful part.",
+      "The other constant is the paper form. It survived every previous system because it is fast. Any replacement that is slower will be bypassed, and the data will be worse than the paper."
+    ],
+    "typicalProblems": [
+      "Quality checked at the end, where rework is most expensive",
+      "Inspection results on paper and filed",
+      "Trial cycles run informally",
+      "External departments and suppliers participating with no access",
+      "Root cause not linked to corrective action",
+      "Corrective actions closed rather than verified"
+    ],
+    "processes": [
+      "approval-management",
+      "asset-management",
+      "defect-and-damage-resolution",
+      "delivery-management",
+      "field-operations",
+      "inventory-movement",
+      "invoice-and-payment-tracking",
+      "landed-cost",
+      "lead-qualification",
+      "lead-to-deal",
+      "multi-company-multi-currency",
+      "opportunity-management",
+      "order-to-fulfilment",
+      "partial-payments",
+      "product-onboarding",
+      "project-delivery",
+      "quality-control",
+      "quotation-management",
+      "quote-to-cash",
+      "uat-and-change-control",
+      "vendor-management"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Manufacturing business with an internal tool room",
+        "summary": "Quality control and tool-room processes, forms, agreements, trial cycles and external participation.",
+        "caseStudySlug": "manufacturing-quality-tooling-process"
+      },
+      {
+        "descriptor": "South African B2B laboratory and instrumentation distributor",
+        "summary": "CRM sales layer over retained inventory and accounting platforms.",
+        "caseStudySlug": "b2b-distribution-crm-over-erp"
+      }
+    ],
+    "architectureConsiderations": [
+      "Model trial cycles as iterations, not approvals",
+      "Shop-floor capture speed is a requirement, not a usability preference",
+      "External parties contribute through forms, not licences",
+      "Verification, not closure, ends a corrective action",
+      "Segregation of failed material is a control, not a status"
+    ],
+    "commonRisks": [
+      "Digital capture slower than paper will be ignored",
+      "Root cause defaulting to a convenient answer",
+      "External participation depending on parties with no incentive",
+      "Trial complexity outgrowing the model"
+    ],
+    "deliverables": [
+      "process-flow",
+      "functional-requirements",
+      "solution-architecture"
+    ],
+    "services": [
+      "current-state-process-mapping",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "scope-requirement-documentation"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "manufacturing-quality-tooling-process"
+    ]
+  },
+  {
+    "slug": "energy-utilities",
+    "name": "Energy & Utilities",
+    "exposure": "project-exposure",
+    "summary": "Accounts, contracts, utility records and supplier relationships — data structure work more than workflow work.",
+    "overview": [
+      "My exposure here has been around commercial relationship and contract data: accounts, contacts, contracts, utility records and suppliers, and the operational data management around them.",
+      "The recurring problem is that the commercial relationship structure is more complex than a single account record admits."
+    ],
+    "typicalProblems": [
+      "Contracts as PDFs with no extracted terms",
+      "Multiple parties per account with undefined roles",
+      "Utility records disconnected from the commercial relationship",
+      "Supplier terms not recorded anywhere actionable",
+      "Renewal and obligation dates unmonitored"
+    ],
+    "processes": [
+      "approval-management",
+      "asset-management",
+      "contract-management",
+      "customer-onboarding",
+      "field-operations",
+      "invoice-and-payment-tracking",
+      "licence-management",
+      "mileage-tracking",
+      "multi-company-multi-currency",
+      "opportunity-management",
+      "quality-control",
+      "quotation-management",
+      "quote-to-cash",
+      "renewal-management",
+      "role-and-permission-governance",
+      "sla-and-escalation",
+      "subscription-and-renewal-billing",
+      "ticket-management",
+      "vehicle-management",
+      "vendor-management"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "US energy company",
+        "summary": "Accounts, contacts, contracts, utility records, suppliers and the commercial relationship structure around them."
+      }
+    ],
+    "architectureConsiderations": [
+      "Capture key contract terms as structured data, not prose",
+      "Party roles need to be explicit where several parties exist",
+      "Obligation and date monitoring must be data-driven",
+      "Access control on commercial terms is a real requirement"
+    ],
+    "commonRisks": [
+      "Extracting terms from legacy contracts is a manual project",
+      "Party structure more complex than the account model allows",
+      "Regulatory reporting requirements arriving late"
+    ],
+    "deliverables": [
+      "solution-architecture",
+      "process-flow"
+    ],
+    "services": [
+      "business-process-discovery",
+      "crm-solution-architecture",
+      "existing-system-review"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "mobility-rental",
+    "name": "Mobility & Rental",
+    "exposure": "project-exposure",
+    "summary": "Assets on the move: availability, renewals, condition and compliance.",
+    "overview": [
+      "Rental operations run on asset availability and condition, with renewal and compliance cycles that are dates in a system or reminders in a person's head.",
+      "Exposure here has covered rental management, inventory, renewals, customer onboarding and the coordination between warehouse and store."
+    ],
+    "typicalProblems": [
+      "Availability maintained manually",
+      "Condition discovered by the next customer",
+      "Renewals depending on memory",
+      "Compliance dates in a calendar reminder",
+      "Asset custody untracked"
+    ],
+    "processes": [
+      "asset-management",
+      "booking-journeys",
+      "contract-management",
+      "customer-onboarding",
+      "enquiry-to-resolution",
+      "licence-management",
+      "partial-payments",
+      "renewal-management",
+      "subscription-and-renewal-billing",
+      "uat-and-change-control",
+      "vehicle-management",
+      "whatsapp-nurture"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Rental and mobility operation",
+        "summary": "Rental management, inventory, renewals, vehicle processes, customer onboarding, warehouse and store coordination, UAT and training."
+      },
+      {
+        "descriptor": "Slovenian driver training business",
+        "summary": "Booking, capacity and payment portal over a structured operational process.",
+        "caseStudySlug": "driving-school-portal"
+      }
+    ],
+    "architectureConsiderations": [
+      "One source of availability, or none is trusted",
+      "Condition capture at handover and return, or liability is a conversation",
+      "Compliance dates need lead-time alerts",
+      "Custody as an event, not a field"
+    ],
+    "commonRisks": [
+      "Manual availability drift",
+      "Compliance requirements varying by jurisdiction",
+      "Register data quality at go-live",
+      "Condition disputes with no evidence"
+    ],
+    "deliverables": [
+      "process-flow",
+      "functional-requirements",
+      "uat-plan"
+    ],
+    "services": [
+      "current-state-process-mapping",
+      "crm-solution-architecture",
+      "uat-adoption-planning"
+    ],
+    "caseStudies": [
+      "driving-school-portal"
+    ]
+  },
+  {
+    "slug": "automotive",
+    "name": "Automotive",
+    "exposure": "project-exposure",
+    "summary": "Vehicles, servicing and finance — asset identity and entitlement as the recurring problems.",
+    "overview": [
+      "Exposure here has been around vehicle records, servicing, customer onboarding and the finance and instalment side of vehicle purchasing.",
+      "The pattern: the vehicle has an identity and a history, and most systems only record the transaction."
+    ],
+    "typicalProblems": [
+      "The order recorded, the asset not",
+      "Warranty and entitlement invisible at the point of contact",
+      "Service history with the garage",
+      "Instalment and finance arrangements owned elsewhere with no visibility",
+      "Compliance dates untracked"
+    ],
+    "processes": [
+      "after-sales-servicing",
+      "asset-management",
+      "booking-journeys",
+      "commission-management",
+      "field-operations",
+      "installment-checkout",
+      "inventory-movement",
+      "lead-capture",
+      "licence-management",
+      "mileage-tracking",
+      "partial-payments",
+      "quality-control",
+      "vehicle-management"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Vehicle and mobility operations",
+        "summary": "Vehicle records, servicing processes, customer onboarding and rental operations."
+      },
+      {
+        "descriptor": "Financial-services marketplace",
+        "summary": "Instalment purchasing with an external finance provider.",
+        "caseStudySlug": "marketplace-installment-commerce"
+      }
+    ],
+    "architectureConsiderations": [
+      "The asset needs an identity independent of the order",
+      "Service history attaches to the asset",
+      "Entitlement must be checkable before dispatch",
+      "Finance arrangements stay with the provider"
+    ],
+    "commonRisks": [
+      "Warranty data missing for historical sales",
+      "Asset registers built from unreliable spreadsheets",
+      "Servicing responsibility ambiguous across channels"
+    ],
+    "deliverables": [
+      "process-flow",
+      "solution-architecture"
+    ],
+    "services": [
+      "business-process-discovery",
+      "crm-solution-architecture"
+    ],
+    "caseStudies": [
+      "driving-school-portal"
+    ]
+  },
+  {
+    "slug": "home-improvement-installations",
+    "name": "Home Improvement & Installations",
+    "exposure": "solutioning-experience",
+    "summary": "Field work in someone's house: job types that genuinely differ, deposits, evidence and claims.",
+    "overview": [
+      "Installation work sits between a ticket and a project. It has a quote, a deposit, a scheduled visit, a skilled resource, parts, a customer standing in their own home, and an invoice that should not wait for paperwork to come back from a van.",
+      "The recurring design failure is forcing genuinely different job types down one workflow because it is faster to build."
+    ],
+    "typicalProblems": [
+      "Different job types forced through one blueprint",
+      "Scheduling by whiteboard with skills matched from memory",
+      "Deposit rules living in someone's head",
+      "Completion evidenced by photographs in a messaging group",
+      "Invoicing blocked by paperwork rather than by work",
+      "Claims classified case by case"
+    ],
+    "processes": [
+      "after-sales-servicing",
+      "booking-journeys",
+      "complaint-management",
+      "defect-and-damage-resolution",
+      "field-operations",
+      "mileage-tracking",
+      "opportunity-management",
+      "partial-payments",
+      "project-delivery",
+      "quality-control",
+      "quotation-management",
+      "quote-to-cash",
+      "uat-and-change-control",
+      "vehicle-management",
+      "vendor-management"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Installation and home-improvement services business",
+        "summary": "Field service, CRM, accounting and support as one operation, with three job types and three blueprints.",
+        "caseStudySlug": "field-service-job-lifecycle"
+      },
+      {
+        "descriptor": "Flooring supply and installation business",
+        "summary": "Claims process rebuild with a cascading product / claim / issue classification driving evidence, inspection and liability.",
+        "caseStudySlug": "claims-process-rebuild"
+      }
+    ],
+    "architectureConsiderations": [
+      "Job type drives the workflow — one blueprint for three job types is a permanent workaround",
+      "Address validation and skill-based scheduling are never as small as they look at scoping",
+      "Completion evidence should release the invoice",
+      "Cascading classification belongs in a dependency table, not in code",
+      "External inspectors contribute through forms, not licences"
+    ],
+    "commonRisks": [
+      "Connectivity on site",
+      "Technicians reverting to the messaging group",
+      "Skill data incomplete at go-live",
+      "Scope absorbed as goodwill until the margin disappears"
+    ],
+    "deliverables": [
+      "process-flow",
+      "functional-requirements",
+      "implementation-plan",
+      "scope-deviation-report",
+      "uat-plan"
+    ],
+    "services": [
+      "current-state-process-mapping",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "implementation-planning",
+      "uat-adoption-planning"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "field-service-job-lifecycle"
+    ]
+  },
+  {
+    "slug": "property-real-estate",
+    "name": "Property & Agent Services",
+    "exposure": "project-exposure",
+    "summary": "Agent-led sales processes where the commission model and the compliance environment shape the pipeline.",
+    "overview": [
+      "Exposure here has been through review and blueprint work on agent-led sales processes, including gap analysis against changing commission and disclosure practice.",
+      "The pattern is that the pipeline is only half the process — the other half is compliance, disclosure and commission, and it is usually the half that is not modelled."
+    ],
+    "typicalProblems": [
+      "Pipeline modelled without the compliance steps that actually gate it",
+      "Commission splits calculated by hand",
+      "Disclosure and documentation obligations untracked",
+      "Lead source attribution guessed",
+      "Agent activity invisible until the deal closes or does not"
+    ],
+    "processes": [
+      "campaign-to-sales-handoff",
+      "commission-management",
+      "contract-management",
+      "customer-nurturing",
+      "email-nurture",
+      "form-to-crm",
+      "lead-capture",
+      "lead-qualification",
+      "licence-management"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Real estate platform",
+        "summary": "Blueprint and gap review of an agent-led sales process, including findings against current commission practice."
+      }
+    ],
+    "architectureConsiderations": [
+      "Compliance steps are stages, not paperwork",
+      "Commission rules as configurable data with version history",
+      "Document obligations need dates and owners",
+      "Attribution needs capture at the enquiry, not at the close"
+    ],
+    "commonRisks": [
+      "Regulatory practice changing mid-project",
+      "Commission rules embedded in code",
+      "Agent adoption where the alternative is a phone",
+      "Attribution as an argument rather than a measurement"
+    ],
+    "deliverables": [
+      "system-review-report",
+      "process-flow"
+    ],
+    "services": [
+      "existing-system-review",
+      "architecture-review",
+      "delivery-quality-review"
+    ],
+    "caseStudies": []
+  },
+  {
+    "slug": "nonprofit",
+    "name": "Non-profit Organisations",
+    "exposure": "solutioning-experience",
+    "summary": "Volunteers, assets and incidents — an operation that is not a sales pipeline, run by people with no spare hours.",
+    "overview": [
+      "Non-profits are routinely sold CRM as a donor tool and then asked to run their whole operation in it. Volunteers, equipment, vehicles, incidents and training currency have more in common with field operations than with fundraising.",
+      "The binding constraint is administrative capacity. A design that needs a spare administrator has failed, regardless of how good it is."
+    ],
+    "typicalProblems": [
+      "Volunteers, not employees — availability and training currency matter and are not HR records",
+      "Training currency known by the training officer, not by the system, at the moment a coordinator needs it",
+      "Equipment custody informal",
+      "Vehicle compliance in calendar reminders",
+      "Incidents reconstructed afterwards",
+      "Donor relationship disconnected from operational reality"
+    ],
+    "processes": [
+      "approval-management",
+      "asset-management",
+      "campaign-segmentation",
+      "field-operations",
+      "form-to-crm",
+      "mileage-tracking",
+      "project-delivery",
+      "role-and-permission-governance",
+      "uat-and-change-control",
+      "vehicle-management",
+      "vendor-management"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Non-profit rescue organisation",
+        "summary": "Custom operational application for volunteers, training currency, incidents, assets and vehicles, with CRM kept for donors.",
+        "caseStudySlug": "nonprofit-operational-application"
+      },
+      {
+        "descriptor": "South African early-childhood development sector organisation",
+        "summary": "Training, assessment and verification lifecycle.",
+        "caseStudySlug": "ecd-training-verification-crm"
+      }
+    ],
+    "architectureConsiderations": [
+      "The operational domain usually needs a custom application; the donor domain usually does not",
+      "Training currency should gate participation, not fill a report",
+      "Custody as a recorded event",
+      "Administrative capacity is a hard design constraint",
+      "Donor and operational data stay separate for access and privacy reasons"
+    ],
+    "commonRisks": [
+      "Administrative capacity below what any system needs",
+      "Register data quality at go-live",
+      "Volunteer adoption against a familiar spreadsheet",
+      "Scope growing to match ambition rather than capacity"
+    ],
+    "deliverables": [
+      "process-flow",
+      "functional-requirements",
+      "solution-architecture"
+    ],
+    "services": [
+      "business-process-discovery",
+      "crm-solution-architecture",
+      "implementation-planning"
+    ],
+    "caseStudies": [
+      "ecd-training-verification-crm",
+      "nonprofit-operational-application"
+    ]
+  },
+  {
+    "slug": "professional-services",
+    "name": "Professional Services",
+    "exposure": "solutioning-experience",
+    "summary": "Partner-led and white-label delivery — where a significant share of my work actually happens.",
+    "overview": [
+      "A large part of my work is behind an implementation partner: the end client is theirs, the brand on the document is theirs, and the commercial conversation is theirs.",
+      "What this demands is a specific discipline — client-facing material that carries no internal reasoning, no provenance, no named individuals and no change logs. Internal rigour is not evidence; it is noise to the reader."
+    ],
+    "typicalProblems": [
+      "Discovery calls where the partner needs solutioning support in real time",
+      "Documents that must carry the partner's brand and tone",
+      "Internal reasoning leaking into client-facing material",
+      "Scope committed to a number before it was understood",
+      "Opportunities needing an architecture before they can be quoted",
+      "Delivery drifting from the scope it was priced against"
+    ],
+    "processes": [
+      "approval-management",
+      "booking-journeys",
+      "campaign-segmentation",
+      "campaign-to-sales-handoff",
+      "commission-management",
+      "contract-management",
+      "customer-nurturing",
+      "customer-onboarding",
+      "email-nurture",
+      "form-to-crm",
+      "invoice-and-payment-tracking",
+      "lead-capture",
+      "lead-qualification",
+      "lead-to-deal",
+      "multi-company-multi-currency",
+      "opportunity-management",
+      "partial-payments",
+      "project-delivery",
+      "quotation-management",
+      "quote-to-cash",
+      "renewal-management",
+      "role-and-permission-governance",
+      "sla-and-escalation",
+      "subscription-and-renewal-billing",
+      "uat-and-change-control"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "European Zoho implementation partner",
+        "summary": "Audit of a partner's self-service scoping configurator against their own product catalogue, pricing and the meeting record.",
+        "caseStudySlug": "partner-configurator-scoping-tool"
+      },
+      {
+        "descriptor": "Partner-led integration project",
+        "summary": "Webhook-to-helpdesk integration architecture.",
+        "caseStudySlug": "webhook-to-helpdesk-integration"
+      },
+      {
+        "descriptor": "Multiple partner-led engagements",
+        "summary": "Discovery support, solution architecture, client-facing documentation and estimation support delivered under partner branding."
+      }
+    ],
+    "architectureConsiderations": [
+      "Client-facing documents carry no internal material — no change logs, no provenance, no named individuals",
+      "The partner owns the client relationship and the commercial conversation",
+      "Separate the partner's commercial decisions from the project team's technical constraints",
+      "Scope protection before a number is committed",
+      "Document standards belong to the partner, not to me"
+    ],
+    "commonRisks": [
+      "Internal reasoning reaching the end client",
+      "Commercial decisions being made by default in a build",
+      "Scope committed before it was understood",
+      "Project-team constraints presented to the client as requirements"
+    ],
+    "deliverables": [
+      "initial-system-overview",
+      "technical-requirements",
+      "solution-architecture",
+      "system-review-report"
+    ],
+    "services": [
+      "partner-white-label-support",
+      "discovery-call-support",
+      "opportunity-scoping-support",
+      "architecture-review",
+      "delivery-quality-review"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "ecd-training-verification-crm",
+      "field-service-job-lifecycle",
+      "marine-licensing-relationship-architecture",
+      "partner-configurator-scoping-tool",
+      "webhook-to-helpdesk-integration"
+    ]
+  },
+  {
+    "slug": "customer-support-operations",
+    "name": "Customer Support Operations",
+    "exposure": "solutioning-experience",
+    "summary": "Multi-channel support as a discipline in its own right, wherever the industry.",
+    "overview": [
+      "Support is where every other process shows its cracks. A support conversation is usually an order problem, a stock problem or a logistics problem wearing a different hat.",
+      "Designing support in isolation produces a faster way to fail. The work is defining what resolved means, separating the outcomes, and making the recorded path also the fast path."
+    ],
+    "typicalProblems": [
+      "Four channels, some of which become records",
+      "The same customer handled by agents who cannot see each other",
+      "No definition of resolved",
+      "Priority set by whoever complains loudest",
+      "Categories grown until reporting is meaningless",
+      "Machine-created tickets with no owner"
+    ],
+    "processes": [
+      "complaint-management",
+      "enquiry-to-resolution",
+      "return-and-exchange",
+      "sla-and-escalation",
+      "ticket-management",
+      "whatsapp-nurture"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Multi-channel retail business",
+        "summary": "Support transformation across messaging, social, email and phone with distinct outcome paths.",
+        "caseStudySlug": "retail-support-transformation"
+      },
+      {
+        "descriptor": "Partner-led integration project",
+        "summary": "Automated ticket creation from external platform events.",
+        "caseStudySlug": "webhook-to-helpdesk-integration"
+      },
+      {
+        "descriptor": "Flooring supply and installation business",
+        "summary": "Claims and complaint handling with cascading classification.",
+        "caseStudySlug": "claims-process-rebuild"
+      }
+    ],
+    "architectureConsiderations": [
+      "Every channel creates a ticket, or the record is fiction",
+      "Classification before assignment",
+      "SLA needs a business-hours calendar and pause conditions",
+      "Evidence requirements tied to claim windows",
+      "The helpdesk links to the order system rather than copying it"
+    ],
+    "commonRisks": [
+      "Channel approval outside the project's control delaying go-live",
+      "Agents reverting to the channel because it is faster",
+      "Category proliferation returning",
+      "Silent integration failure destroying trust in the queue"
+    ],
+    "deliverables": [
+      "process-flow",
+      "functional-requirements",
+      "uat-plan",
+      "solution-architecture"
+    ],
+    "services": [
+      "business-process-discovery",
+      "future-state-process-redesign",
+      "crm-solution-architecture",
+      "uat-adoption-planning"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "retail-support-transformation",
+      "webhook-to-helpdesk-integration"
+    ]
+  },
+  {
+    "slug": "warehouse-fulfilment",
+    "name": "Warehouse & Fulfilment",
+    "exposure": "process-experience",
+    "summary": "Stock, movement and dispatch — where the data is only as good as the discipline behind it.",
+    "overview": [
+      "Fulfilment problems are usually not fulfilment problems. They are allocation decisions made too late, addresses never validated, and adjustments made without a reason code.",
+      "A system will expose stock accuracy. It will not create it."
+    ],
+    "typicalProblems": [
+      "Stock allocated at pick rather than at order, so items oversell",
+      "Adjustments with no reason code",
+      "Returns received with no disposition state",
+      "Carrier chosen by habit",
+      "Address quality assumed",
+      "Delivery inferred from a tracking status rather than confirmed"
+    ],
+    "processes": [
+      "courier-assignment",
+      "defect-and-damage-resolution",
+      "delivery-management",
+      "inventory-movement",
+      "landed-cost",
+      "order-to-fulfilment",
+      "product-onboarding",
+      "quality-control",
+      "return-and-exchange",
+      "return-to-refund",
+      "vendor-management"
+    ],
+    "exampleEngagements": [
+      {
+        "descriptor": "Financial-services marketplace",
+        "summary": "Fulfilment, courier assignment and delivery confirmation as the trigger for merchant payout.",
+        "caseStudySlug": "marketplace-installment-commerce"
+      },
+      {
+        "descriptor": "South African B2B laboratory and instrumentation distributor",
+        "summary": "Stock and price visibility surfaced to sales from the inventory platform.",
+        "caseStudySlug": "b2b-distribution-crm-over-erp"
+      }
+    ],
+    "architectureConsiderations": [
+      "One system owns stock quantity",
+      "Allocation on confirmation, not on pick",
+      "Mandatory adjustment reason codes",
+      "Delivery confirmation as a controlled event where money depends on it",
+      "Address validation before scheduling or dispatch"
+    ],
+    "commonRisks": [
+      "Real-time sync assumed but constrained by API limits",
+      "Stock accuracy as a discipline problem",
+      "Reverse logistics treated like forward logistics",
+      "Carrier data quality determining whether confirmation is trustworthy"
+    ],
+    "deliverables": [
+      "process-flow",
+      "solution-architecture",
+      "functional-requirements"
+    ],
+    "services": [
+      "current-state-process-mapping",
+      "crm-solution-architecture",
+      "existing-system-review"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp"
+    ]
+  }
+]

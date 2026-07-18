@@ -1,0 +1,140 @@
+[
+  {
+    "slug": "why-crm-projects-fail-before-development",
+    "title": "Why CRM Projects Fail Before Development Begins",
+    "category": "Discovery & Scoping",
+    "status": "draft-placeholder",
+    "summary": "Unclear ownership, unstated assumptions and premature software decisions do most of the damage long before anyone opens a build environment.",
+    "body": [],
+    "relatedProcesses": [
+      "lead-qualification",
+      "approval-management"
+    ],
+    "relatedMethodologyStages": [
+      "discover",
+      "map"
+    ]
+  },
+  {
+    "slug": "standard-vs-custom",
+    "title": "Standard Functionality or Custom Build?",
+    "category": "Solution Architecture",
+    "status": "draft-placeholder",
+    "summary": "A decision framework for choosing the simplest implementable option without quietly weakening the business process.",
+    "body": [],
+    "relatedProcesses": [],
+    "relatedMethodologyStages": [
+      "architect"
+    ]
+  },
+  {
+    "slug": "technology-after-process",
+    "title": "Why Technology Should Come After Process Understanding",
+    "category": "Business Process Thinking",
+    "status": "draft-placeholder",
+    "summary": "Choosing applications too early is how businesses end up with five systems and one spreadsheet that still runs everything.",
+    "body": [],
+    "relatedProcesses": [],
+    "relatedMethodologyStages": [
+      "discover",
+      "redesign",
+      "architect"
+    ]
+  },
+  {
+    "slug": "hidden-scope",
+    "title": "How Hidden Scope Enters Software Projects",
+    "category": "Implementation Risk",
+    "status": "draft-placeholder",
+    "summary": "The routine ways assumptions, dependencies and client responsibilities go unrecorded — and what it costs when they surface in UAT.",
+    "body": [],
+    "relatedProcesses": [
+      "project-delivery",
+      "uat-and-change-control"
+    ],
+    "relatedMethodologyStages": [
+      "architect",
+      "activate"
+    ]
+  },
+  {
+    "slug": "source-of-truth",
+    "title": "Two Systems, One Record: Deciding the Source of Truth",
+    "category": "Solution Architecture",
+    "status": "draft-placeholder",
+    "summary": "When a CRM sits over an ERP, most of the argument is about which system owns the customer — and answering it late is expensive.",
+    "body": [],
+    "relatedProcesses": [
+      "quote-to-cash",
+      "invoice-and-payment-tracking"
+    ],
+    "relatedMethodologyStages": [
+      "architect"
+    ]
+  },
+  {
+    "slug": "discovery-questions-that-work",
+    "title": "Discovery Questions That Actually Surface the Truth",
+    "category": "Discovery & Scoping",
+    "status": "draft-placeholder",
+    "summary": "Why 'show me the last five real records' beats 'walk me through your process', and other questions that get past the official version.",
+    "body": [],
+    "relatedProcesses": [],
+    "relatedMethodologyStages": [
+      "discover",
+      "map"
+    ]
+  },
+  {
+    "slug": "designing-for-non-technical-users",
+    "title": "Designing for the Person Who Did Not Ask for This",
+    "category": "Business Process Thinking",
+    "status": "draft-placeholder",
+    "summary": "Adoption is a design constraint, not a training problem. What changes when you design for reluctance.",
+    "body": [],
+    "relatedProcesses": [],
+    "relatedMethodologyStages": [
+      "redesign",
+      "activate"
+    ]
+  },
+  {
+    "slug": "uat-defect-or-change",
+    "title": "Defect or Change Request? The Line That Decides the Project",
+    "category": "Project Delivery",
+    "status": "draft-placeholder",
+    "summary": "Most scope disputes are one unwritten definition away from never happening.",
+    "body": [],
+    "relatedProcesses": [
+      "uat-and-change-control"
+    ],
+    "relatedMethodologyStages": [
+      "activate"
+    ]
+  },
+  {
+    "slug": "ai-assisted-consulting",
+    "title": "Using AI as a Consulting Intelligence Layer",
+    "category": "AI-Assisted Consulting",
+    "status": "draft-placeholder",
+    "summary": "Transcript analysis, requirement structuring, gap auditing and reusable knowledge — leverage over judgement, not instead of it.",
+    "body": [],
+    "relatedProcesses": [],
+    "relatedMethodologyStages": [
+      "discover",
+      "architect"
+    ]
+  },
+  {
+    "slug": "white-label-documentation",
+    "title": "Writing Client-Facing Documents Under Someone Else's Brand",
+    "category": "Partner Delivery",
+    "status": "draft-placeholder",
+    "summary": "What has to come out of a document before it reaches the end client — and why internal reasoning is not evidence of rigour.",
+    "body": [],
+    "relatedProcesses": [],
+    "relatedMethodologyStages": [
+      "architect"
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "not-a-zoho-developer",
+    "group": "Working with me",
+    "question": "Are you a Zoho developer?",
+    "answer": "No. Zoho is my deepest implementation specialisation, and I architect solutions on it — but the work is business process consulting. I map how the operation runs, design the future state, then decide what should be configured, built, integrated or left alone. If the right answer is not Zoho, that is the answer I give."
+  },
+  {
+    "slug": "do-you-build",
+    "group": "Working with me",
+    "question": "Do you build the system yourself?",
+    "answer": "I design it, document it to an implementation-ready standard, and lead delivery through developers, business analysts and coordinators. My role is discovery, architecture, documentation, scope and delivery quality — including testing and UAT."
+  },
+  {
+    "slug": "messy-requirement",
+    "group": "Working with me",
+    "question": "Our requirement is a mess. Is that a problem?",
+    "answer": "That is the normal starting point. Rough explanations, call recordings, screenshots, four spreadsheets and three opinions is what most engagements begin with. Structuring it is the work, not a prerequisite for it."
+  },
+  {
+    "slug": "unfamiliar-industry",
+    "group": "Working with me",
+    "question": "You have not worked in our industry. Does that matter?",
+    "answer": "Less than you would expect. Entering unfamiliar industries is a routine part of this work — the method is to understand the business model and the operational reality before proposing anything. Process patterns repeat across industries; the specifics do not, which is why discovery comes first."
+  },
+  {
+    "slug": "client-names",
+    "group": "Confidentiality",
+    "question": "Why are there no client names or logos on this site?",
+    "answer": "Much of the work is partner-led or white-labelled, and none of it is published without permission. Case studies here are anonymised and describe process design and architectural reasoning only — no commercial terms, no client data, no internal material."
+  },
+  {
+    "slug": "no-metrics",
+    "group": "Confidentiality",
+    "question": "Why are there no percentages or ROI figures?",
+    "answer": "Because I do not have verified ones to publish, and inventing them would be the fastest way to make everything else here untrustworthy. Where an outcome is stated, it is described qualitatively and marked as expected or achieved."
+  },
+  {
+    "slug": "partner-work",
+    "group": "Partners",
+    "question": "Can you work behind our brand?",
+    "answer": "Yes. A significant share of my work is partner-led and white-labelled: the discovery, architecture and client-facing documentation are produced in the partner's template and tone, internal references removed, with the partner owning the client relationship and the commercial conversation."
+  },
+  {
+    "slug": "partner-scope",
+    "group": "Partners",
+    "question": "What do partners usually ask for?",
+    "answer": "Discovery call support, solution direction and architecture, client-facing ISO or TRD documentation, estimation support, and scope protection before a project is committed to a number."
+  },
+  {
+    "slug": "engagement-start",
+    "group": "Engagements",
+    "question": "How does an engagement usually start?",
+    "answer": "With a conversation about the operational problem — not the software. From there the usual first step is either a discovery sprint or a system review, depending on whether the system exists yet."
+  },
+  {
+    "slug": "pricing",
+    "group": "Engagements",
+    "question": "What does it cost?",
+    "answer": "TBD — pricing is scoped per engagement based on shape and depth, and I do not publish a rate card here."
+  },
+  {
+    "slug": "ai-usage",
+    "group": "Method",
+    "question": "Do you use AI in the work?",
+    "answer": "Yes, deliberately and heavily — for transcript analysis, requirement structuring, gap auditing and documentation. It is a leverage layer over consulting judgement, not a replacement for it. Every line in a document has a human decision behind it, and I am not positioning myself as an AI engineer."
+  },
+  {
+    "slug": "custom-vs-standard",
+    "group": "Method",
+    "question": "Will you recommend custom development?",
+    "answer": "Only when standard functionality genuinely cannot carry the process. Custom work has a permanent maintenance cost, so it has to earn its place — that judgement is a formal step in my method, not an instinct."
+  }
+]

@@ -1,0 +1,818 @@
+[
+  {
+    "slug": "business-process-discovery",
+    "title": "Business Process Discovery",
+    "audience": "Business owners and operations leaders who know something is wrong but cannot yet describe it in a way anyone can quote.",
+    "neededWhen": "The requirement is unclear, fragmented, or described differently by every stakeholder you ask.",
+    "inputs": [
+      "Discovery calls and recordings",
+      "Existing system access",
+      "Spreadsheets and workarounds",
+      "Screenshots and rough notes",
+      "Whatever the request currently is"
+    ],
+    "activities": [
+      "Business model review",
+      "Stakeholder identification and interviews",
+      "Current tool review",
+      "Pain-point and root-cause analysis",
+      "Separating the urgent problem from the eventual ambition",
+      "Data-readiness review",
+      "Open-question preparation"
+    ],
+    "deliverables": [
+      "Discovery summary",
+      "Current challenges and gaps",
+      "Prioritised requirements",
+      "Open decisions register",
+      "Recommended next step"
+    ],
+    "engagementModel": "discovery-sprint",
+    "notIncluded": [
+      "System configuration or build",
+      "A price for the implementation before the scope exists",
+      "A commitment to any particular product"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "ecd-training-verification-crm",
+      "marine-licensing-relationship-architecture",
+      "marketplace-installment-commerce",
+      "nonprofit-operational-application",
+      "retail-support-transformation"
+    ],
+    "relatedProcesses": [
+      "lead-capture",
+      "enquiry-to-resolution",
+      "order-to-fulfilment"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "current-state-process-mapping",
+    "title": "Current-State Process Mapping",
+    "audience": "Teams whose documented process and real process have diverged.",
+    "neededWhen": "Work depends on manual handoffs, unclear ownership, repeated entry or a spreadsheet that is quietly the real system.",
+    "inputs": [
+      "Access to the people who do the work",
+      "Existing documentation",
+      "Live system walkthroughs",
+      "Real records, not example ones"
+    ],
+    "activities": [
+      "Current-state workflow mapping",
+      "Stakeholder and handoff analysis",
+      "Approval-flow documentation",
+      "Manual activity and duplicate-entry review",
+      "Exception and edge-case inventory",
+      "Reporting-gap identification"
+    ],
+    "deliverables": [
+      "Current-state process flow",
+      "Stakeholder and responsibility map",
+      "Gap analysis",
+      "Exception inventory",
+      "Risk observations"
+    ],
+    "engagementModel": "process-and-architecture-engagement",
+    "notIncluded": [
+      "Redesign (that is the next service)",
+      "Judging individuals rather than the process",
+      "System changes"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "field-service-job-lifecycle",
+      "manufacturing-quality-tooling-process",
+      "retail-support-transformation"
+    ],
+    "relatedProcesses": [
+      "order-to-fulfilment",
+      "enquiry-to-resolution",
+      "field-operations",
+      "quote-to-cash"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "future-state-process-redesign",
+    "title": "Future-State Process Redesign",
+    "audience": "Businesses that have agreed the problem and need a process people will actually use.",
+    "neededWhen": "The current state is mapped and the argument has moved from 'what is happening' to 'what should happen'.",
+    "inputs": [
+      "Approved current-state map",
+      "Gap analysis",
+      "Business priorities",
+      "Constraints and dependencies"
+    ],
+    "activities": [
+      "Removing steps that exist only to compensate for other steps",
+      "Defining ownership at every stage",
+      "Designing the status lifecycle",
+      "Introducing automation only where it removes real effort",
+      "Defining approvals and controls",
+      "Separating Phase 1 from later phases"
+    ],
+    "deliverables": [
+      "Future-state process flow",
+      "Responsibility model",
+      "Control and approval points",
+      "Status lifecycle",
+      "Phase recommendation"
+    ],
+    "engagementModel": "process-and-architecture-engagement",
+    "notIncluded": [
+      "Application selection (that comes next)",
+      "Change management for your organisation's politics",
+      "Guaranteeing adoption without your ownership"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "ecd-training-verification-crm",
+      "field-service-job-lifecycle",
+      "manufacturing-quality-tooling-process",
+      "marketplace-installment-commerce",
+      "retail-support-transformation"
+    ],
+    "relatedProcesses": [
+      "enquiry-to-resolution",
+      "return-and-exchange",
+      "field-operations",
+      "approval-management"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "crm-solution-architecture",
+    "title": "CRM & Solution Architecture",
+    "audience": "Businesses that know what they want to improve and need the right application and data architecture behind it.",
+    "neededWhen": "The process is agreed and the question is what should own what.",
+    "inputs": [
+      "Approved future-state process",
+      "User groups and roles",
+      "Data sources and existing systems",
+      "Integration requirements"
+    ],
+    "activities": [
+      "Application selection and elimination",
+      "Data-model and relationship design",
+      "Source-of-truth definition",
+      "Workflow and automation design",
+      "Integration and API boundary planning",
+      "Role and permission architecture",
+      "Standard-versus-custom analysis",
+      "Phasing"
+    ],
+    "deliverables": [
+      "Solution architecture",
+      "Data model",
+      "Source-of-truth and responsibility model",
+      "Integration map",
+      "Standard-versus-custom positions",
+      "Phase recommendation"
+    ],
+    "engagementModel": "process-and-architecture-engagement",
+    "notIncluded": [
+      "Development",
+      "Licensing procurement",
+      "A recommendation to buy more applications than the process needs"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "claims-process-rebuild",
+      "driving-school-portal",
+      "ecd-training-verification-crm",
+      "field-service-job-lifecycle",
+      "manufacturing-quality-tooling-process",
+      "marine-licensing-relationship-architecture",
+      "marketplace-installment-commerce",
+      "nonprofit-operational-application",
+      "retail-support-transformation",
+      "webhook-to-helpdesk-integration"
+    ],
+    "relatedProcesses": [
+      "quote-to-cash",
+      "licence-management",
+      "installment-checkout",
+      "inventory-movement"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "zoho-solution-architecture",
+    "title": "Zoho Solution Architecture",
+    "audience": "Businesses and partners specifically implementing on the Zoho ecosystem.",
+    "neededWhen": "Zoho has been chosen — or is a serious candidate — and the architecture needs to be right before configuration starts.",
+    "inputs": [
+      "Future-state process",
+      "User and role structure",
+      "Existing Zoho estate if any",
+      "Third-party systems in scope"
+    ],
+    "activities": [
+      "Application selection across the Zoho suite",
+      "Module and custom-module design",
+      "Blueprint and status modelling",
+      "Automation and Flow design",
+      "Integration design including APIs, webhooks and Deluge",
+      "Role, profile and data-sharing architecture",
+      "Phasing across applications"
+    ],
+    "deliverables": [
+      "Zoho application architecture",
+      "Module and data model",
+      "Blueprint specifications",
+      "Integration design",
+      "Role and permission model",
+      "Phase plan"
+    ],
+    "engagementModel": "process-and-architecture-engagement",
+    "notIncluded": [
+      "A recommendation for Zoho when it is the wrong answer",
+      "Configuration and build",
+      "Licence resale"
+    ],
+    "caseStudies": [],
+    "relatedProcesses": [
+      "licence-management",
+      "approval-management",
+      "uat-and-change-control",
+      "role-and-permission-governance"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "scope-requirement-documentation",
+    "title": "Scope & Requirement Documentation",
+    "audience": "Anyone who needs a project estimated, approved or handed to a delivery team without hidden ambiguity.",
+    "neededWhen": "A decision has been taken and it now has to survive a handover.",
+    "inputs": [
+      "Discovery outputs",
+      "Architecture decisions",
+      "Client priorities",
+      "Existing source material in whatever state it is in"
+    ],
+    "activities": [
+      "Scope definition and boundary-setting",
+      "Functional detail",
+      "Technical specification",
+      "Assumptions and dependencies",
+      "Client responsibilities",
+      "Acceptance criteria",
+      "Open decision register"
+    ],
+    "deliverables": [
+      "ISO, FRD or TRD as appropriate",
+      "Scope, assumptions and dependencies",
+      "Client responsibilities",
+      "Acceptance criteria",
+      "Open decisions"
+    ],
+    "engagementModel": "documentation-engagement",
+    "notIncluded": [
+      "Guessing at decisions the client has not made",
+      "Presenting assumptions as requirements",
+      "A document that hides the open questions"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "claims-process-rebuild",
+      "ecd-training-verification-crm",
+      "manufacturing-quality-tooling-process",
+      "marine-licensing-relationship-architecture",
+      "marketplace-installment-commerce",
+      "nonprofit-operational-application",
+      "webhook-to-helpdesk-integration"
+    ],
+    "relatedProcesses": [
+      "project-delivery",
+      "uat-and-change-control"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "iso-preparation",
+    "title": "Initial System Overview (ISO) Preparation",
+    "audience": "Partners and businesses who need a discovery conversation turned into something a decision-maker can approve.",
+    "neededWhen": "The conversation has happened and now needs to become a proposal with boundaries.",
+    "inputs": [
+      "Discovery notes, calls or transcripts",
+      "Client's existing systems",
+      "Partner document template if applicable",
+      "Commercial constraints"
+    ],
+    "activities": [
+      "Business understanding write-up",
+      "Proposed solution and application architecture",
+      "Process flows",
+      "Scope, phases and boundaries",
+      "Assumptions, dependencies and client responsibilities",
+      "Preliminary estimate direction"
+    ],
+    "deliverables": [
+      "Initial System Overview in the required template",
+      "Process and architecture diagrams",
+      "Scope and phase boundaries",
+      "Open decisions"
+    ],
+    "engagementModel": "documentation-engagement",
+    "notIncluded": [
+      "A fixed price",
+      "Commercial terms",
+      "Content the client has not actually agreed"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp",
+      "marine-licensing-relationship-architecture"
+    ],
+    "relatedProcesses": [
+      "lead-qualification",
+      "quote-to-cash"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "frd-preparation",
+    "title": "Functional Requirement Document (FRD) Preparation",
+    "audience": "Delivery teams and clients who need functional behaviour defined precisely enough to be tested.",
+    "neededWhen": "The architecture is agreed and the build needs a specification that leaves nothing to a developer's guess.",
+    "inputs": [
+      "Approved architecture",
+      "Future-state process",
+      "User and role structure",
+      "Reporting expectations"
+    ],
+    "activities": [
+      "Module-by-module functional detail",
+      "User journey definition",
+      "Status and transition behaviour",
+      "Field, rule and notification specification",
+      "Reporting requirements",
+      "Acceptance criteria"
+    ],
+    "deliverables": [
+      "Functional Requirement Document",
+      "Status and blueprint behaviour",
+      "Acceptance criteria",
+      "Open decisions"
+    ],
+    "engagementModel": "documentation-engagement",
+    "notIncluded": [
+      "Technical setup detail (that is the TRD)",
+      "Build",
+      "Requirements invented to fill a gap"
+    ],
+    "caseStudies": [],
+    "relatedProcesses": [
+      "uat-and-change-control",
+      "approval-management"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "trd-preparation",
+    "title": "Technical Requirement Document (TRD) Preparation",
+    "audience": "Delivery teams — and clients, where the TRD is client-facing.",
+    "neededWhen": "The build is about to start and every setup, model, automation and integration decision needs to be written down.",
+    "inputs": [
+      "Approved functional requirements",
+      "System access",
+      "Integration specifications",
+      "Migration source data"
+    ],
+    "activities": [
+      "Application setup specification",
+      "Users, roles, profiles and permissions",
+      "Data model and module relationships",
+      "Blueprint and status transitions",
+      "Automation rules",
+      "Integration and API specification",
+      "Security and migration",
+      "Process diagrams"
+    ],
+    "deliverables": [
+      "Technical Requirement Document",
+      "Data model",
+      "Blueprint diagrams",
+      "Integration specification",
+      "Assumptions and dependencies"
+    ],
+    "engagementModel": "documentation-engagement",
+    "notIncluded": [
+      "Internal change logs or provenance in a client-facing document",
+      "Assumptions dressed as decisions",
+      "Build"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "ecd-training-verification-crm"
+    ],
+    "relatedProcesses": [
+      "role-and-permission-governance",
+      "approval-management",
+      "uat-and-change-control"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "implementation-planning",
+    "title": "Implementation Planning",
+    "audience": "Project owners who need an approved scope turned into a sequence someone can run.",
+    "neededWhen": "Scope is agreed and it needs phases, owners, estimates, dependencies and a testing structure.",
+    "inputs": [
+      "Approved scope",
+      "Team capacity",
+      "Client readiness",
+      "External dependencies"
+    ],
+    "activities": [
+      "Phase planning with entry and exit criteria",
+      "Effort estimation support",
+      "Dependency registration",
+      "Risk review",
+      "Responsibility assignment",
+      "Testing and training planning"
+    ],
+    "deliverables": [
+      "Implementation plan",
+      "Estimate summary",
+      "Dependency register",
+      "Testing and UAT schedule",
+      "Go-live plan",
+      "Risk register"
+    ],
+    "engagementModel": "delivery-oversight",
+    "notIncluded": [
+      "A commitment to a date the dependencies do not support",
+      "Resourcing your team",
+      "A plan that assumes nothing goes wrong"
+    ],
+    "caseStudies": [
+      "driving-school-portal",
+      "field-service-job-lifecycle",
+      "nonprofit-operational-application"
+    ],
+    "relatedProcesses": [
+      "project-delivery",
+      "uat-and-change-control"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "effort-estimation-support",
+    "title": "Effort Estimation Support",
+    "audience": "Partners and delivery teams pricing work they will have to honour.",
+    "neededWhen": "A number is about to be committed and the scope behind it needs to be real.",
+    "inputs": [
+      "Documented scope",
+      "Architecture decisions",
+      "Standard-versus-custom positions",
+      "Team capability"
+    ],
+    "activities": [
+      "Scope decomposition",
+      "Standard-versus-custom classification per requirement",
+      "Dependency and assumption surfacing",
+      "Risk-adjusted effort input",
+      "Identification of items that cannot yet be estimated"
+    ],
+    "deliverables": [
+      "Estimation inputs by scope item",
+      "Assumptions and exclusions",
+      "Items that cannot be estimated and why",
+      "Risk commentary"
+    ],
+    "engagementModel": "documentation-engagement",
+    "notIncluded": [
+      "Your commercial rate card or margin",
+      "A fixed price",
+      "An estimate for scope that does not exist yet"
+    ],
+    "caseStudies": [
+      "b2b-distribution-crm-over-erp"
+    ],
+    "relatedProcesses": [
+      "project-delivery"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "existing-system-review",
+    "title": "Existing System Review",
+    "audience": "Businesses whose CRM or operational system went live and is not being used.",
+    "neededWhen": "The system exists, the adoption does not, and nobody wants to say why.",
+    "inputs": [
+      "Administrative access",
+      "User feedback",
+      "Reports",
+      "The process the system was meant to serve"
+    ],
+    "activities": [
+      "Configuration review",
+      "Comparison of the built system against the real process",
+      "User interviews about the workarounds they have invented",
+      "Adoption and usability observations",
+      "Improvement prioritisation by effort and effect"
+    ],
+    "deliverables": [
+      "System review report",
+      "Process-alignment gaps",
+      "Quick wins",
+      "Prioritised improvement backlog",
+      "Roadmap"
+    ],
+    "engagementModel": "system-review",
+    "notIncluded": [
+      "A defence of the original implementation",
+      "Rebuild",
+      "Findings softened to be comfortable"
+    ],
+    "caseStudies": [
+      "claims-process-rebuild",
+      "driving-school-portal",
+      "partner-configurator-scoping-tool"
+    ],
+    "relatedProcesses": [
+      "role-and-permission-governance",
+      "opportunity-management"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "architecture-review",
+    "title": "Architecture Review",
+    "audience": "Partners and businesses about to commit to a design, or already living with one.",
+    "neededWhen": "A design exists and someone needs to check it against the process, the constraints and the maintenance cost before it is built — or work out why it is not holding.",
+    "inputs": [
+      "Proposed or existing architecture",
+      "Process documentation",
+      "Integration inventory",
+      "Known pain points"
+    ],
+    "activities": [
+      "Source-of-truth analysis",
+      "Standard-versus-custom challenge",
+      "Integration boundary review",
+      "Permission and data-visibility review",
+      "Maintainability and scalability assessment",
+      "Risk identification"
+    ],
+    "deliverables": [
+      "Architecture review findings",
+      "Source-of-truth model",
+      "Risk register",
+      "Recommended changes with reasoning"
+    ],
+    "engagementModel": "system-review",
+    "notIncluded": [
+      "Rebuilding the architecture as part of the review",
+      "Vendor selection",
+      "Approving a design to be agreeable"
+    ],
+    "caseStudies": [
+      "ecd-training-verification-crm",
+      "partner-configurator-scoping-tool",
+      "webhook-to-helpdesk-integration"
+    ],
+    "relatedProcesses": [
+      "quote-to-cash",
+      "licence-management"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "uat-adoption-planning",
+    "title": "UAT & Adoption Planning",
+    "audience": "Project owners whose build is technically complete and commercially unproven.",
+    "neededWhen": "The build works in a demo and now has to survive real users and real data.",
+    "inputs": [
+      "Documented requirements",
+      "Build access",
+      "User groups",
+      "Test data"
+    ],
+    "activities": [
+      "Scenario design from requirements rather than from the build",
+      "Role-based test path definition",
+      "Test data preparation guidance",
+      "Issue classification structure",
+      "Training and go-live planning"
+    ],
+    "deliverables": [
+      "UAT plan and scenarios",
+      "Test cases mapped to requirements",
+      "Issue log structure with defect-versus-change definition",
+      "Go-live readiness checklist",
+      "Training plan"
+    ],
+    "engagementModel": "delivery-oversight",
+    "notIncluded": [
+      "Testing on the client's behalf and calling it UAT",
+      "Signing off the client's acceptance",
+      "Adoption without a client owner"
+    ],
+    "caseStudies": [
+      "field-service-job-lifecycle",
+      "retail-support-transformation"
+    ],
+    "relatedProcesses": [
+      "uat-and-change-control",
+      "project-delivery"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "delivery-quality-review",
+    "title": "Delivery Quality Review",
+    "audience": "Partners and project owners with a build underway that is drifting.",
+    "neededWhen": "The work is moving but the relationship between what was scoped and what is being built has become unclear.",
+    "inputs": [
+      "Scope baseline",
+      "Current build",
+      "Change history",
+      "Team and client communication"
+    ],
+    "activities": [
+      "Comparison of build output against the documented baseline",
+      "Hidden scope identification",
+      "Defect-versus-change classification review",
+      "Scope deviation reporting",
+      "Testing structure review"
+    ],
+    "deliverables": [
+      "Scope deviation report",
+      "Effort implications per item",
+      "Decisions required",
+      "Recommended corrections"
+    ],
+    "engagementModel": "delivery-oversight",
+    "notIncluded": [
+      "Reassigning blame",
+      "Renegotiating your commercial terms",
+      "Absorbing scope quietly to keep the peace"
+    ],
+    "caseStudies": [
+      "driving-school-portal",
+      "field-service-job-lifecycle",
+      "partner-configurator-scoping-tool"
+    ],
+    "relatedProcesses": [
+      "project-delivery",
+      "uat-and-change-control"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "partner-white-label-support",
+    "title": "Partner & White-Label Solutioning Support",
+    "audience": "Consulting and implementation partners who need discovery, architecture or documentation produced under their own brand.",
+    "neededWhen": "A partner has an opportunity or a project and needs the solutioning behind it — without the end client ever seeing a third party.",
+    "inputs": [
+      "Partner brief",
+      "Client material",
+      "Brand assets and document templates",
+      "Commercial constraints"
+    ],
+    "activities": [
+      "Discovery support or facilitation",
+      "Solution direction and architecture",
+      "Client-facing documentation in the partner's template and tone",
+      "Estimation support",
+      "Scope protection",
+      "Delivery handoff"
+    ],
+    "deliverables": [
+      "Partner-branded client documentation",
+      "Solution direction and architecture",
+      "Estimate support",
+      "Delivery handoff pack"
+    ],
+    "engagementModel": "partner-white-label",
+    "notIncluded": [
+      "Contact with the end client outside what the partner arranges",
+      "Commercial negotiation",
+      "Internal reasoning left in a client-facing document"
+    ],
+    "caseStudies": [
+      "marine-licensing-relationship-architecture",
+      "partner-configurator-scoping-tool",
+      "webhook-to-helpdesk-integration"
+    ],
+    "relatedProcesses": [
+      "project-delivery"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "discovery-call-support",
+    "title": "Discovery Call Support",
+    "audience": "Partners and sales teams who need solutioning in the room, in real time.",
+    "neededWhen": "A discovery or scoping call is happening and the right questions need to be asked while the client is still on the line.",
+    "inputs": [
+      "Whatever is known about the client beforehand",
+      "The partner's commercial position",
+      "Call access"
+    ],
+    "activities": [
+      "Pre-call question preparation specific to the industry and process",
+      "Live solutioning support during the call",
+      "Post-call structuring of what was actually said",
+      "Open decision identification",
+      "Recommended next step"
+    ],
+    "deliverables": [
+      "Prepared discovery question set",
+      "Post-call structured findings",
+      "Open decisions",
+      "Solution direction"
+    ],
+    "engagementModel": "partner-white-label",
+    "notIncluded": [
+      "Owning the client relationship",
+      "Commercial commitments on the call",
+      "A scope produced from one conversation"
+    ],
+    "caseStudies": [],
+    "relatedProcesses": [
+      "lead-qualification",
+      "opportunity-management"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "opportunity-scoping-support",
+    "title": "Opportunity Scoping Support",
+    "audience": "Partners deciding whether and how to pursue an opportunity.",
+    "neededWhen": "An opportunity needs an architecture and a boundary before it can be quoted or qualified out.",
+    "inputs": [
+      "Client material and call notes",
+      "Partner's delivery capability",
+      "Commercial constraints"
+    ],
+    "activities": [
+      "Rapid solution direction",
+      "Standard-versus-custom classification",
+      "Dependency and risk surfacing",
+      "Phase and boundary recommendation",
+      "Estimation inputs",
+      "Identification of what makes this opportunity risky"
+    ],
+    "deliverables": [
+      "Solution direction",
+      "Scope boundary recommendation",
+      "Estimation inputs",
+      "Risk commentary"
+    ],
+    "engagementModel": "partner-white-label",
+    "notIncluded": [
+      "A go/no-go decision on your behalf",
+      "Pricing",
+      "A full architecture from a single call"
+    ],
+    "caseStudies": [
+      "partner-configurator-scoping-tool"
+    ],
+    "relatedProcesses": [
+      "lead-qualification",
+      "quotation-management"
+    ],
+    "price": "TBD"
+  },
+  {
+    "slug": "ai-consulting-workflow-design",
+    "title": "AI-Assisted Consulting Workflow Design",
+    "audience": "Consulting and delivery teams who want AI leverage over their own process without losing the judgement that makes it worth anything.",
+    "neededWhen": "The team is producing the same artefacts repeatedly and inconsistently, and the source material is arriving as transcripts, notes and half-documents.",
+    "inputs": [
+      "Existing document templates and standards",
+      "Sample source material",
+      "Current team process",
+      "Quality expectations"
+    ],
+    "activities": [
+      "Mapping the consulting process before automating any of it",
+      "Transcript-to-requirement structuring workflows",
+      "Document generation pipelines against your own templates",
+      "Discovery question generation by industry and process",
+      "Gap and contradiction auditing workflows",
+      "Reusable framework design"
+    ],
+    "deliverables": [
+      "Documented AI-assisted workflow",
+      "Prompt and template structures",
+      "Quality checkpoints and human decision points",
+      "Reusable frameworks"
+    ],
+    "engagementModel": "documentation-engagement",
+    "notIncluded": [
+      "Model development or fine-tuning",
+      "Positioning AI as a substitute for consulting judgement",
+      "Any workflow where a document leaves without a human decision behind it"
+    ],
+    "caseStudies": [],
+    "relatedProcesses": [
+      "project-delivery"
+    ],
+    "price": "TBD"
+  }
+]

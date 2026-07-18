@@ -1,0 +1,53 @@
+{
+  "problem": {
+    "title": "What arrives versus what is needed",
+    "arrivesLabel": "What arrives",
+    "arrives": ["A call recording", "Screenshots", "Four spreadsheets", "Three opinions", "A deadline"],
+    "neededLabel": "What is needed",
+    "needed": ["A process", "An architecture", "A scope"]
+  },
+  "transformations": {
+    "title": "Selected transformations",
+    "intro": "A working process, structured from an unstructured requirement — not a feature list."
+  },
+  "industries": {
+    "title": "Industry experience",
+    "intro": "Eighteen industries, each shown with an honest exposure level rather than a claim of expertise."
+  },
+  "processLibrary": {
+    "title": "The process library",
+    "intro": "Fifty processes across six families, each with the discovery questions that were actually asked."
+  },
+  "clientsBring": {
+    "title": "What clients bring and what I produce",
+    "clientBringsLabel": "What clients bring",
+    "clientBrings": [
+      "Rough explanations",
+      "Recordings",
+      "Screenshots",
+      "Spreadsheets",
+      "Disconnected requests",
+      "Multiple app ideas",
+      "Unclear ownership"
+    ],
+    "iProduceLabel": "What I produce",
+    "iProduce": [
+      "Business understanding",
+      "Current-state process",
+      "Gap analysis",
+      "Future-state workflow",
+      "Solution architecture",
+      "Scope and assumptions",
+      "Dependencies and risks",
+      "Implementation roadmap",
+      "Testing criteria"
+    ]
+  },
+  "deliverables": {
+    "title": "Deliverables",
+    "intro": "What actually gets handed over."
+  },
+  "aboutPreview": {
+    "title": "About"
+  }
+}

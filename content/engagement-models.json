@@ -1,0 +1,149 @@
+[
+  {
+    "slug": "discovery-sprint",
+    "name": "Discovery Sprint",
+    "bestFor": "A business that knows something is wrong but cannot yet describe the requirement in a way anyone can quote.",
+    "shape": "A short, bounded engagement: sessions with the people who do the work, a review of the existing systems, and a written findings pack.",
+    "typicalDuration": "TBD",
+    "whatDivyamDoes": [
+      "Runs discovery sessions with each stakeholder group",
+      "Reviews existing tools, spreadsheets and workarounds",
+      "Separates the urgent problem from the eventual ambition",
+      "Writes the open questions no one has answered yet",
+      "Produces a discovery summary and a solution direction"
+    ],
+    "whatTheClientDoes": [
+      "Provides access to the people who actually run the process",
+      "Provides read access to current systems",
+      "Nominates a decision-maker who can resolve open questions"
+    ],
+    "output": [
+      "Discovery summary",
+      "Current challenges and gaps",
+      "Prioritised requirements",
+      "Open decisions",
+      "Recommended next step"
+    ]
+  },
+  {
+    "slug": "process-and-architecture-engagement",
+    "name": "Process & Architecture Engagement",
+    "bestFor": "A business that has agreed the problem and needs a future-state process plus the system design to support it.",
+    "shape": "Current-state mapping, future-state redesign, application and data architecture, then a documented scope that can be estimated.",
+    "typicalDuration": "TBD",
+    "whatDivyamDoes": [
+      "Maps the current state with the people who run it",
+      "Designs the future state and its control points",
+      "Selects applications and defines the data model",
+      "Separates standard functionality from custom work",
+      "Documents scope, assumptions, dependencies and risks"
+    ],
+    "whatTheClientDoes": [
+      "Confirms responsibility and approval rules",
+      "Confirms which systems remain the source of truth",
+      "Approves phase boundaries"
+    ],
+    "output": [
+      "Current and future-state process flows",
+      "Solution architecture",
+      "Initial System Overview or FRD",
+      "Scope, assumptions and dependencies"
+    ]
+  },
+  {
+    "slug": "documentation-engagement",
+    "name": "Documentation Engagement",
+    "bestFor": "A decision already taken that now needs to survive a handover to an implementation team.",
+    "shape": "Existing material in, implementation-ready document out.",
+    "typicalDuration": "TBD",
+    "whatDivyamDoes": [
+      "Reconciles calls, notes, screenshots and prior documents into one structure",
+      "Resolves contradictions between sources",
+      "Writes the ISO, FRD or TRD",
+      "Marks every unresolved point as an open decision rather than an assumption"
+    ],
+    "whatTheClientDoes": [
+      "Supplies the source material",
+      "Answers the open decisions",
+      "Approves the final version"
+    ],
+    "output": [
+      "ISO, FRD or TRD",
+      "Process diagrams",
+      "Open decision list"
+    ]
+  },
+  {
+    "slug": "delivery-oversight",
+    "name": "Delivery Oversight",
+    "bestFor": "A build that is underway and drifting from the requirement it was scoped against.",
+    "shape": "Ongoing involvement across the build: requirement clarification, output review, testing structure and UAT.",
+    "typicalDuration": "TBD",
+    "whatDivyamDoes": [
+      "Clarifies requirements for the delivery team",
+      "Reviews build output against documented acceptance criteria",
+      "Identifies hidden scope and change requests early",
+      "Structures testing and UAT",
+      "Prepares go-live and adoption planning"
+    ],
+    "whatTheClientDoes": [
+      "Makes business users available for UAT",
+      "Owns data readiness",
+      "Signs off phase by phase"
+    ],
+    "output": [
+      "UAT plan and scenarios",
+      "Issue classification structure",
+      "Scope deviation reporting",
+      "Go-live readiness checklist"
+    ]
+  },
+  {
+    "slug": "partner-white-label",
+    "name": "Partner / White-Label Support",
+    "bestFor": "An implementation partner who needs discovery, architecture or client-facing documentation produced under their own brand.",
+    "shape": "I work behind the partner. The end client sees the partner's brand, the partner's tone and the partner's document template.",
+    "typicalDuration": "TBD",
+    "whatDivyamDoes": [
+      "Supports or runs the discovery call",
+      "Produces the solution direction and architecture",
+      "Writes client-facing documentation in the partner's template",
+      "Supports estimation and scope protection",
+      "Keeps internal reasoning out of client-facing material"
+    ],
+    "whatTheClientDoes": [
+      "Supplies the brief, brand assets and commercial constraints",
+      "Owns the client relationship and the commercial conversation"
+    ],
+    "output": [
+      "Partner-branded client documentation",
+      "Solution direction",
+      "Estimate support",
+      "Delivery handoff pack"
+    ]
+  },
+  {
+    "slug": "system-review",
+    "name": "System Review",
+    "bestFor": "A CRM or operational system that was implemented, went live, and is not being used.",
+    "shape": "A structured review of the configuration against the process it was meant to serve.",
+    "typicalDuration": "TBD",
+    "whatDivyamDoes": [
+      "Reviews configuration, roles, automation and reporting",
+      "Compares the built system against the real process",
+      "Interviews users about the workarounds they have invented",
+      "Prioritises fixes by effort and business effect"
+    ],
+    "whatTheClientDoes": [
+      "Provides administrative access",
+      "Makes users available",
+      "Accepts findings that may be uncomfortable"
+    ],
+    "output": [
+      "Review report",
+      "Quick wins",
+      "Improvement backlog",
+      "Roadmap"
+    ]
+  }
+]
