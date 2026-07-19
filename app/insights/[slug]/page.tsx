@@ -79,7 +79,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
                     <li key={process.slug}>
                       <Link
                         href={`/processes/${process.slug}`}
-                        className="inline-block border border-paper-200 px-3 py-1.5 text-xs text-ink-800 hover:border-accent-500 hover:text-accent-text"
+                        className="inline-flex min-h-11 items-center border border-paper-200 px-3 py-1.5 text-xs text-ink-800 hover:border-accent-500 hover:text-accent-text sm:min-h-0"
                       >
                         {process.name}
                       </Link>
@@ -96,7 +96,7 @@ export default async function InsightDetailPage({ params }: { params: Promise<{ 
                     <li key={stage.slug}>
                       <Link
                         href={`/methodology#${stage.slug}`}
-                        className="inline-block border border-paper-200 px-3 py-1.5 text-xs text-ink-800 hover:border-accent-500 hover:text-accent-text"
+                        className="inline-flex min-h-11 items-center border border-paper-200 px-3 py-1.5 text-xs text-ink-800 hover:border-accent-500 hover:text-accent-text sm:min-h-0"
                       >
                         {stage.name}
                       </Link>

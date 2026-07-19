@@ -5,13 +5,13 @@ import type { GlobalContent } from "@/schemas/content-types";
 
 export function Hero({ global }: { global: GlobalContent }) {
   return (
-    <section className="border-b border-paper-200 bg-paper-50 py-16 sm:py-20 lg:py-28">
-      <Container className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
-        <div>
+    <section className="border-b border-paper-200 bg-paper-50 py-16 sm:py-20 lg:py-24">
+      <Container>
+        <div className="max-w-3xl">
           <p className="font-mono text-xs uppercase tracking-[0.14em] text-ink-800/70">
             {global.primaryTitle}
           </p>
-          <h1 className="mt-4 text-balance font-display text-4xl font-semibold leading-[1.08] text-ink-950 sm:text-5xl lg:text-[3.25rem]">
+          <h1 className="mt-4 text-balance font-display text-4xl font-semibold leading-[1.08] text-ink-950 sm:text-5xl lg:text-[3.4rem]">
             {global.headline}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-800">{global.summary}</p>
@@ -32,7 +32,9 @@ export function Hero({ global }: { global: GlobalContent }) {
           </div>
         </div>
 
-        <HeroTransformation />
+        <div className="mt-14 lg:mt-16">
+          <HeroTransformation />
+        </div>
       </Container>
     </section>
   );

@@ -13,8 +13,15 @@ export function ElevenQuestions({
   tests: DecisionFrameworkTest[];
 }) {
   return (
-    <section className="border-b border-ink-800 bg-ink-950 py-16 sm:py-20 lg:py-24">
-      <Container>
+    <section className="relative overflow-hidden border-b border-ink-800 bg-ink-950 py-16 sm:py-20 lg:py-24">
+      <p
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-4 -top-10 select-none font-display text-[13rem] font-semibold leading-none text-paper-50/[0.04] sm:text-[18rem]"
+      >
+        {tests.length}
+      </p>
+
+      <Container className="relative">
         <Eyebrow tone="paper">The decision framework</Eyebrow>
         <h2 className="mt-3 max-w-2xl text-balance font-display text-3xl font-semibold text-paper-50 sm:text-4xl">
           {name}

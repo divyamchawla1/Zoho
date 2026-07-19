@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { WorkflowPreviewDiagram } from "@/components/home/WorkflowPreviewDiagram";
 import { resolveIndustries, resolveProcesses } from "@/lib/resolve";
 import type { CaseStudy, HomepageContent, Industry, Process } from "@/schemas/content-types";
 
@@ -17,24 +18,32 @@ function TransformationPanel({
 }) {
   const caseIndustries = resolveIndustries(caseStudy.industrySlugs, industries);
   const caseProcesses = resolveProcesses(caseStudy.processSlugs, processes);
-  const previewSteps = caseStudy.futureState.steps.slice(0, 5);
+  const previewSteps = caseStudy.futureState.steps.slice(0, 4);
   const remaining = caseStudy.futureState.steps.length - previewSteps.length;
 
   return (
-    <article className="grid gap-8 border-t border-paper-200 py-10 lg:grid-cols-12 lg:gap-6">
+    <div className="group relative grid gap-8 border-t border-paper-200 py-10 transition-colors hover:bg-paper-100/60 lg:-mx-6 lg:grid-cols-12 lg:gap-6 lg:px-6">
+      {/* Stretched link: the whole panel is the click/tap target, but its
+          accessible name stays just the case study title — see docs/07 on
+          not burying screen-reader link names in a wall of panel text. */}
+      <Link href={`/work/${caseStudy.slug}`} className="absolute inset-0" aria-label={caseStudy.title} />
+
+
       <div className="lg:col-span-3">
-        <span className="font-mono text-xs text-ink-800/70">{String(index + 1).padStart(2, "0")}</span>
+        <span className="font-mono text-xs text-ink-800/60 transition-colors group-hover:text-accent-text">
+          {String(index + 1).padStart(2, "0")}
+        </span>
         <p className="mt-2 font-mono text-xs uppercase tracking-wide text-accent-text">
           {caseIndustries.map((industry) => industry.name).join(" · ")}
         </p>
-        <h3 className="mt-3 font-display text-xl font-semibold text-ink-950">{caseStudy.title}</h3>
+        <h3 className="mt-3 font-display text-xl font-semibold text-ink-950 sm:text-2xl">{caseStudy.title}</h3>
       </div>
 
       <div className="lg:col-span-6">
-        <p className="text-sm leading-relaxed text-ink-800">
+        <p className="text-sm leading-relaxed text-ink-800 sm:text-base">
           {caseStudy.operationalChallenge[0]}
         </p>
-        <p className="mt-3 font-mono text-xs uppercase tracking-wide text-ink-800/70">
+        <p className="mt-4 font-mono text-xs uppercase tracking-wide text-ink-800/70">
           {caseProcesses.length} processes analysed
         </p>
         <ul className="mt-2 flex flex-wrap gap-2">
@@ -47,25 +56,18 @@ function TransformationPanel({
       </div>
 
       <div className="lg:col-span-3">
-        <p className="font-mono text-xs uppercase tracking-wide text-ink-800/70">Simplified workflow</p>
-        <ol className="mt-2 space-y-1.5">
-          {previewSteps.map((step) => (
-            <li key={step} className="border-l-2 border-accent-500 pl-2 text-xs text-ink-950">
-              {step}
-            </li>
-          ))}
-          {remaining > 0 ? (
-            <li className="pl-2 text-xs text-ink-800/70">+{remaining} more steps</li>
-          ) : null}
-        </ol>
-        <Link
-          href={`/work/${caseStudy.slug}`}
-          className="mt-4 inline-block font-mono text-xs uppercase tracking-wide text-accent-text hover:underline"
-        >
-          View case study →
-        </Link>
+        <p className="font-mono text-xs uppercase tracking-wide text-ink-800/70">Simplified future-state workflow</p>
+        <div className="mt-3">
+          <WorkflowPreviewDiagram steps={previewSteps} moreCount={remaining} />
+        </div>
+        <span className="mt-5 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wide text-accent-text">
+          View case study
+          <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </span>
       </div>
-    </article>
+    </div>
   );
 }
 

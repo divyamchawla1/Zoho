@@ -21,7 +21,7 @@ export function Disclosure({
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((value) => !value)}
-        className="flex w-full items-center justify-between gap-2 border border-ink-950 px-4 py-3 text-left font-mono text-xs uppercase tracking-wide text-ink-950 hover:bg-paper-100"
+        className="flex min-h-11 w-full items-center justify-between gap-2 border border-ink-950 px-4 py-3 text-left font-mono text-xs uppercase tracking-wide text-ink-950 hover:bg-paper-100"
       >
         {label}
         <span aria-hidden="true">{open ? "−" : "+"}</span>

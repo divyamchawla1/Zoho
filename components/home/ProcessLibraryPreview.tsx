@@ -36,10 +36,10 @@ export function ProcessLibraryPreview({
               role="tab"
               aria-selected={isActive}
               onClick={() => setActiveCategory(category.slug)}
-              className={`border px-3 py-2 font-mono text-xs uppercase tracking-wide transition-colors ${
+              className={`inline-flex min-h-[44px] items-center border px-3 py-2 font-mono text-xs uppercase tracking-wide transition-all ${
                 isActive
-                  ? "border-accent-400 bg-accent-500 text-ink-950"
-                  : "border-paper-50/30 text-paper-50/80 hover:border-paper-50/60"
+                  ? "border-accent-400 bg-accent-500 text-ink-950 shadow-[2px_2px_0_0_rgba(111,146,255,0.4)]"
+                  : "border-paper-50/30 text-paper-50/80 hover:-translate-y-px hover:border-paper-50/60 hover:text-paper-50"
               }`}
             >
               {category.name}
@@ -49,7 +49,11 @@ export function ProcessLibraryPreview({
       </div>
 
       {current ? (
-        <div role="tabpanel" className="mt-8 border border-paper-50/15 bg-ink-900 p-6">
+        <div
+          key={current.slug}
+          role="tabpanel"
+          className="mt-8 border border-paper-50/15 bg-ink-900 p-6 [animation-duration:300ms] [animation-fill-mode:backwards] [animation-name:reveal-rise] [animation-timing-function:ease-out] sm:p-8"
+        >
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h3 className="font-display text-lg font-semibold text-paper-50">{current.name}</h3>
             <span className="font-mono text-xs text-paper-50/50">{currentProcesses.length} processes</span>
@@ -60,7 +64,7 @@ export function ProcessLibraryPreview({
               <li key={process.slug}>
                 <Link
                   href={`/processes/${process.slug}`}
-                  className="inline-block border border-paper-50/25 px-3 py-1.5 text-xs text-paper-50/90 hover:border-accent-400 hover:text-accent-400"
+                  className="inline-block border border-paper-50/25 px-3 py-1.5 text-xs text-paper-50/90 transition-all hover:-translate-y-px hover:border-accent-400 hover:text-accent-400"
                 >
                   {process.name}
                 </Link>

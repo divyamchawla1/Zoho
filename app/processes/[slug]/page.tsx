@@ -157,7 +157,7 @@ export default async function ProcessDetailPage({ params }: { params: Promise<{ 
                 <li key={industry.slug}>
                   <Link
                     href={`/industries/${industry.slug}`}
-                    className="inline-block border border-paper-200 px-3 py-1.5 text-sm text-ink-950 hover:border-accent-500 hover:text-accent-text"
+                    className="inline-flex min-h-11 items-center border border-paper-200 px-3 py-1.5 text-sm text-ink-950 hover:border-accent-500 hover:text-accent-text"
                   >
                     {industry.name}
                   </Link>

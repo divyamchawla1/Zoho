@@ -26,12 +26,12 @@ export function CurrentFutureToggle({
 
   return (
     <div>
-      <div role="group" aria-label="Show current state or future state" className="inline-flex border border-ink-950">
+      <div role="group" aria-label="Show current state or future state" className="flex w-full border border-ink-950 sm:inline-flex sm:w-auto">
         <button
           type="button"
           aria-pressed={isCurrent}
           onClick={() => setMode("current")}
-          className={`px-4 py-2 font-mono text-xs uppercase tracking-wide transition-colors ${
+          className={`min-h-11 flex-1 px-4 py-3 text-center font-mono text-xs uppercase tracking-wide transition-colors sm:flex-none ${
             isCurrent ? "bg-warning-500 text-ink-950" : "bg-paper-50 text-ink-950 hover:bg-paper-100"
           }`}
         >
@@ -41,7 +41,7 @@ export function CurrentFutureToggle({
           type="button"
           aria-pressed={!isCurrent}
           onClick={() => setMode("future")}
-          className={`border-l border-ink-950 px-4 py-2 font-mono text-xs uppercase tracking-wide transition-colors ${
+          className={`min-h-11 flex-1 border-l border-ink-950 px-4 py-3 text-center font-mono text-xs uppercase tracking-wide transition-colors sm:flex-none ${
             !isCurrent ? "bg-teal-500 text-ink-950" : "bg-paper-50 text-ink-950 hover:bg-paper-100"
           }`}
         >

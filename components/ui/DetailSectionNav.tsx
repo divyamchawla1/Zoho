@@ -51,7 +51,7 @@ export function DetailSectionNav({
           id={selectId}
           value={activeId}
           onChange={(event) => jumpTo(event.target.value)}
-          className="w-full border-0 bg-paper-50 px-4 py-3 font-mono text-xs uppercase tracking-wide text-ink-950"
+          className="min-h-11 w-full border-0 bg-paper-50 px-4 py-3 font-mono text-xs uppercase tracking-wide text-ink-950"
         >
           {sections.map((section) => (
             <option key={section.id} value={section.id}>

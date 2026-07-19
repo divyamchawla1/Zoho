@@ -97,7 +97,7 @@ export function SiteHeader({ name, primaryTitle, nav, contactCta }: Props) {
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="border border-paper-50 px-3 py-2 font-mono text-xs uppercase tracking-wide"
+                className="flex min-h-11 min-w-11 items-center justify-center border border-paper-50 px-4 py-2 font-mono text-xs uppercase tracking-wide"
               >
                 Close
               </button>
@@ -178,7 +178,7 @@ export function SiteHeader({ name, primaryTitle, nav, contactCta }: Props) {
             aria-haspopup="dialog"
             aria-expanded={open}
             aria-controls={dialogId}
-            className="flex shrink-0 items-center gap-2 border border-ink-950 px-3 py-2 font-mono text-xs uppercase tracking-wide text-ink-950 xl:hidden"
+            className="flex min-h-11 shrink-0 items-center gap-2 border border-ink-950 px-4 py-2 font-mono text-xs uppercase tracking-wide text-ink-950 xl:hidden"
           >
             Menu
           </button>

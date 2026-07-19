@@ -1,40 +1,7 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
-
-const subscribeNoop = () => () => {};
-
-/**
- * True once past hydration, false during SSR and the client's first render.
- * useSyncExternalStore (rather than a useEffect + setState "mounted" flag)
- * is the React-idiomatic way to make this transition — it is the mechanism
- * React itself uses to keep the server snapshot and client snapshot from
- * disagreeing during hydration.
- */
-function useMounted() {
-  return useSyncExternalStore(
-    subscribeNoop,
-    () => true,
-    () => false,
-  );
-}
-
-const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
-
-function subscribeToReducedMotion(callback: () => void) {
-  const mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY);
-  mediaQuery.addEventListener("change", callback);
-  return () => mediaQuery.removeEventListener("change", callback);
-}
-
-/** Plain matchMedia — no framer-motion needed for two CSS fades. */
-function usePrefersReducedMotion() {
-  return useSyncExternalStore(
-    subscribeToReducedMotion,
-    () => window.matchMedia(REDUCED_MOTION_QUERY).matches,
-    () => false,
-  );
-}
+import { useState, type CSSProperties } from "react";
+import { useMounted, usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 
 type ScatteredItem = {
   id: string;
@@ -51,14 +18,14 @@ type FlowStep = {
 };
 
 const STATE_A_ITEMS: ScatteredItem[] = [
-  { id: "message", label: "Customer message", sublabel: "WhatsApp", x: 4, y: 6, rotate: -6 },
-  { id: "email", label: "Email", sublabel: "Inbox", x: 63, y: 2, rotate: 4 },
-  { id: "spreadsheet-sales", label: "Spreadsheet", sublabel: "Sales copy", x: 27, y: 30, rotate: -4 },
-  { id: "spreadsheet-finance", label: "Spreadsheet", sublabel: "Finance copy", x: 33, y: 36, rotate: 6 },
-  { id: "approval", label: "Manager approval", sublabel: "Ad hoc", x: 70, y: 28, rotate: -7 },
-  { id: "finance", label: "Finance handoff", sublabel: "Manual", x: 2, y: 60, rotate: 3 },
-  { id: "followup", label: "Missing follow-up", sublabel: "No owner", x: 43, y: 66, rotate: -5 },
-  { id: "reporting", label: "Disconnected reporting", sublabel: "Built by hand", x: 74, y: 60, rotate: 5 },
+  { id: "message", label: "Customer message", sublabel: "WhatsApp", x: 2, y: 8, rotate: -6 },
+  { id: "email", label: "Email", sublabel: "Inbox", x: 66, y: 4, rotate: 4 },
+  { id: "spreadsheet-sales", label: "Spreadsheet", sublabel: "Sales copy", x: 26, y: 32, rotate: -4 },
+  { id: "spreadsheet-finance", label: "Spreadsheet", sublabel: "Finance copy", x: 34, y: 40, rotate: 6 },
+  { id: "approval", label: "Manager approval", sublabel: "Ad hoc", x: 74, y: 30, rotate: -7 },
+  { id: "finance", label: "Finance handoff", sublabel: "Manual", x: 1, y: 64, rotate: 3 },
+  { id: "followup", label: "Missing follow-up", sublabel: "No owner", x: 45, y: 68, rotate: -5 },
+  { id: "reporting", label: "Disconnected reporting", sublabel: "Built by hand", x: 78, y: 62, rotate: 5 },
 ];
 
 const STATE_B_STEPS: FlowStep[] = [
@@ -70,15 +37,34 @@ const STATE_B_STEPS: FlowStep[] = [
   { id: "reporting", label: "Reporting" },
 ];
 
-function ScatteredCard({ item }: { item: ScatteredItem }) {
+// Deterministic timeline, in ms. Every stagger is index-driven — nothing
+// random, so the sequence replays identically every time (docs/03 §1).
+const SCATTER_DURATION = 420;
+const SCATTER_STAGGER = 70;
+const SETTLE_START = 1150;
+const SETTLE_DURATION = 380;
+const SETTLE_STAGGER = 60;
+const FLOW_START = 1500;
+const FLOW_DURATION = 450;
+const FLOW_STAGGER = 110;
+const LABEL_SWITCH = SETTLE_START;
+
+function ScatteredCard({ item, index }: { item: ScatteredItem; index: number }) {
   return (
     <div
-      className="absolute w-[132px] border border-dashed border-ink-800/40 bg-paper-50 px-3 py-2 shadow-[2px_2px_0_0_rgba(8,17,31,0.08)]"
-      style={{
-        left: `${item.x}%`,
-        top: `${item.y}%`,
-        transform: `rotate(${item.rotate}deg)`,
-      }}
+      className="absolute w-[132px] border border-dashed border-ink-800/40 bg-paper-50 px-3 py-2 opacity-0 shadow-[2px_2px_0_0_rgba(8,17,31,0.08)]"
+      style={
+        {
+          left: `min(${item.x}%, calc(100% - 132px))`,
+          top: `${item.y}%`,
+          "--rot": `${item.rotate}deg`,
+          animationName: "hero-scatter-in, hero-settle-out",
+          animationDuration: `${SCATTER_DURATION}ms, ${SETTLE_DURATION}ms`,
+          animationDelay: `${index * SCATTER_STAGGER}ms, ${SETTLE_START + index * SETTLE_STAGGER}ms`,
+          animationTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1), ease-in",
+          animationFillMode: "forwards",
+        } as CSSProperties
+      }
     >
       <p className="font-mono text-[10px] uppercase tracking-wide text-danger-text">{item.sublabel}</p>
       <p className="mt-1 font-body text-xs font-medium text-ink-950">{item.label}</p>
@@ -86,23 +72,39 @@ function ScatteredCard({ item }: { item: ScatteredItem }) {
   );
 }
 
-function FlowStepBox({ step }: { step: FlowStep }) {
+function FlowStepBox({ step, index }: { step: FlowStep; index: number }) {
   return (
-    <div className="flex min-w-[104px] flex-1 flex-col items-center border border-ink-800 bg-paper-50 px-3 py-4 text-center">
+    <div
+      className="flex min-w-[104px] flex-1 flex-col items-center border border-ink-800 bg-paper-50 px-3 py-4 text-center opacity-0 shadow-[2px_2px_0_0_rgba(8,17,31,0.08)]"
+      style={{
+        animationName: "reveal-rise",
+        animationDuration: `${FLOW_DURATION}ms`,
+        animationDelay: `${FLOW_START + index * FLOW_STAGGER}ms`,
+        animationTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+        animationFillMode: "forwards",
+      }}
+    >
       <span className="font-mono text-[10px] uppercase tracking-wide text-ink-800/70">Step</span>
       <span className="mt-1 font-display text-sm font-semibold text-ink-950">{step.label}</span>
     </div>
   );
 }
 
-function FlowArrow({ vertical = false }: { vertical?: boolean }) {
+function FlowArrow({ vertical = false, delay = 0 }: { vertical?: boolean; delay?: number }) {
   return (
     <svg
       width={vertical ? 16 : 28}
       height={vertical ? 28 : 16}
       viewBox={vertical ? "0 0 16 28" : "0 0 28 16"}
       fill="none"
-      className="shrink-0 text-accent-500"
+      className="shrink-0 text-accent-500 opacity-0"
+      style={{
+        animationName: "hero-connector-in",
+        animationDuration: "250ms",
+        animationDelay: `${delay}ms`,
+        animationTimingFunction: "ease-out",
+        animationFillMode: "forwards",
+      }}
       aria-hidden="true"
     >
       {vertical ? (
@@ -111,6 +113,35 @@ function FlowArrow({ vertical = false }: { vertical?: boolean }) {
         <path d="M0 8H22M22 8L16 2M22 8L16 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       )}
     </svg>
+  );
+}
+
+function StateLabel() {
+  return (
+    <div className="pointer-events-none absolute left-4 top-4 z-10 sm:left-5 sm:top-5">
+      <p
+        className="font-mono text-[10px] uppercase tracking-wide text-danger-text opacity-100"
+        style={{
+          animationName: "hero-fade-out",
+          animationDuration: "400ms",
+          animationDelay: `${LABEL_SWITCH}ms`,
+          animationFillMode: "forwards",
+        }}
+      >
+        Before — fragmented
+      </p>
+      <p
+        className="absolute left-0 top-0 font-mono text-[10px] uppercase tracking-wide text-accent-text opacity-0"
+        style={{
+          animationName: "hero-fade-in-up",
+          animationDuration: "400ms",
+          animationDelay: `${LABEL_SWITCH + 200}ms`,
+          animationFillMode: "forwards",
+        }}
+      >
+        After — structured
+      </p>
+    </div>
   );
 }
 
@@ -147,7 +178,7 @@ function TextAlternative() {
 function StaticComparison() {
   return (
     <div className="grid gap-6 sm:grid-cols-2">
-      <div className="border border-ink-800/30 bg-paper-50 p-4">
+      <div className="border border-ink-800/30 bg-paper-50 p-5 sm:p-6">
         <p className="font-mono text-xs uppercase tracking-wide text-danger-text">Before — fragmented</p>
         <ul className="mt-3 space-y-2">
           {STATE_A_ITEMS.map((item) => (
@@ -158,7 +189,7 @@ function StaticComparison() {
           ))}
         </ul>
       </div>
-      <div className="border border-ink-800 bg-paper-50 p-4">
+      <div className="border border-ink-800 bg-paper-50 p-5 sm:p-6">
         <p className="font-mono text-xs uppercase tracking-wide text-accent-text">After — structured</p>
         <ol className="mt-3 space-y-2">
           {STATE_B_STEPS.map((step, index) => (
@@ -172,6 +203,12 @@ function StaticComparison() {
     </div>
   );
 }
+
+const GRID_BACKDROP: CSSProperties = {
+  backgroundImage:
+    "linear-gradient(rgba(23,35,56,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(23,35,56,0.06) 1px, transparent 1px)",
+  backgroundSize: "28px 28px",
+};
 
 export function HeroTransformation() {
   const reducedMotion = usePrefersReducedMotion();
@@ -198,29 +235,28 @@ export function HeroTransformation() {
         <div key={playCount}>
           <div
             aria-hidden="true"
-            className="relative h-[420px] w-full overflow-hidden border border-paper-200 bg-paper-100/60 sm:h-[360px]"
+            className="relative h-[440px] w-full overflow-hidden border border-paper-200 bg-paper-100/50 sm:h-[400px] lg:h-[440px]"
+            style={GRID_BACKDROP}
           >
-            <div
-              className="absolute inset-0 opacity-100 [animation:hero-fade-out_0.6s_ease-in-out_1.1s_forwards]"
-            >
-              {STATE_A_ITEMS.map((item) => (
-                <ScatteredCard key={item.id} item={item} />
+            <StateLabel />
+
+            <div className="absolute inset-0">
+              {STATE_A_ITEMS.map((item, index) => (
+                <ScatteredCard key={item.id} item={item} index={index} />
               ))}
             </div>
 
-            <div
-              className="absolute inset-0 flex translate-y-4 flex-col items-center justify-center gap-2 px-4 opacity-0 [animation:hero-fade-in-up_0.6s_ease-out_1.3s_forwards] sm:flex-row sm:gap-0"
-            >
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 sm:flex-row sm:gap-0 sm:px-8">
               {STATE_B_STEPS.map((step, index) => (
                 <div key={step.id} className="flex flex-col items-center gap-2 sm:flex-row">
-                  <FlowStepBox step={step} />
+                  <FlowStepBox step={step} index={index} />
                   {index < STATE_B_STEPS.length - 1 ? (
                     <>
                       <span className="sm:hidden">
-                        <FlowArrow vertical />
+                        <FlowArrow vertical delay={FLOW_START + index * FLOW_STAGGER + 120} />
                       </span>
                       <span className="hidden sm:inline-flex sm:px-1">
-                        <FlowArrow />
+                        <FlowArrow delay={FLOW_START + index * FLOW_STAGGER + 120} />
                       </span>
                     </>
                   ) : null}
@@ -232,8 +268,17 @@ export function HeroTransformation() {
           <button
             type="button"
             onClick={() => setPlayCount((count) => count + 1)}
-            className="mt-4 inline-flex items-center gap-2 border border-ink-950 px-4 py-2 font-mono text-xs uppercase tracking-wide text-ink-950 transition-colors hover:bg-ink-950 hover:text-paper-50"
+            className="mt-4 inline-flex min-h-[44px] items-center gap-2 border border-ink-950 bg-paper-50 px-4 py-2.5 font-mono text-xs uppercase tracking-wide text-ink-950 shadow-[2px_2px_0_0_rgba(8,17,31,0.12)] transition-all hover:-translate-y-px hover:bg-ink-950 hover:text-paper-50 hover:shadow-[2px_2px_0_0_rgba(79,124,255,0.4)]"
           >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path
+                d="M6 1a5 5 0 1 0 4.546 2.924M10.5 1v3h-3"
+                stroke="currentColor"
+                strokeWidth="1.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
             Replay transformation
           </button>
         </div>

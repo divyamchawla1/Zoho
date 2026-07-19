@@ -14,6 +14,7 @@ import {
 } from "@/lib/content";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildProfessionalService } from "@/lib/seo";
+import { Reveal } from "@/components/ui/Reveal";
 import { Hero } from "@/components/home/Hero";
 import { ProblemSection } from "@/components/home/ProblemSection";
 import { SelectedTransformations } from "@/components/home/SelectedTransformations";
@@ -67,50 +68,72 @@ export default async function HomePage() {
         })}
       />
 
-      {/* 1. Hero */}
+      {/* 1. Hero — auto-plays on load, not a scroll reveal target */}
       <Hero global={global} />
 
       {/* 2. The problem */}
-      <ProblemSection problem={homepage.problem} />
+      <Reveal>
+        <ProblemSection problem={homepage.problem} />
+      </Reveal>
 
       {/* 3. Selected transformations */}
-      <SelectedTransformations
-        caseStudies={featuredCaseStudies}
-        industries={industries}
-        processes={processes}
-        copy={homepage.transformations}
-      />
+      <Reveal>
+        <SelectedTransformations
+          caseStudies={featuredCaseStudies}
+          industries={industries}
+          processes={processes}
+          copy={homepage.transformations}
+        />
+      </Reveal>
 
       {/* 4. Industry experience */}
-      <IndustrySection industries={industries} processes={processes} copy={homepage.industries} />
+      <Reveal>
+        <IndustrySection industries={industries} processes={processes} copy={homepage.industries} />
+      </Reveal>
 
       {/* 5. Process library preview */}
-      <ProcessLibrarySection categories={categories} processes={processes} copy={homepage.processLibrary} />
+      <Reveal>
+        <ProcessLibrarySection categories={categories} processes={processes} copy={homepage.processLibrary} />
+      </Reveal>
 
       {/* 6. Methodology */}
-      <MethodologySection name={methodology.name} intro={methodology.intro} stages={methodology.stages} />
+      <Reveal>
+        <MethodologySection name={methodology.name} intro={methodology.intro} stages={methodology.stages} />
+      </Reveal>
 
       {/* 7. The Eleven Questions */}
-      <ElevenQuestions
-        name={methodology.decisionFramework.name}
-        intro={methodology.decisionFramework.intro}
-        tests={methodology.decisionFramework.tests}
-      />
+      <Reveal>
+        <ElevenQuestions
+          name={methodology.decisionFramework.name}
+          intro={methodology.decisionFramework.intro}
+          tests={methodology.decisionFramework.tests}
+        />
+      </Reveal>
 
       {/* 8. What clients bring / what I produce */}
-      <ClientsBringSection copy={homepage.clientsBring} />
+      <Reveal>
+        <ClientsBringSection copy={homepage.clientsBring} />
+      </Reveal>
 
       {/* 9. Deliverables */}
-      <DeliverablesSection deliverables={deliverables} copy={homepage.deliverables} />
+      <Reveal>
+        <DeliverablesSection deliverables={deliverables} copy={homepage.deliverables} />
+      </Reveal>
 
       {/* 10. Technology enablement — must sit below every business-process section */}
-      <TechnologySection technology={technology} />
+      <Reveal>
+        <TechnologySection technology={technology} />
+      </Reveal>
 
       {/* 11. About preview */}
-      <AboutPreview about={about} copy={homepage.aboutPreview} />
+      <Reveal>
+        <AboutPreview about={about} copy={homepage.aboutPreview} />
+      </Reveal>
 
       {/* 12. Final CTA */}
-      <FinalCta headline={contact.headline} supportingText={contact.supportingText} cta={global.contactCta} />
+      <Reveal>
+        <FinalCta headline={contact.headline} supportingText={contact.supportingText} cta={global.contactCta} />
+      </Reveal>
     </>
   );
 }

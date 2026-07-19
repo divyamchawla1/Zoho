@@ -113,7 +113,7 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
                 <li key={process.slug}>
                   <Link
                     href={`/processes/${process.slug}`}
-                    className="inline-block border border-paper-200 px-3 py-1.5 text-sm text-ink-950 hover:border-accent-500 hover:text-accent-text"
+                    className="inline-flex min-h-11 items-center border border-paper-200 px-3 py-1.5 text-sm text-ink-950 hover:border-accent-500 hover:text-accent-text"
                   >
                     {process.name}
                   </Link>
@@ -160,7 +160,7 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
                 <li key={deliverable.slug}>
                   <Link
                     href="/deliverables"
-                    className="inline-block border border-paper-200 px-3 py-1.5 text-sm text-ink-950 hover:border-accent-500 hover:text-accent-text"
+                    className="inline-flex min-h-11 items-center border border-paper-200 px-3 py-1.5 text-sm text-ink-950 hover:border-accent-500 hover:text-accent-text"
                   >
                     {deliverable.shortName}
                   </Link>
@@ -175,7 +175,7 @@ export default async function IndustryDetailPage({ params }: { params: Promise<{
                 <li key={service.slug}>
                   <Link
                     href="/services"
-                    className="inline-block border border-paper-200 px-3 py-1.5 text-sm text-ink-950 hover:border-accent-500 hover:text-accent-text"
+                    className="inline-flex min-h-11 items-center border border-paper-200 px-3 py-1.5 text-sm text-ink-950 hover:border-accent-500 hover:text-accent-text"
                   >
                     {service.title}
                   </Link>

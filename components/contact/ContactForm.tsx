@@ -40,7 +40,7 @@ function Field({
     "aria-invalid": error ? true : undefined,
     "aria-describedby": error ? errorId : undefined,
     className:
-      "mt-2 w-full border border-paper-200 bg-paper-50 px-3 py-2.5 text-sm text-ink-950 focus:border-ink-950",
+      "mt-2 min-h-11 w-full border border-paper-200 bg-paper-50 px-3 py-2.5 text-sm text-ink-950 focus:border-ink-950",
   };
 
   return (
@@ -148,7 +148,7 @@ export function ContactForm({
         <button
           type="submit"
           disabled={submitting}
-          className="border border-ink-950 bg-ink-950 px-6 py-3 font-mono text-sm uppercase tracking-wide text-paper-50 transition-colors hover:bg-ink-800 disabled:opacity-60"
+          className="min-h-11 w-full border border-ink-950 bg-ink-950 px-6 py-3 font-mono text-sm uppercase tracking-wide text-paper-50 transition-colors hover:bg-ink-800 disabled:opacity-60 sm:w-auto"
         >
           {submitting ? "Sending…" : "Send"}
         </button>
@@ -173,7 +173,7 @@ export function ContactForm({
               </p>
               <a
                 href={mailtoHref}
-                className="mt-4 inline-block border border-ink-950 px-5 py-2.5 font-mono text-xs uppercase tracking-wide text-ink-950 hover:bg-ink-950 hover:text-paper-50"
+                className="mt-4 inline-flex min-h-11 items-center justify-center border border-ink-950 px-5 py-2.5 font-mono text-xs uppercase tracking-wide text-ink-950 hover:bg-ink-950 hover:text-paper-50"
               >
                 Open in your email client →
               </a>
@@ -194,7 +194,7 @@ export function ContactForm({
           {email ? (
             <a
               href={`mailto:${email}`}
-              className="mt-4 inline-block border border-ink-950 px-5 py-2.5 font-mono text-xs uppercase tracking-wide text-ink-950 hover:bg-ink-950 hover:text-paper-50"
+              className="mt-4 inline-flex min-h-11 items-center justify-center border border-ink-950 px-5 py-2.5 font-mono text-xs uppercase tracking-wide text-ink-950 hover:bg-ink-950 hover:text-paper-50"
             >
               Email directly instead →
             </a>

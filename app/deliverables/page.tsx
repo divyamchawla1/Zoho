@@ -57,7 +57,7 @@ export default async function DeliverablesPage() {
                             <li key={service.slug}>
                               <Link
                                 href="/services"
-                                className="inline-block border border-paper-200 px-2 py-1 text-xs text-ink-800 hover:border-accent-500 hover:text-accent-text"
+                                className="inline-flex min-h-11 items-center border border-paper-200 px-2 py-1 text-xs text-ink-800 hover:border-accent-500 hover:text-accent-text sm:min-h-0"
                               >
                                 {service.title}
                               </Link>

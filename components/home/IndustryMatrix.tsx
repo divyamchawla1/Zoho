@@ -26,15 +26,17 @@ export function IndustryMatrix({ industries }: { industries: IndustryMatrixEntry
       {industries.map((industry) => {
         const isActive = industry.slug === activeSlug;
         return (
-          <li key={industry.slug} className="bg-paper-50">
+          <li key={industry.slug} className="relative bg-paper-50">
             <button
               type="button"
               onFocus={() => setActiveSlug(industry.slug)}
               onMouseEnter={() => setActiveSlug(industry.slug)}
               onClick={() => setActiveSlug(industry.slug)}
               aria-expanded={isActive}
-              className={`flex w-full flex-col items-start gap-1.5 p-4 text-left transition-colors ${
-                isActive ? "bg-ink-950 text-paper-50" : "text-ink-950 hover:bg-paper-100"
+              className={`relative flex w-full flex-col items-start gap-1.5 p-4 text-left transition-all ${
+                isActive
+                  ? "z-10 bg-ink-950 text-paper-50 shadow-[3px_3px_0_0_rgba(79,124,255,0.35)]"
+                  : "text-ink-950 hover:-translate-y-px hover:bg-paper-100 hover:shadow-[2px_2px_0_0_rgba(8,17,31,0.1)]"
               }`}
             >
               <span className="font-display text-sm font-semibold">{industry.name}</span>
@@ -48,7 +50,9 @@ export function IndustryMatrix({ industries }: { industries: IndustryMatrixEntry
             </button>
 
             {isActive ? (
-              <div className="border-t border-paper-200 bg-ink-950 p-4 text-paper-50">
+              <div
+                className="relative z-10 border-t border-paper-200 bg-ink-950 p-4 text-paper-50 [animation-duration:250ms] [animation-fill-mode:backwards] [animation-name:reveal-rise] [animation-timing-function:ease-out]"
+              >
                 <p className="font-mono text-[10px] uppercase tracking-wide text-paper-50/60">
                   Processes worked on
                 </p>
